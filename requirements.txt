@@ -1,0 +1,6 @@
+web3
+eth-account
+eth-typing
+python-dotenv
+eth_abi
+click

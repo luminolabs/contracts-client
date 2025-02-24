@@ -1,0 +1,19 @@
+{
+  "output": {
+    "filePath": "testnet-client.txt",
+    "style": "plain",
+    "headerText": "Lumino Testnet Client",
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "showLineNumbers": false,
+    "topFilesLength": 0
+  },
+  "include": [
+    "**/*"
+  ],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": ["lib/**/*"]
+  }
+}

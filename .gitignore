@@ -1,0 +1,15 @@
+# temp files
+cache/
+
+# env files
+.env
+
+# python stuff
+__pycache__
+
+# IDEs
+.vscode
+.idea/
+
+# other
+testnet-client.txt
