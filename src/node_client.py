@@ -209,12 +209,19 @@ class LuminoNode:
                         self.logger.info(f"Confirmed job {job_id}")
 
                         # Execute job and monitor results
-                        success = self._execute_job(
-                            job_id=job_id,
-                            base_model_name=job_base_model_name,
-                            args=job_args,
-                            submitter=job["submitter"]
-                        )
+                        if self.pipeline_zen_path:
+                            success = self._execute_job(
+                                job_id=job_id,
+                                base_model_name=job_base_model_name,
+                                args=job_args,
+                                submitter=job["submitter"]
+                            )
+                        else:
+                            # Simulate job execution, success, and token count
+                            time.sleep(5)
+                            success = True
+                            # This is the ML dataset token count after it's tokenized
+                            self.sdk.set_token_count_for_job(job_id, 600000)
 
                         if success:
                             self.sdk.complete_job(job_id)
