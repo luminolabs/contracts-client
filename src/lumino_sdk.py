@@ -24,13 +24,6 @@ class LuminoConfig:
     contract_addresses: Dict[str, ChecksumAddress]
     contracts_dir: str
 
-    @classmethod
-    def from_file(cls, config_path: str) -> 'LuminoConfig':
-        """Create config from JSON file"""
-        with open(config_path) as f:
-            config_data = json.load(f)
-        return cls(**config_data)
-
 
 class LuminoError(Exception):
     """Base exception for Lumino SDK"""

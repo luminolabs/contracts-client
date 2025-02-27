@@ -8,7 +8,6 @@ from typing import Optional, Dict, List, Tuple
 
 import click
 from dotenv import load_dotenv
-from setuptools.command.easy_install import only_strs
 from web3 import Web3
 
 from lumino_sdk import LuminoSDK, LuminoConfig
@@ -21,25 +20,6 @@ class UserConfig:
     data_dir: str = "./user_data"
     log_level: int = logging.INFO
     polling_interval: int = 5  # Seconds between status checks
-
-    @classmethod
-    def from_file(cls, config_path: str) -> 'UserConfig':
-        """Create config from JSON file"""
-        with open(config_path) as f:
-            config_data = json.load(f)
-        sdk_config_data = {
-            'web3_provider': config_data['web3_provider'],
-            'private_key': config_data['private_key'],
-            'contract_addresses': config_data['contract_addresses'],
-            'contracts_dir': config_data['contracts_dir']
-        }
-        sdk_config = LuminoConfig(**sdk_config_data)
-        return cls(
-            sdk_config=sdk_config,
-            data_dir=config_data.get('data_dir', "./user_data"),
-            log_level=config_data.get('log_level', logging.INFO),
-            polling_interval=config_data.get('polling_interval', 5)
-        )
 
 
 class LuminoUserClient:
@@ -174,39 +154,35 @@ class LuminoUserClient:
         return jobs
 
 
-def initialize_lumino_user_client(config_path: str = None) -> LuminoUserClient:
-    if config_path:
-        config = UserConfig.from_file(config_path)
-    else:
-        load_dotenv()
-        sdk_config = LuminoConfig(
-            web3_provider=os.getenv('RPC_URL', 'http://localhost:8545'),
-            private_key=os.getenv('USER_PRIVATE_KEY', os.getenv('NODE_PRIVATE_KEY')),
-            contract_addresses={
-                'LuminoToken': os.getenv('LUMINO_TOKEN_ADDRESS'),
-                'AccessManager': os.getenv('ACCESS_MANAGER_ADDRESS'),
-                'WhitelistManager': os.getenv('WHITELIST_MANAGER_ADDRESS'),
-                'NodeManager': os.getenv('NODE_MANAGER_ADDRESS'),
-                'IncentiveManager': os.getenv('INCENTIVE_MANAGER_ADDRESS'),
-                'NodeEscrow': os.getenv('NODE_ESCROW_ADDRESS'),
-                'LeaderManager': os.getenv('LEADER_MANAGER_ADDRESS'),
-                'JobManager': os.getenv('JOB_MANAGER_ADDRESS'),
-                'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
-                'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
-            },
-            contracts_dir=os.getenv('CONTRACTS_DIR', '../contracts/src')
-        )
-        config = UserConfig(sdk_config=sdk_config,
-                            data_dir=os.getenv('USER_DATA_DIR', 'cache/user_client'))
+def initialize_lumino_user_client() -> LuminoUserClient:
+    load_dotenv()
+    sdk_config = LuminoConfig(
+        web3_provider=os.getenv('RPC_URL', 'http://localhost:8545'),
+        private_key=os.getenv('USER_PRIVATE_KEY', os.getenv('NODE_PRIVATE_KEY')),
+        contract_addresses={
+            'LuminoToken': os.getenv('LUMINO_TOKEN_ADDRESS'),
+            'AccessManager': os.getenv('ACCESS_MANAGER_ADDRESS'),
+            'WhitelistManager': os.getenv('WHITELIST_MANAGER_ADDRESS'),
+            'NodeManager': os.getenv('NODE_MANAGER_ADDRESS'),
+            'IncentiveManager': os.getenv('INCENTIVE_MANAGER_ADDRESS'),
+            'NodeEscrow': os.getenv('NODE_ESCROW_ADDRESS'),
+            'LeaderManager': os.getenv('LEADER_MANAGER_ADDRESS'),
+            'JobManager': os.getenv('JOB_MANAGER_ADDRESS'),
+            'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
+            'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
+        },
+        contracts_dir=os.getenv('CONTRACTS_DIR', '../contracts/src')
+    )
+    config = UserConfig(sdk_config=sdk_config,
+                        data_dir=os.getenv('USER_DATA_DIR', 'cache/user_client'))
     return LuminoUserClient(config)
 
 
 @click.group()
-@click.option('--config', type=click.Path(exists=True), help='Path to configuration file')
 @click.pass_context
-def cli(ctx, config):
+def cli(ctx):
     """Lumino User Client CLI"""
-    ctx.obj = initialize_lumino_user_client(config)
+    ctx.obj = initialize_lumino_user_client()
 
 
 @cli.command()

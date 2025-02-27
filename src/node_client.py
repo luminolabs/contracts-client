@@ -19,9 +19,9 @@ class NodeConfig:
     """Configuration for Lumino Node"""
     sdk_config: LuminoConfig
     data_dir: str
-    pipeline_zen_path: str
-    log_level: int = logging.INFO
+    pipeline_zen_dir: Optional[str] = None
     test_mode: Optional[str] = None
+    log_level: int = logging.INFO
 
 
 class LuminoNode:
@@ -58,9 +58,11 @@ class LuminoNode:
         self.is_leader = False
 
         # Job paths
-        self.pipeline_zen_path = Path(config.pipeline_zen_path)
-        self.script_path = self.pipeline_zen_path / Path("scripts/runners/celery-wf-docker.sh")
-        self.results_base_dir = self.pipeline_zen_path / Path(".results/")
+        self.pipeline_zen_dir = None
+        if config.pipeline_zen_dir:
+            self.pipeline_zen_dir = Path(config.pipeline_zen_dir)
+            self.script_dir = self.pipeline_zen_dir / Path("scripts/runners/celery-wf-docker.sh")
+            self.results_base_dir = self.pipeline_zen_dir / Path(".results/")
 
         self.logger.info("Lumino Node initialization complete")
 
@@ -209,7 +211,7 @@ class LuminoNode:
                         self.logger.info(f"Confirmed job {job_id}")
 
                         # Execute job and monitor results
-                        if self.pipeline_zen_path:
+                        if self.pipeline_zen_dir:
                             success = self._execute_job(
                                 job_id=job_id,
                                 base_model_name=job_base_model_name,
@@ -261,11 +263,11 @@ class LuminoNode:
 
             # CD to pipeline directory
             current_dir = os.getcwd()
-            os.chdir(self.pipeline_zen_path)
+            os.chdir(self.pipeline_zen_dir)
 
             # Construct command
             command = [
-                str(self.script_path),
+                str(self.script_dir),
                 "torchtunewrapper",
                 "--job_config_name", base_model_name,
                 "--job_id", f"{job_id}",
@@ -493,7 +495,7 @@ def initialize_lumino_node() -> LuminoNode:
     config = NodeConfig(
         sdk_config=sdk_config,
         data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
-        pipeline_zen_path=os.getenv('PIPELINE_ZEN_PATH', '.'),
+        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR', '.'),
         test_mode=os.getenv('TEST_MODE')
     )
 
