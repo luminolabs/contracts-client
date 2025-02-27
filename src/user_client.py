@@ -49,7 +49,8 @@ class LuminoUserClient:
         0: "NEW",
         1: "ASSIGNED",
         2: "CONFIRMED",
-        3: "COMPLETE"
+        3: "COMPLETE",
+        4: "FAILED"
     }
     MIN_ESCROW_BALANCE = 10  # Minimum escrow balance in LUM
 

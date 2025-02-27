@@ -278,10 +278,10 @@ class LuminoSDK:
             self.job_manager.functions.completeJob(job_id)
         )
 
-    def reject_job(self, job_id: int, reason: str) -> dict:
-        """Reject an assigned job"""
+    def fail_job(self, job_id: int, reason: str) -> dict:
+        """Fail an assigned job"""
         return self._send_transaction(
-            self.job_manager.functions.rejectJob(job_id, reason)
+            self.job_manager.functions.failJob(job_id, reason)
         )
 
     def process_job_payment(self, job_id: int) -> dict:

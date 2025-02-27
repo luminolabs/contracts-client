@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import random
+import subprocess
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -17,28 +18,10 @@ from lumino_sdk import LuminoSDK, LuminoConfig, ContractError
 class NodeConfig:
     """Configuration for Lumino Node"""
     sdk_config: LuminoConfig
-    data_dir: str = "../node_data"
+    data_dir: str
+    pipeline_zen_path: str
     log_level: int = logging.INFO
     test_mode: Optional[str] = None
-
-    @classmethod
-    def from_file(cls, config_path: str) -> 'NodeConfig':
-        """Create config from JSON file"""
-        with open(config_path) as f:
-            config_data = json.load(f)
-        sdk_config_data = {
-            'web3_provider': config_data['web3_provider'],
-            'private_key': config_data['private_key'],
-            'contract_addresses': config_data['contract_addresses'],
-            'contracts_dir': config_data['contracts_dir']
-        }
-        sdk_config = LuminoConfig(**sdk_config_data)
-        return cls(
-            sdk_config=sdk_config,
-            data_dir=config_data.get('data_dir', "../node_data"),
-            log_level=config_data.get('log_level', logging.INFO),
-            test_mode=config_data.get('test_mode')
-        )
 
 
 class LuminoNode:
@@ -73,6 +56,11 @@ class LuminoNode:
         self.current_secret: Optional[bytes] = None
         self.current_commitment: Optional[bytes] = None
         self.is_leader = False
+
+        # Job paths
+        self.pipeline_zen_path = Path(config.pipeline_zen_path)
+        self.script_path = self.pipeline_zen_path / Path("scripts/runners/celery-wf-docker.sh")
+        self.results_base_dir = self.pipeline_zen_path / Path(".results/")
 
         self.logger.info("Lumino Node initialization complete")
 
@@ -213,39 +201,127 @@ class LuminoNode:
             for job in jobs:
                 job_id = job["id"]
                 job_args = job["args"]
+                job_base_model_name = job["base_model_name"]
                 status = job["status"]
                 try:
                     if status == 1:  # ASSIGNED
                         self.sdk.confirm_job(job_id)
                         self.logger.info(f"Confirmed job {job_id}")
-                        self._execute_job(job_id, job_args)
-                        self.sdk.complete_job(job_id)
-                        self.logger.info(f"Completed job {job_id}")
-                        self.sdk.process_job_payment(job_id)
-                    elif status == 2:  # CONFIRMED
-                        self._execute_job(job_id, job_args)
-                        self.sdk.complete_job(job_id)
-                        self.logger.info(f"Completed job {job_id}")
-                        self.sdk.process_job_payment(job_id)
+
+                        # Execute job and monitor results
+                        success = self._execute_job(
+                            job_id=job_id,
+                            base_model_name=job_base_model_name,
+                            args=job_args,
+                            submitter=job["submitter"]
+                        )
+
+                        if success:
+                            self.sdk.complete_job(job_id)
+                            self.logger.info(f"Completed job {job_id}")
+                            self.sdk.process_job_payment(job_id)
+                        else:
+                            self.sdk.fail_job(job_id, "Job execution failed")
+                            self.logger.error(f"Job {job_id} failed execution")
                 except Exception as e:
                     self.logger.error(f"Error processing job {job_id}: {e}")
+                    self.sdk.fail_job(job_id, f"Processing error: {str(e)}")
                     continue
         except ContractError as e:
             self.logger.error(f"Error getting assigned jobs: {e}")
             raise
 
-    def _execute_job(self, job_id: int, job_args: str) -> None:
-        """Execute a job (simulated for testing)"""
+    def _execute_job(self, job_id: int, base_model_name: str, args: str, submitter: str) -> bool:
+        """Execute a job using celery-wf-docker.sh and monitor results"""
         self.logger.info(f"Executing job {job_id}")
+
         try:
-            # Simulated work
-            time.sleep(2)
-            self.sdk.set_token_count_for_job(job_id, 1000000)
-            time.sleep(5)
-            self.logger.info(f"Job [{job_id} : {job_args}] execution completed")
+            # Parse job arguments
+            try:
+                args_dict = json.loads(args)
+            except json.JSONDecodeError:
+                self.logger.error(f"Invalid JSON in job args: {args}")
+                return False
+
+            # Determine number of GPUs based on model name
+            num_gpus = 1  # Default to single GPU
+            if base_model_name == "llm_llama3_1_8b" and not args_dict["use_lora"]:
+                num_gpus = 4
+            elif base_model_name == "llm_llama3_1_70b":
+                num_gpus = 4
+                if not args_dict["use_lora"]:
+                    num_gpus = 8
+
+            # CD to pipeline directory
+            current_dir = os.getcwd()
+            os.chdir(self.pipeline_zen_path)
+
+            # Construct command
+            command = [
+                str(self.script_path),
+                "torchtunewrapper",
+                "--job_config_name", base_model_name,
+                "--job_id", f"{job_id}",
+                "--user_id", submitter,
+                "--dataset_id", args_dict.get("dataset_id", ""),
+                "--batch_size", str(args_dict.get("batch_size", 2)),
+                "--shuffle", str(args_dict.get("shuffle", "true")).lower(),
+                "--num_epochs", str(args_dict.get("num_epochs", 1)),
+                "--use_lora", str(args_dict.get("use_lora", "true")).lower(),
+                "--use_qlora", str(args_dict.get("use_qlora", "false")).lower(),
+                "--lr", str(args_dict.get("lr", "3e-4")),
+                "--seed", str(args_dict.get("seed", "")),
+                "--num_gpus", str(num_gpus)
+            ]
+
+            # Create results directory
+            result_dir = self.results_base_dir / submitter / str(job_id)
+            result_dir.mkdir(parents=True, exist_ok=True)
+
+            # Start the process
+            self.logger.info(f"Starting job execution: {' '.join(command)}")
+            process = subprocess.Popen(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                env={**os.environ, "PZ_ENV": 'cpnode'}
+            )
+
+            # Monitor token count file
+            token_count_file = result_dir / ".token-count"
+            finish_file = result_dir / ".finished"
+
+            while process.poll() is None:
+                # Check for token count
+                if token_count_file.exists():
+                    try:
+                        with open(token_count_file, 'r') as f:
+                            token_count = int(f.read().strip())
+                        self.sdk.set_token_count_for_job(job_id, token_count)
+                        self.logger.info(f"Reported token count {token_count} for job {job_id}")
+                    except (ValueError, IOError) as e:
+                        self.logger.warning(f"Failed to read token count: {e}")
+                    break
+
+                time.sleep(1)  # Poll every second
+
+            # Wait for process to finish
+            stdout, stderr = process.communicate()
+
+            # Return to original directory
+            os.chdir(current_dir)
+
+            if not finish_file.exists():
+                self.logger.error(f"Job {job_id} finished but no .finished file found")
+                return False
+
+            self.logger.info(f"Job {job_id} execution completed successfully")
+            return True
+
         except Exception as e:
             self.logger.error(f"Error executing job {job_id}: {e}")
-            raise
+            return False
 
     def process_incentives(self) -> None:
         """Process incentives for the current epoch"""
@@ -386,35 +462,33 @@ class LuminoNode:
                 time.sleep(5)  # Brief pause before retrying
 
 
-def initialize_lumino_node(config_path: str = None) -> LuminoNode:
+def initialize_lumino_node() -> LuminoNode:
     """Initialize a Lumino node from a config file"""
 
-    if config_path:
-        config = NodeConfig.from_file(config_path)
-    else:
-        # Load configuration from environment
-        sdk_config = LuminoConfig(
-            web3_provider=os.getenv('RPC_URL', 'http://localhost:8545'),
-            private_key=os.getenv('NODE_PRIVATE_KEY'),
-            contract_addresses={
-                'LuminoToken': os.getenv('LUMINO_TOKEN_ADDRESS'),
-                'AccessManager': os.getenv('ACCESS_MANAGER_ADDRESS'),
-                'WhitelistManager': os.getenv('WHITELIST_MANAGER_ADDRESS'),
-                'NodeManager': os.getenv('NODE_MANAGER_ADDRESS'),
-                'IncentiveManager': os.getenv('INCENTIVE_MANAGER_ADDRESS'),
-                'NodeEscrow': os.getenv('NODE_ESCROW_ADDRESS'),
-                'LeaderManager': os.getenv('LEADER_MANAGER_ADDRESS'),
-                'JobManager': os.getenv('JOB_MANAGER_ADDRESS'),
-                'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
-                'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
-            },
-            contracts_dir= os.getenv('CONTRACTS_DIR', '../contracts/src')
-        )
-        config = NodeConfig(
-            sdk_config=sdk_config,
-            data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
-            test_mode=os.getenv('TEST_MODE')
-        )
+    # Load configuration from environment
+    sdk_config = LuminoConfig(
+        web3_provider=os.getenv('RPC_URL', 'http://localhost:8545'),
+        private_key=os.getenv('NODE_PRIVATE_KEY'),
+        contract_addresses={
+            'LuminoToken': os.getenv('LUMINO_TOKEN_ADDRESS'),
+            'AccessManager': os.getenv('ACCESS_MANAGER_ADDRESS'),
+            'WhitelistManager': os.getenv('WHITELIST_MANAGER_ADDRESS'),
+            'NodeManager': os.getenv('NODE_MANAGER_ADDRESS'),
+            'IncentiveManager': os.getenv('INCENTIVE_MANAGER_ADDRESS'),
+            'NodeEscrow': os.getenv('NODE_ESCROW_ADDRESS'),
+            'LeaderManager': os.getenv('LEADER_MANAGER_ADDRESS'),
+            'JobManager': os.getenv('JOB_MANAGER_ADDRESS'),
+            'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
+            'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
+        },
+        contracts_dir=os.getenv('CONTRACTS_DIR', '../contracts/src')
+    )
+    config = NodeConfig(
+        sdk_config=sdk_config,
+        data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
+        pipeline_zen_path=os.getenv('PIPELINE_ZEN_PATH', '.'),
+        test_mode=os.getenv('TEST_MODE')
+    )
 
     # Initialize node
     return LuminoNode(config)

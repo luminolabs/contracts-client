@@ -37,7 +37,7 @@ class EventHandler:
                 'AssignmentRoundStarted',
                 'JobConfirmed',
                 'JobCompleted',
-                'JobRejected',
+                'JobFailed',
                 'PaymentProcessed'
             ],
             'NodeEscrow': [
