@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Dict, Optional, Tuple
 
 # Import our hardware detection and classification modules
-from hw_spec.HardwareInfo import HardwareInfo
+from hardware_info import HardwareInfo
 from compute_power_classifier import ComputePowerClassifier
 
 class HardwarePoolIntegration:
@@ -222,28 +222,53 @@ class HardwarePoolIntegration:
         
         print("==============================")
 
-
-# Example usage
-if __name__ == "__main__":
-    # Set up logging
+# Example for job submission with compute power matching
+def example_job_submission():
+    """
+    Example demonstrating how to use compute power classification for job submission.
+    
+    This shows:
+    1. How to detect a node's compute power 
+    2. How to determine job requirements
+    3. How to match jobs to appropriate nodes
+    """
     logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger("HardwareExample")
+    logger = logging.getLogger("JobSubmissionExample")
     
-    # Create integration instance
+    # 1. Node side - Detect hardware and calculate compute power
     integration = HardwarePoolIntegration("./cache", logger)
-    
-    # Detect hardware and calculate compute power
     compute_power = integration.calculate_compute_power(force_recalculate=True)
+    registration_rating = integration.get_recommended_compute_rating()
     
-    # Print summary
+    logger.info(f"Node compute power: {compute_power}")
+    logger.info(f"Registration rating: {registration_rating}")
+    
+    # 2. User side - Determine job requirements 
+    models_to_try = [
+        ("llm_llama3_1_8b", "lora"),
+        ("llm_llama3_1_8b", "full"),
+        ("llm_llama3_1_70b", "qlora"),
+        ("llm_llama3_1_70b", "full")
+    ]
+    
+    logger.info("\nJOB SUBMISSION EXAMPLES:")
+    for model, training_type in models_to_try:
+        # Calculate required pool for this job
+        required_pool = ComputePowerClassifier.get_best_pool_for_job(model, training_type)
+        
+        # Check if this node could run this job
+        can_run = integration.can_run_job(model, training_type)
+        
+        logger.info(f"Job: {model} ({training_type})")
+        logger.info(f"  Required pool: {required_pool}")
+        logger.info(f"  Can this node run it? {can_run}")
+        logger.info(f"  Submit with: client.submit_job(args, '{model}', {required_pool})")
+        logger.info("")
+
+if __name__ == "__main__":
+    # Run the standard hardware analysis
+    integration = HardwarePoolIntegration("./cache")
     integration.print_hardware_summary()
     
-    # Example job check
-    model = "llm_llama3_1_70b"
-    training = "lora"
-    can_run = integration.can_run_job(model, training)
-    print(f"\nCan run {model} ({training})? {can_run}")
-    
-    # Get recommended registration rating
-    compute_rating = integration.get_recommended_compute_rating()
-    print(f"\nRecommended compute rating for registration: {compute_rating}")
+    # Run the job submission example
+    example_job_submission()
