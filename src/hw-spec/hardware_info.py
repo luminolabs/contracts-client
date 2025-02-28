@@ -8,10 +8,12 @@ import subprocess
 import shutil
 import re
 from datetime import datetime
+from typing import Dict, Optional
 
 class HardwareInfo:
     """
     A class to collect hardware information across different platforms.
+    Focused on NVIDIA GPUs (A100, H100) for Lumino protocol.
     Can be used as a library or standalone script.
     """
     
@@ -24,7 +26,6 @@ class HardwareInfo:
             "memory": self.get_memory_info(),
             "gpu": {
                 "nvidia": self.get_nvidia_gpu_info(),
-                "amd": self.get_amd_gpu_info(),
             },
             "disk": self.get_disk_info(),
             "network": self.get_network_info()
@@ -131,7 +132,10 @@ class HardwareInfo:
         return memory_info
     
     def get_nvidia_gpu_info(self):
-        """Get NVIDIA GPU information"""
+        """
+        Get NVIDIA GPU information, focusing on A100 and H100 GPUs.
+        Returns more detailed information about these specific GPU models.
+        """
         if not self.command_exists("nvidia-smi"):
             return {"available": False}
         
@@ -181,121 +185,29 @@ class HardwareInfo:
             else:
                 device["utilization_percent"] = 0
                 
-            gpu_info["devices"].append(device)
+            # Check if this is an A100 or H100 and add more details
+            model_lower = device["model"].lower()
+            is_target_gpu = "a100" in model_lower or "h100" in model_lower
             
-        return gpu_info
-    
-    def get_amd_gpu_info(self):
-        """Get AMD GPU information"""
-        if platform.system() != "Linux" or not self.command_exists("rocm-smi"):
-            return {"available": False}
-        
-        gpu_info = {"available": True}
-        
-        # Get GPU count
-        count_output = self.run_command("rocm-smi --showcount 2>/dev/null | grep 'GPU count'")
-        try:
-            gpu_info["count"] = int(re.search(r'(\d+)', count_output).group(1))
-        except (ValueError, AttributeError):
-            gpu_info["count"] = 0
-            
-        if gpu_info["count"] == 0:
-            return gpu_info
-        
-        # Get details for each GPU
-        gpu_info["devices"] = []
-        
-        for i in range(gpu_info["count"]):
-            device = {}
-            
-            # Get model
-            model_output = self.run_command(f"rocm-smi --showproductname -d {i} 2>/dev/null | grep 'Card'")
-            if model_output:
-                device["model"] = model_output.split(':')[1].strip()
-            else:
-                device["model"] = "Unknown"
-            
-            # Get memory
-            mem_output = self.run_command(f"rocm-smi --showmeminfo vram -d {i} 2>/dev/null | grep 'total'")
-            if mem_output:
-                match = re.search(r'(\d+)', mem_output)
-                if match:
-                    mem_value = int(match.group(1))
-                    # Convert to MB if needed
-                    if mem_value > 1000000:
-                        mem_value = int(mem_value / 1024 / 1024)
-                    device["memory_mb"] = mem_value
-                else:
-                    device["memory_mb"] = 0
-            else:
-                device["memory_mb"] = 0
-            
-            # Get utilization
-            util_output = self.run_command(f"rocm-smi --showuse -d {i} 2>/dev/null | grep 'GPU use'")
-            if util_output:
-                match = re.search(r'(\d+)%', util_output)
-                if match:
-                    device["utilization_percent"] = int(match.group(1))
-                else:
-                    device["utilization_percent"] = 0
-            else:
-                device["utilization_percent"] = 0
+            if is_target_gpu:
+                # Get GPU temperature
+                temp_output = self.run_command(f"nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader -i {i}")
+                if temp_output:
+                    match = re.search(r'(\d+)', temp_output)
+                    if match:
+                        device["temperature_c"] = int(match.group(1))
                 
-            gpu_info["devices"].append(device)
-            
-        return gpu_info
-    
-        if not self.command_exists("system_profiler"):
-            return {"available": False}
-        
-        gpu_info = {}
-        
-        # Get GPU info using system_profiler
-        gpu_output = self.run_command("system_profiler SPDisplaysDataType 2>/dev/null")
-        
-        if not gpu_output or "Chipset Model:" not in gpu_output:
-            return {"available": False}
-        
-        gpu_info["available"] = True
-        
-        # Count GPUs by counting "Chipset Model:" occurrences
-        gpu_info["count"] = gpu_output.count("Chipset Model:")
-        
-        if gpu_info["count"] == 0:
-            return gpu_info
-        
-        # Parse GPU details
-        gpu_info["devices"] = []
-        
-        # Split by sections
-        sections = gpu_output.split("Chipset Model:")
-        
-        for i in range(1, len(sections)):  # Skip first split which is before any "Chipset Model:"
-            section = sections[i]
-            device = {}
-            
-            # Get model
-            device["model"] = section.strip().split("\n")[0].strip()
-            
-            # Try to get VRAM
-            if "VRAM" in section:
-                vram_match = re.search(r'VRAM.*?(\d+)\s+MB', section)
-                if vram_match:
-                    device["memory_mb"] = int(vram_match.group(1))
-                else:
-                    device["memory_mb"] = 0
-            else:
-                device["memory_mb"] = 0
-            
-            # Try to get Metal support
-            if "Metal:" in section:
-                metal_match = re.search(r'Metal:\s+(.*?)$', section, re.MULTILINE)
-                if metal_match:
-                    device["metal_support"] = metal_match.group(1).strip()
-                else:
-                    device["metal_support"] = "Unknown"
-            else:
-                device["metal_support"] = "Unknown"
+                # Get power usage
+                power_output = self.run_command(f"nvidia-smi --query-gpu=power.draw --format=csv,noheader -i {i}")
+                if power_output:
+                    match = re.search(r'([\d.]+)', power_output)
+                    if match:
+                        device["power_usage_w"] = float(match.group(1))
+                
+                # Get GPU performance state
+                perf_output = self.run_command(f"nvidia-smi --query-gpu=pstate --format=csv,noheader -i {i}")
+                if perf_output:
+                    device["performance_state"] = perf_output
                 
             gpu_info["devices"].append(device)
             
@@ -362,12 +274,31 @@ class HardwareInfo:
                 
         return network_info
     
-    def get_all_info(self):
+    def get_all_info(self) -> Dict:
         """Get all hardware information"""
         return self.hardware_info
     
+    def calculate_compute_power(self) -> Optional[int]:
+        """
+        Calculate compute power based on hardware specs.
+        Uses the ComputePowerClassifier if available.
+        Returns None if ComputePowerClassifier is not available.
+        """
+        try:
+            from compute_power_classifier import ComputePowerClassifier
+            parsed_specs = ComputePowerClassifier.parse_hardware_specs(self.hardware_info)
+            return ComputePowerClassifier.calculate_compute_power(parsed_specs)
+        except ImportError:
+            print("ComputePowerClassifier not available. Cannot calculate compute power.")
+            return None
+    
     def save_to_file(self, output_file="node_specs.json"):
         """Save hardware info to a JSON file"""
+        # Calculate compute power if possible
+        compute_power = self.calculate_compute_power()
+        if compute_power is not None:
+            self.hardware_info["compute_power"] = compute_power
+        
         with open(output_file, 'w') as f:
             json.dump(self.hardware_info, f, indent=2)
         return output_file
@@ -381,9 +312,31 @@ class HardwareInfo:
         
         # GPU summary
         if self.hardware_info['gpu']['nvidia']['available']:
-            print(f"NVIDIA GPUs: {self.hardware_info['gpu']['nvidia']['count']}")
-        if self.hardware_info['gpu']['amd']['available']:
-            print(f"AMD GPUs: {self.hardware_info['gpu']['amd']['count']}")
+            nvidia_gpus = self.hardware_info['gpu']['nvidia']
+            print(f"NVIDIA GPUs: {nvidia_gpus['count']}")
+            
+            # Print info about each A100/H100 GPU
+            for i, device in enumerate(nvidia_gpus.get('devices', [])):
+                model = device.get('model', 'Unknown')
+                if 'a100' in model.lower() or 'h100' in model.lower():
+                    mem_gb = device.get('memory_mb', 0) / 1024
+                    print(f"  GPU {i+1}: {model} ({mem_gb:.1f} GB)")
+        
+        # Print compute power if available
+        compute_power = self.calculate_compute_power()
+        if compute_power is not None:
+            print(f"Compute Power: {compute_power}")
+            
+            # Print compatible models if ComputePowerClassifier is available
+            try:
+                from compute_power_classifier import ComputePowerClassifier
+                suitable_models = ComputePowerClassifier.get_suitable_models(compute_power)
+                if suitable_models:
+                    print("\nCompatible Models:")
+                    for model, training_types in suitable_models.items():
+                        print(f"  {model}: {', '.join(training_types)}")
+            except ImportError:
+                pass
         
         print(f"Disk: {self.hardware_info['disk']['used_percent']} used of {self.hardware_info['disk']['total']}")
         print(f"IP: {self.hardware_info['network']['primary_ip']}")
