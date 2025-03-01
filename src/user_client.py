@@ -221,8 +221,8 @@ def monitor_job(client: LuminoUserClient, job_id):
         while True:
             status, node = client.monitor_job_progress(job_id)
             click.echo(f"Job {job_id} - Status: {status}, Node: {node or 'None'}")
-            if status == "COMPLETE":
-                click.echo("Job completed!")
+            if status in ("COMPLETE", "FAILED"):
+                click.echo(f"Job {job_id} {status}!")
                 break
             time.sleep(client.polling_interval)
     except Exception as e:

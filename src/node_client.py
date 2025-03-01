@@ -22,6 +22,7 @@ class NodeConfig:
     pipeline_zen_dir: Optional[str] = None
     test_mode: Optional[str] = None
     log_level: int = logging.INFO
+    compute_rating: int = 10
 
 
 class LuminoNode:
@@ -56,6 +57,10 @@ class LuminoNode:
         self.current_secret: Optional[bytes] = None
         self.current_commitment: Optional[bytes] = None
         self.is_leader = False
+        self.epochs_processed = 0
+
+        # Compute rating
+        self.compute_rating = config.compute_rating
 
         # Job paths
         self.pipeline_zen_dir = None
@@ -103,31 +108,35 @@ class LuminoNode:
         with open(self.node_data_file, 'w') as f:
             json.dump(self.node_data, f, indent=2)
 
-    def register_node(self, compute_rating: int) -> None:
+    def topup_stake(self) -> None:
+        # Calculate required stake (1 token per compute rating unit)
+        required_stake = Web3.to_wei(self.compute_rating, 'ether')
+
+        # Check current stake
+        current_stake = self.sdk.get_stake_balance(self.address)
+        if current_stake < required_stake:
+            self.logger.info("Insufficient stake. Depositing required amount...")
+            additional_stake_needed = required_stake - current_stake
+
+            # Approve and deposit tokens
+            self.sdk.approve_token_spending(
+                self.sdk.node_escrow.address,
+                additional_stake_needed
+            )
+            self.sdk.deposit_stake(additional_stake_needed)
+
+    def register_node(self) -> None:
         """Register node with the protocol"""
         if self.node_id is not None:
             self.logger.info(f"Node already registered with ID: {self.node_id}")
             return
 
         try:
-            # Calculate required stake (1 token per compute rating unit)
-            required_stake = Web3.to_wei(compute_rating, 'ether')
-
-            # Check current stake
-            current_stake = self.sdk.get_stake_balance(self.address)
-            if current_stake < required_stake:
-                self.logger.info("Insufficient stake. Depositing required amount...")
-                additional_stake_needed = required_stake - current_stake
-
-                # Approve and deposit tokens
-                self.sdk.approve_token_spending(
-                    self.sdk.node_escrow.address,
-                    additional_stake_needed
-                )
-                self.sdk.deposit_stake(additional_stake_needed)
+            # Top up stake if needed
+            self.topup_stake()
 
             # Register node
-            receipt = self.sdk.register_node(compute_rating)
+            receipt = self.sdk.register_node(self.compute_rating)
 
             # Get node ID from event
             node_registered_event = self.sdk.node_manager.events.NodeRegistered()
@@ -365,7 +374,6 @@ class LuminoNode:
 
         # Node can begin after first DISPUTE phase
         can_begin = False
-        epochs_processed = 0
 
         while True:
             try:
@@ -406,31 +414,36 @@ class LuminoNode:
                 # State machine for epoch phases
                 if can_begin and state_changed:
                     try:
-                        if state == 0:  # COMMIT
+                        if state == 0 and self.test_mode and int(self.test_mode[0]) != 0:  # COMMIT
+                            # If we are penalized, make sure we are topped up
+                            self.topup_stake()
+                            # Submit commitment
                             self.submit_commitment()
 
-                        elif state == 1:  # REVEAL
+                        elif state == 1 and self.test_mode and int(self.test_mode[1]) != 0:  # REVEAL
                             if self.current_secret:
                                 self.reveal_secret()
                             else:
                                 self.logger.warning("No secret available to reveal")
 
-                        elif state == 2:  # ELECT
+                        elif state == 2 and self.test_mode and int(self.test_mode[2]) != 0:  # ELECT
                             self.elect_leader()
 
-                        elif state == 3:  # EXECUTE
+                        elif state == 3 and self.test_mode and int(self.test_mode[3]) != 0:  # EXECUTE
                             was_leader = self.is_leader
                             self.check_and_perform_leader_duties()
                             if self.is_leader != was_leader:
                                 self.logger.info(
                                     f"Node leadership status changed to: {'Leader' if self.is_leader else 'Not leader'}")
 
-                        elif state == 4:  # CONFIRM
+                        elif state == 4 and self.test_mode and int(self.test_mode[4]) != 0:  # CONFIRM
                             self.process_assigned_jobs()
 
                         elif state == 5:  # DISPUTE
-                            self.process_incentives()
-                            epochs_processed += 1
+                            if self.test_mode and int(self.test_mode[5]) != 0:
+                                self.process_incentives()
+                            # Increment epoch counter
+                            self.epochs_processed += 1
 
                     except Exception as phase_error:
                         self.logger.error(f"Error in {current_phase} phase: {phase_error}")
@@ -442,7 +455,7 @@ class LuminoNode:
                         continue
 
                 # Exit after first cycle for testing
-                if self.test_mode and int(self.test_mode[5]) != 0 and epochs_processed >= int(self.test_mode[5]):
+                if self.test_mode and int(self.test_mode[6:]) != 0 and self.epochs_processed == int(self.test_mode[6:]):
                     # Wait 3 seconds, then print remaining events
                     time.sleep(3)
                     self.sdk.process_events()
@@ -496,7 +509,8 @@ def initialize_lumino_node() -> LuminoNode:
         sdk_config=sdk_config,
         data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
         pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR', '.'),
-        test_mode=os.getenv('TEST_MODE')
+        test_mode=os.getenv('TEST_MODE'),
+        compute_rating=int(os.getenv('COMPUTE_RATING', '10')),
     )
 
     # Initialize node
@@ -511,8 +525,7 @@ if __name__ == "__main__":
     node = initialize_lumino_node()
 
     # Register with compute rating from environment
-    compute_rating = int(os.getenv('COMPUTE_RATING', '10'))
-    node.register_node(compute_rating)
+    node.register_node()
 
     # Run main loop
     node.run()
