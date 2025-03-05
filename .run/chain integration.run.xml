@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="pytest in e2e_with_chain.py" type="tests" factoryName="py.test" singleton="false" nameIsGenerated="true">
+  <configuration default="false" name="chain integration" type="tests" factoryName="py.test" singleton="false">
     <module name="contracts-client" />
     <option name="ENV_FILES" value="" />
     <option name="INTERPRETER_OPTIONS" value="" />
@@ -14,7 +14,7 @@
     <option name="_new_keywords" value="&quot;&quot;" />
     <option name="_new_parameters" value="&quot;&quot;" />
     <option name="_new_additionalArguments" value="&quot;&quot;" />
-    <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/e2e_with_chain.py&quot;" />
+    <option name="_new_target" value="&quot;$PROJECT_DIR$/tests_e2e/chain_integration.py&quot;" />
     <option name="_new_targetType" value="&quot;PATH&quot;" />
     <method v="2" />
   </configuration>

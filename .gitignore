@@ -4,12 +4,16 @@ cache/
 # env files
 .env
 
-# python stuff
-__pycache__
+# Python cache files
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
 
 # IDEs
-.vscode
+.vscode/
 .idea/
 
 # other
-testnet-client.txt
+contracts-client.txt

@@ -10,7 +10,7 @@ import click
 from dotenv import load_dotenv
 from web3 import Web3
 
-from lumino_sdk import LuminoSDK, LuminoConfig
+from client import LuminoClient, LuminoConfig
 
 
 @dataclass
@@ -43,7 +43,7 @@ class LuminoUserClient:
         self._setup_logging(config.log_level)
         self.logger.info("Initializing Lumino User Client...")
 
-        self.sdk = LuminoSDK(config.sdk_config, self.logger)
+        self.sdk = LuminoClient(config.sdk_config, self.logger)
         self.address = self.sdk.address
         self.polling_interval = config.polling_interval
 

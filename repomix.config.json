@@ -1,8 +1,8 @@
 {
   "output": {
-    "filePath": "testnet-client.txt",
+    "filePath": "contracts-client.txt",
     "style": "plain",
-    "headerText": "Lumino Testnet Client",
+    "headerText": "Lumino Contracts Client",
     "removeComments": false,
     "removeEmptyLines": false,
     "showLineNumbers": false,

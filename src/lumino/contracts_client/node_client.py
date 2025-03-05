@@ -11,7 +11,7 @@ from typing import Optional
 from dotenv import load_dotenv
 from web3 import Web3
 
-from lumino_sdk import LuminoSDK, LuminoConfig, ContractError
+from lumino.contracts_client.client import LuminoClient, LuminoConfig, ContractError
 
 
 @dataclass
@@ -43,7 +43,7 @@ class LuminoNode:
         self.logger.info("Initializing Lumino Node...")
 
         # Initialize SDK
-        self.sdk = LuminoSDK(config.sdk_config, self.logger)
+        self.sdk = LuminoClient(config.sdk_config, self.logger)
         self.address = self.sdk.address
 
         # Setup event monitoring
@@ -110,7 +110,7 @@ class LuminoNode:
 
     def topup_stake(self) -> None:
         # Calculate required stake (1 token per compute rating unit)
-        required_stake = Web3.to_wei(self.compute_rating, 'ether')
+        required_stake = Web3.to_wei(self.compute_rating * 10, 'ether')
 
         # Check current stake
         current_stake = self.sdk.get_stake_balance(self.address)

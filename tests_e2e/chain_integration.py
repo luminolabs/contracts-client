@@ -9,15 +9,15 @@ import pytest
 from dotenv import load_dotenv
 from web3 import Web3
 
-from lumino_sdk import LuminoSDK, LuminoConfig
-from node_client import LuminoNode, NodeConfig
+from lumino.contracts_client.client import LuminoClient, LuminoConfig
+from lumino.contracts_client.node_client import LuminoNode, NodeConfig
 from utils import ThreadHelper
 
 # Constants
 CONTRACTS_DIR = '../contracts'
 RPC_URL = 'http://localhost:8545'
 COMPUTE_RATING = 30
-STAKE_AMOUNT = Web3.to_wei(30, 'ether')
+STAKE_AMOUNT = Web3.to_wei(30 * 10, 'ether')
 JOB_ARGS = json.dumps({"prompt": "Test job"})
 MODEL_NAME = "llm_llama3_1_8b"
 TEST_MODE = "1111111"  # Run all phases, 1 epoch
@@ -25,10 +25,10 @@ MIN_TOKEN_BALANCE = Web3.to_wei(500, 'ether')
 TOKENS_500 = Web3.to_wei(500, 'ether')
 
 # Reward and Penalty Constants
-LEADER_REWARD = Web3.to_wei(2, 'ether')
-JOB_AVAILABILITY_REWARD = Web3.to_wei(2, 'ether')
-DISPUTER_REWARD = Web3.to_wei(2, 'ether')
-LEADER_NOT_EXECUTED_PENALTY = Web3.to_wei(10, 'ether')
+LEADER_REWARD = Web3.to_wei(5, 'ether')
+JOB_AVAILABILITY_REWARD = Web3.to_wei(1, 'ether')
+DISPUTER_REWARD = Web3.to_wei(0.5, 'ether')
+LEADER_NOT_EXECUTED_PENALTY = Web3.to_wei(15, 'ether')
 JOB_NOT_CONFIRMED_PENALTY = Web3.to_wei(10, 'ether')
 
 
@@ -114,7 +114,7 @@ def anvil_config(tmp_path_factory) -> Dict:
 
 
 @pytest.fixture(scope="function")
-def deployer_sdk(anvil_config) -> LuminoSDK:
+def deployer_sdk(anvil_config) -> LuminoClient:
     """Fixture to initialize deployer SDK for token management and whitelisting."""
     load_dotenv()
     deployer_config = LuminoConfig(
@@ -123,7 +123,7 @@ def deployer_sdk(anvil_config) -> LuminoSDK:
         contract_addresses=anvil_config['node_sdk_config'].contract_addresses,
         contracts_dir=anvil_config['node_sdk_config'].contracts_dir
     )
-    sdk = LuminoSDK(deployer_config)
+    sdk = LuminoClient(deployer_config)
     return sdk
 
 
@@ -158,16 +158,16 @@ def node(anvil_config, deployer_sdk) -> LuminoNode:
 
 
 @pytest.fixture(scope="function")
-def node_sdk(anvil_config, deployer_sdk) -> LuminoSDK:
+def node_sdk(anvil_config, deployer_sdk) -> LuminoClient:
     """Fixture to initialize node SDK."""
-    sdk = LuminoSDK(anvil_config['node_sdk_config'])
+    sdk = LuminoClient(anvil_config['node_sdk_config'])
     return sdk
 
 
 @pytest.fixture(scope="function")
-def user_sdk(anvil_config, deployer_sdk) -> LuminoSDK:
+def user_sdk(anvil_config, deployer_sdk) -> LuminoClient:
     """Fixture to initialize user SDK with separate address."""
-    sdk = LuminoSDK(anvil_config['user_sdk_config'])
+    sdk = LuminoClient(anvil_config['user_sdk_config'])
 
     # Ensure user has minimum token balance
     user_balance = deployer_sdk.get_token_balance(sdk.address)
@@ -182,9 +182,9 @@ def user_sdk(anvil_config, deployer_sdk) -> LuminoSDK:
 
 
 class TestNodeClientE2E:
-    """End-to-end tests for Lumino node client"""
+    """End-to-end tests_e2e for Lumino node client"""
 
-    def test_node_registration(self, node: LuminoNode, node_sdk: LuminoSDK):
+    def test_node_registration(self, node: LuminoNode, node_sdk: LuminoClient):
         """Test node registration process"""
         # Setup: Approve and deposit stake
         node_sdk.approve_token_spending(node_sdk.node_escrow.address, STAKE_AMOUNT)
@@ -207,7 +207,7 @@ class TestNodeClientE2E:
             f"Balance should not change during registration. Expected {Web3.from_wei(initial_balance, 'ether')} LUM, " \
             f"got {Web3.from_wei(final_balance, 'ether')} LUM"
 
-    def test_full_job_lifecycle(self, node: LuminoNode, node_sdk: LuminoSDK, user_sdk: LuminoSDK):
+    def test_full_job_lifecycle(self, node: LuminoNode, node_sdk: LuminoClient, user_sdk: LuminoClient):
         """Test complete job lifecycle from submission to completion"""
         # Setup: Ensure node is registered
         if not node.node_id:
@@ -256,7 +256,7 @@ class TestNodeClientE2E:
             f"Node balance increase insufficient. Expected at least {Web3.from_wei(expected_rewards, 'ether')} LUM, " \
             f"got {Web3.from_wei(node_change, 'ether')} LUM"
 
-    def test_leader_election_and_assignment(self, node: LuminoNode, node_sdk: LuminoSDK, user_sdk: LuminoSDK):
+    def test_leader_election_and_assignment(self, node: LuminoNode, node_sdk: LuminoClient, user_sdk: LuminoClient):
         """Test leader election and job assignment"""
         # Setup: Ensure node is registered
         if not node.node_id:
@@ -299,7 +299,7 @@ class TestNodeClientE2E:
             f"Balance increase insufficient. Expected at least {Web3.from_wei(expected_rewards, 'ether')} LUM, " \
             f"got {Web3.from_wei(actual_change, 'ether')} LUM"
 
-    def test_incentive_processing(self, node: LuminoNode, node_sdk: LuminoSDK):
+    def test_incentive_processing(self, node: LuminoNode, node_sdk: LuminoClient):
         """Test incentive processing"""
         # Setup: Ensure node is registered
         if not node.node_id:
@@ -325,7 +325,7 @@ class TestNodeClientE2E:
             f"Incentive rewards insufficient. Expected at least {Web3.from_wei(expected_rewards, 'ether')} LUM, " \
             f"got {Web3.from_wei(actual_change, 'ether')} LUM"
 
-    def test_leader_fails_duties_penalty(self, node: LuminoNode, node_sdk: LuminoSDK):
+    def test_leader_fails_duties_penalty(self, node: LuminoNode, node_sdk: LuminoClient):
         """Test penalty applied when leader fails to start assignment round"""
         # Setup: Ensure node is registered
         if not node.node_id:
@@ -360,7 +360,7 @@ class TestNodeClientE2E:
             f"(rewards {Web3.from_wei(expected_rewards, 'ether')} - penalty {Web3.from_wei(expected_penalty, 'ether')}), " \
             f"got {Web3.from_wei(actual_change, 'ether')} LUM"
 
-    def test_node_fails_to_confirm_penalty(self, node: LuminoNode, node_sdk: LuminoSDK, user_sdk: LuminoSDK):
+    def test_node_fails_to_confirm_penalty(self, node: LuminoNode, node_sdk: LuminoClient, user_sdk: LuminoClient):
         """Test penalty applied when node fails to confirm an assigned job"""
         # Setup: Ensure node is registered
         if not node.node_id:
@@ -401,7 +401,7 @@ class TestNodeClientE2E:
             f"(rewards {Web3.from_wei(expected_rewards, 'ether')} - penalty {Web3.from_wei(expected_penalty, 'ether')}), " \
             f"got {Web3.from_wei(actual_change, 'ether')} LUM"
 
-    def test_slashing_after_multiple_penalties(self, node: LuminoNode, node_sdk: LuminoSDK, user_sdk: LuminoSDK):
+    def test_slashing_after_multiple_penalties(self, node: LuminoNode, node_sdk: LuminoClient, user_sdk: LuminoClient):
         """Test slashing applied after exceeding maximum penalties"""
         # Setup: Ensure node is registered
         if not node.node_id:

@@ -12,8 +12,8 @@ from web3 import Web3
 from web3.contract import Contract
 from web3.exceptions import ContractLogicError
 
-from error_handler import ErrorHandler
-from event_handler import EventHandler
+from lumino.contracts_client.error_handler import ErrorHandler
+from lumino.contracts_client.event_handler import EventHandler
 
 
 @dataclass
@@ -35,7 +35,7 @@ class ContractError(LuminoError):
     pass
 
 
-class LuminoSDK:
+class LuminoClient:
     """SDK for interacting with Lumino contracts"""
 
     def __init__(self, config: LuminoConfig, logger: Optional[logging.Logger] = None):

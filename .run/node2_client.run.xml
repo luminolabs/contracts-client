@@ -5,19 +5,18 @@
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
       <env name="NODE_PRIVATE_KEY" value="0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6" />
       <env name="NODE_ADDRESS" value="0x90F79bf6EB2c4f870365E785982E1f101E93b906" />
       <env name="NODE_DATA_DIR" value="cache/node2_client" />
-      <env name="PYTHONUNBUFFERED" value="1" />
     </envs>
     <option name="SDK_HOME" value="" />
-    <option name="SDK_NAME" value="Python 3.11 (testnet-client)" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/node_client.py" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/lumino/node_client.py" />
     <option name="PARAMETERS" value="" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
