@@ -135,13 +135,13 @@ install() {
     if [ "$PYTHON_MAJOR" -lt 3 ] || { [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 10 ]; }; then
         echo "Error: Python 3.10 or higher required. Found: $PYTHON_VERSION"
         exit 1
-    }
+    fi
 
     # Check for NVIDIA GPU
     if ! command -v nvidia-smi &> /dev/null || ! nvidia-smi &> /dev/null; then
         echo "Error: NVIDIA GPU and drivers required"
         exit 1
-    }
+    fi
 
     # Download and unzip pipeline-zen
     curl -L "$URL/pipeline-zen-$PIPELINE_VERSION.zip" -o "pipeline-zen-$PIPELINE_VERSION.zip"
