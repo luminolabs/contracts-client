@@ -508,7 +508,7 @@ def initialize_lumino_node() -> LuminoNode:
     config = NodeConfig(
         sdk_config=sdk_config,
         data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
-        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR', '.'),
+        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR', './pipeline-zen-jobs'),
         test_mode=os.getenv('TEST_MODE'),
         compute_rating=int(os.getenv('COMPUTE_RATING', '10')),
     )
