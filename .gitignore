@@ -1,5 +1,9 @@
 # temp files
 cache/
+node_artifacts/
+
+# operating system files
+.DS_Store
 
 # env files
 .env

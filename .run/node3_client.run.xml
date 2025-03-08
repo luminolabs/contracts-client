@@ -11,12 +11,13 @@
       <env name="NODE_PRIVATE_KEY" value="0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a" />
     </envs>
     <option name="SDK_HOME" value="" />
+    <option name="SDK_NAME" value="Python 3.11 (contracts-client)" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/lumino/node_client.py" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/lumino/contracts_client/node_client.py" />
     <option name="PARAMETERS" value="" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />

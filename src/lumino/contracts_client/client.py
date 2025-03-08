@@ -22,7 +22,7 @@ class LuminoConfig:
     web3_provider: str
     private_key: PrivateKeyType
     contract_addresses: Dict[str, ChecksumAddress]
-    contracts_dir: str
+    abis_dir: str
 
 
 class LuminoError(Exception):
@@ -55,13 +55,13 @@ class LuminoClient:
         self.address = self.account.address
 
         # Load ABIs and initialize contracts
-        self.abis = self._load_abis(config.contracts_dir)
+        self.abis = self._load_abis(config.abis_dir)
         self._init_contracts(config.contract_addresses)
 
-    def _load_abis(self, contracts_dir: str) -> Dict[str, dict]:
+    def _load_abis(self, abis_dir: str) -> Dict[str, dict]:
         """Load contract ABIs from Foundry output directory"""
         abis = {}
-        out_dir = Path(contracts_dir).parent / 'out'
+        out_dir = Path(abis_dir)
 
         if not out_dir.exists():
             raise FileNotFoundError(

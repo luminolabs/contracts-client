@@ -15,6 +15,7 @@ from utils import ThreadHelper
 
 # Constants
 CONTRACTS_DIR = '../contracts'
+ABIS_DIR = f'{CONTRACTS_DIR}/out'
 RPC_URL = 'http://localhost:8545'
 COMPUTE_RATING = 30
 STAKE_AMOUNT = Web3.to_wei(30 * 10, 'ether')
@@ -30,10 +31,11 @@ JOB_AVAILABILITY_REWARD = Web3.to_wei(1, 'ether')
 DISPUTER_REWARD = Web3.to_wei(0.5, 'ether')
 LEADER_NOT_EXECUTED_PENALTY = Web3.to_wei(15, 'ether')
 JOB_NOT_CONFIRMED_PENALTY = Web3.to_wei(10, 'ether')
+MAX_PENALTIES_BEFORE_SLASH=2
 
 
 def deploy_contracts() -> Dict[str, str]:
-    """Run forge deploy and parse contract addresses from output."""
+    """Run forge deploy and parse proxy contract addresses from output."""
     try:
         deploy_command = ["forge", "script", "script/Deploy.s.sol:DeploymentScript", "--rpc-url", RPC_URL,
                           "--broadcast", "--private-key", os.getenv('DEPLOYER_PRIVATE_KEY')]
@@ -45,13 +47,22 @@ def deploy_contracts() -> Dict[str, str]:
             check=True
         )
 
-        # Parse output for contract addresses
+        # Parse output for proxy contract addresses
         output = result.stdout
-        contract_pattern = re.compile(r"(\w+): (0x[a-fA-F0-9]{40})")
-        contract_addresses = dict(contract_pattern.findall(output))
+        contract_pattern = re.compile(r"(?:(\w+) \(Proxy\): (0x[a-fA-F0-9]{40})|EpochManager: (0x[a-fA-F0-9]{40}))")
+
+        # Process matches to handle both proxy and non-proxy cases
+        matches = contract_pattern.findall(output)
+        contract_addresses = {}
+        for match in matches:
+            # match[0] is proxy name (if present), match[1] is proxy address, match[2] is EpochManager address
+            if match[0]:  # Proxy case
+                contract_addresses[match[0]] = match[1]
+            elif match[2]:  # EpochManager case
+                contract_addresses['EpochManager'] = match[2]
 
         if not contract_addresses:
-            raise ValueError("No contract addresses found in forge deploy output")
+            raise ValueError("No proxy contract addresses or EpochManager found in forge deploy output")
 
         return contract_addresses
 
@@ -98,13 +109,13 @@ def anvil_config(tmp_path_factory) -> Dict:
             web3_provider=os.getenv('RPC_URL', RPC_URL),
             private_key=os.getenv('NODE_PRIVATE_KEY'),
             contract_addresses=contract_addresses,
-            contracts_dir=os.getenv('CONTRACTS_DIR', f'{CONTRACTS_DIR}/src')
+            abis_dir=os.getenv('ABIS_DIR', ABIS_DIR)
         ),
         'user_sdk_config': LuminoConfig(
             web3_provider=os.getenv('RPC_URL', RPC_URL),
             private_key=os.getenv('USER_PRIVATE_KEY'),
             contract_addresses=contract_addresses,
-            contracts_dir=os.getenv('CONTRACTS_DIR', f'{CONTRACTS_DIR}/src')
+            abis_dir=os.getenv('ABIS_DIR', ABIS_DIR)
         ),
         'data_dir': str(unique_node_dir),
         'log_level': 10,  # DEBUG,
@@ -121,7 +132,7 @@ def deployer_sdk(anvil_config) -> LuminoClient:
         web3_provider=anvil_config['node_sdk_config'].web3_provider,
         private_key=os.getenv('DEPLOYER_PRIVATE_KEY'),
         contract_addresses=anvil_config['node_sdk_config'].contract_addresses,
-        contracts_dir=anvil_config['node_sdk_config'].contracts_dir
+        abis_dir=anvil_config['node_sdk_config'].abis_dir
     )
     sdk = LuminoClient(deployer_config)
     return sdk
@@ -220,8 +231,8 @@ class TestNodeClientE2E:
         user_initial_escrow = user_sdk.get_job_escrow_balance(user_sdk.address)
 
         # Setup: Submit job as user using user_sdk
-        user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(10, 'ether'))
-        user_sdk.deposit_job_funds(Web3.to_wei(10, 'ether'))
+        user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
+        user_sdk.deposit_job_funds(Web3.to_wei(20, 'ether'))
         receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, COMPUTE_RATING)
 
         # Get job ID from event
@@ -251,7 +262,7 @@ class TestNodeClientE2E:
         expected_rewards = JOB_AVAILABILITY_REWARD + DISPUTER_REWARD  # Participation rewards
         node_change = node_final_balance - node_initial_balance
         assert node_final_balance > node_initial_balance, "Node should receive payment/rewards"
-        assert user_final_escrow < Web3.to_wei(10, 'ether'), "Payment not deducted from submitter escrow"
+        assert user_final_escrow < Web3.to_wei(20, 'ether'), "Payment not deducted from submitter escrow"
         assert node_change >= expected_rewards, \
             f"Node balance increase insufficient. Expected at least {Web3.from_wei(expected_rewards, 'ether')} LUM, " \
             f"got {Web3.from_wei(node_change, 'ether')} LUM"
@@ -268,8 +279,8 @@ class TestNodeClientE2E:
         initial_balance = node_sdk.get_stake_balance(node_sdk.address)
 
         # Submit a job using user_sdk
-        user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(10, 'ether'))
-        user_sdk.deposit_job_funds(Web3.to_wei(10, 'ether'))
+        user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
+        user_sdk.deposit_job_funds(Web3.to_wei(20, 'ether'))
         receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, COMPUTE_RATING)
         job_id = user_sdk.job_manager.events.JobSubmitted().process_receipt(receipt)[0]['args']['jobId']
 
@@ -369,8 +380,8 @@ class TestNodeClientE2E:
             node.register_node()
 
         # Submit a job
-        user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(10, 'ether'))
-        user_sdk.deposit_job_funds(Web3.to_wei(10, 'ether'))
+        user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
+        user_sdk.deposit_job_funds(Web3.to_wei(20, 'ether'))
         receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, COMPUTE_RATING)
         job_id = user_sdk.job_manager.events.JobSubmitted().process_receipt(receipt)[0]['args']['jobId']
 
@@ -414,7 +425,7 @@ class TestNodeClientE2E:
         assert initial_balance >= STAKE_AMOUNT, "Initial balance should match deposited stake"
 
         # Simulate multiple failures to reach MAX_PENALTIES_BEFORE_SLASH (5)
-        max_penalties = 2  # From LShared.MAX_PENALTIES_BEFORE_SLASH
+        max_penalties = MAX_PENALTIES_BEFORE_SLASH  # From LShared.MAX_PENALTIES_BEFORE_SLASH
         required_epochs = max_penalties  # One penalty per epoch
 
         # Adjust TEST_MODE for multiple epochs, skipping CONFIRM

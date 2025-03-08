@@ -32,7 +32,7 @@ class LuminoUserClient:
         3: "COMPLETE",
         4: "FAILED"
     }
-    MIN_ESCROW_BALANCE = 10  # Minimum escrow balance in LUM
+    MIN_ESCROW_BALANCE = 20  # Minimum escrow balance in LUM
 
     def __init__(self, config: UserConfig):
         """Initialize the Lumino User Client"""
@@ -171,7 +171,7 @@ def initialize_lumino_user_client() -> LuminoUserClient:
             'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
             'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
         },
-        contracts_dir=os.getenv('CONTRACTS_DIR', '../contracts/src')
+        abis_dir=os.getenv('ABIS_DIR', '../contracts/out')
     )
     config = UserConfig(sdk_config=sdk_config,
                         data_dir=os.getenv('USER_DATA_DIR', 'cache/user_client'))

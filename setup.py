@@ -28,7 +28,7 @@ setup(
     install_requires=requirements,
     entry_points={
         "console_scripts": [
-            "lumino-node = lumino.contracts_client.node_client:initialize_lumino_node",
+            "lumino-node = lumino.contracts_client.node_client:main",
             "lumino-client = lumino.contracts_client.user_client:cli",
         ],
     },

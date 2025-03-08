@@ -85,11 +85,6 @@ class ErrorHandler:
             },
 
             # JobManager errors
-            "InvalidJobStatus": {
-                "params": ["uint256", "uint8", "uint8"],
-                "format": lambda
-                    args: f"Invalid job status for job {args[0]}: current {self.JOB_STATUS.get(args[1], 'Unknown')}, attempted {self.JOB_STATUS.get(args[2], 'Unknown')}"
-            },
             "InvalidStatusTransition": {
                 "params": ["uint8", "uint8"],
                 "format": lambda
@@ -136,6 +131,12 @@ class ErrorHandler:
             "LeaderAlreadyElected": {
                 "params": ["uint256"],
                 "format": lambda args: f"Leader already elected for epoch {args[0]}"
+            },
+
+            # NodeEscrow errors
+            "SlashedCP": {
+                "params": ["address"],
+                "format": lambda args: f"Address is slashed: {args[0]}"
             },
 
             # NodeManager errors

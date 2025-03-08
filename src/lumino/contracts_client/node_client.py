@@ -108,9 +108,14 @@ class LuminoNode:
         with open(self.node_data_file, 'w') as f:
             json.dump(self.node_data, f, indent=2)
 
-    def topup_stake(self) -> None:
-        # Calculate required stake (1 token per compute rating unit)
-        required_stake = Web3.to_wei(self.compute_rating * 10, 'ether')
+    def topup_stake(self, add_node: bool = False) -> None:
+        addl_stake = 0
+        if add_node:
+            # Calculate required stake (10 token per compute rating unit)
+            addl_stake = Web3.to_wei(self.compute_rating * 10, 'ether')
+
+        # Get existing stake requirement and add additional stake if we are adding a node
+        required_stake = self.sdk.get_stake_requirement(self.address) + addl_stake
 
         # Check current stake
         current_stake = self.sdk.get_stake_balance(self.address)
@@ -133,7 +138,7 @@ class LuminoNode:
 
         try:
             # Top up stake if needed
-            self.topup_stake()
+            self.topup_stake(add_node=True)
 
             # Register node
             receipt = self.sdk.register_node(self.compute_rating)
@@ -471,6 +476,7 @@ class LuminoNode:
                 time.sleep(sleep_time)
 
             except Exception as e:
+                state, _ = self.sdk.get_epoch_state()
                 self.logger.error(f"Critical error in main loop: {e}")
                 self.logger.error("=== Node State at Error ===")
                 self.logger.error(f"Current phase: {state_names.get(state, 'Unknown')}")
@@ -503,12 +509,12 @@ def initialize_lumino_node() -> LuminoNode:
             'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
             'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
         },
-        contracts_dir=os.getenv('CONTRACTS_DIR', '../contracts/src')
+        abis_dir=os.getenv('ABIS_DIR', '../contracts/out')
     )
     config = NodeConfig(
         sdk_config=sdk_config,
         data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
-        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR', './pipeline-zen-jobs'),
+        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR'),
         test_mode=os.getenv('TEST_MODE'),
         compute_rating=int(os.getenv('COMPUTE_RATING', '10')),
     )
@@ -517,7 +523,7 @@ def initialize_lumino_node() -> LuminoNode:
     return LuminoNode(config)
 
 
-if __name__ == "__main__":
+def main():
     # Load environment variables
     load_dotenv()
 
@@ -529,3 +535,6 @@ if __name__ == "__main__":
 
     # Run main loop
     node.run()
+
+if __name__ == "__main__":
+    main()
