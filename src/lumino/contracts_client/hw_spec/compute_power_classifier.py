@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import json
-import re
-from typing import Dict, List, Optional, Union, Tuple
+from typing import Dict, List
+
 
 class ComputePowerClassifier:
     """
@@ -13,8 +13,8 @@ class ComputePowerClassifier:
 
     # GPU Power Ratings (base values in 100s)
     GPU_POWER_RATINGS = {
-        "a100-40gb": 500,   # A100 40GB
-        "a100-80gb": 900,   # A100 80GB
+        "a100-40gb": 500,  # A100 40GB
+        "a100-80gb": 900,  # A100 80GB
         "h100-80gb": 1600,  # H100 80GB
     }
 
@@ -72,7 +72,7 @@ class ComputePowerClassifier:
             nvidia_info = hardware_info["gpu"]["nvidia"]
             if nvidia_info.get("available", False) and nvidia_info.get("count", 0) > 0:
                 parsed["gpu"]["has_nvidia"] = True
-                
+
                 # Process each GPU device
                 for device in nvidia_info.get("devices", []):
                     # Extract GPU model and memory
@@ -90,7 +90,7 @@ class ComputePowerClassifier:
                             gpu_type = "a100-80gb"
                     elif "h100" in gpu_model:
                         gpu_type = "h100-80gb"
-                    
+
                     if gpu_type:
                         parsed["gpu"]["nvidia_gpus"].append({
                             "type": gpu_type,
@@ -134,20 +134,20 @@ class ComputePowerClassifier:
         for gpu_type, count in gpu_counts.items():
             # Basic power contribution: rating × count
             power_contribution = cls.GPU_POWER_RATINGS[gpu_type] * count
-            
+
             # Apply diminishing returns for multiple GPUs (sqrt scaling)
             # This reflects that 2 GPUs aren't exactly 2x as useful as 1 due to communication overhead
             scaling_factor = 1.0
             if count > 1:
                 # Apply a scaling factor but still ensure more GPUs give more power
                 scaling_factor = (count ** 0.8) / count  # Diminishing returns with more GPUs
-            
+
             # Add this GPU type's contribution to the total compute power
             compute_power += int(power_contribution * scaling_factor)
 
         # Round to nearest 100
         compute_power = round(compute_power / 100) * 100
-        
+
         return compute_power
 
     @classmethod
@@ -157,20 +157,20 @@ class ComputePowerClassifier:
         """
         if model_name not in cls.MODEL_REQUIREMENTS or training_type not in cls.MODEL_REQUIREMENTS[model_name]:
             return False
-        
+
         req = cls.MODEL_REQUIREMENTS[model_name][training_type]
         required_gpu_type = req["gpu_type"]
         required_num_gpus = req["num_gpus"]
-        
+
         # Calculate the minimum compute power needed
         min_power_needed = cls.GPU_POWER_RATINGS[required_gpu_type] * required_num_gpus
-        
+
         # Add 10% buffer to account for overhead
         min_power_with_buffer = int(min_power_needed * 1.1)
-        
+
         # Round to nearest 100
         min_power_with_buffer = round(min_power_with_buffer / 100) * 100
-        
+
         return compute_power >= min_power_with_buffer
 
     @classmethod
@@ -181,20 +181,20 @@ class ComputePowerClassifier:
         """
         if model_name not in cls.MODEL_REQUIREMENTS or training_type not in cls.MODEL_REQUIREMENTS[model_name]:
             return 0
-        
+
         req = cls.MODEL_REQUIREMENTS[model_name][training_type]
         required_gpu_type = req["gpu_type"]
         required_num_gpus = req["num_gpus"]
-        
+
         # Calculate the minimum compute power needed
         min_power_needed = cls.GPU_POWER_RATINGS[required_gpu_type] * required_num_gpus
-        
+
         # Add 10% buffer to account for overhead
         min_power_with_buffer = int(min_power_needed * 1.1)
-        
+
         # Round to nearest 100
         min_power_with_buffer = round(min_power_with_buffer / 100) * 100
-        
+
         return min_power_with_buffer
 
     @classmethod
@@ -213,17 +213,17 @@ class ComputePowerClassifier:
         Returns a dictionary of model names mapped to lists of supported training types.
         """
         suitable_models = {}
-        
+
         for model_name, training_types in cls.MODEL_REQUIREMENTS.items():
             supported_types = []
-            
+
             for training_type in training_types.keys():
                 if cls.can_run_model(compute_power, model_name, training_type):
                     supported_types.append(training_type)
-            
+
             if supported_types:
                 suitable_models[model_name] = supported_types
-                
+
         return suitable_models
 
 
@@ -247,18 +247,18 @@ if __name__ == "__main__":
             }
         }
     }
-    
+
     # Parse specs and calculate compute power
     parsed = ComputePowerClassifier.parse_hardware_specs(sample_specs)
     compute_power = ComputePowerClassifier.calculate_compute_power(parsed)
-    
+
     print(f"Parsed Specs: {json.dumps(parsed, indent=2)}")
     print(f"Compute Power: {compute_power}")
-    
+
     # Check which models can be run
     suitable_models = ComputePowerClassifier.get_suitable_models(compute_power)
     print(f"Suitable Models: {json.dumps(suitable_models, indent=2)}")
-    
+
     # For a specific job, get the required pool
     model = "llm_llama3_1_70b"
     training = "full"

@@ -186,6 +186,8 @@ install() {
     pip install -U "lumino-contracts-client==$CONTRACTS_CLIENT_VERSION" --target=$(pwd)/pydist
     export PYTHONPATH=$(pwd)/pydist:$PYTHONPATH
     export PATH=$(pwd)/pydist/bin:$PATH
+    pip uninstall -y lumino-contracts-client
+    pip install "lumino-contracts-client==$CONTRACTS_CLIENT_VERSION" --target=$(pwd)/pydist
 
     # Preserve existing NODE_PRIVATE_KEY and NODE_ADDRESS if .env exists
     EXISTING_NODE_PRIVATE_KEY=""

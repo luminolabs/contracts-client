@@ -25,7 +25,7 @@ class NodeConfig:
     pipeline_zen_dir: Optional[str] = None
     test_mode: Optional[str] = None
     log_level: int = logging.INFO
-    compute_rating: int = 10
+    compute_rating: int = 0
 
 
 class LuminoNode:
@@ -514,12 +514,19 @@ def initialize_lumino_node() -> LuminoNode:
         },
         abis_dir=os.getenv('ABIS_DIR', '../contracts/out')
     )
+
+    compute_rating = int(os.getenv('COMPUTE_RATING', "0"))
+    if not compute_rating:
+        from lumino.contracts_client.hw_spec.hardware_pool_integration import HardwarePoolIntegration
+        hpi = HardwarePoolIntegration('cache/')
+        compute_rating = hpi.calculate_compute_power()
+
     config = NodeConfig(
         sdk_config=sdk_config,
         data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
         pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR'),
         test_mode=os.getenv('TEST_MODE'),
-        compute_rating=int(os.getenv('COMPUTE_RATING', '10')),
+        compute_rating=compute_rating,
     )
 
     # Initialize node
