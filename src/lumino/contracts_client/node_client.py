@@ -13,6 +13,9 @@ from web3 import Web3
 
 from lumino.contracts_client.client import LuminoClient, LuminoConfig, ContractError
 
+# Escrow min deposit
+MIN_DEPOSIT = Web3.to_wei(20, 'ether')
+
 
 @dataclass
 class NodeConfig:
@@ -121,7 +124,7 @@ class LuminoNode:
         current_stake = self.sdk.get_stake_balance(self.address)
         if current_stake < required_stake:
             self.logger.info("Insufficient stake. Depositing required amount...")
-            additional_stake_needed = required_stake - current_stake
+            additional_stake_needed = max(required_stake - current_stake, MIN_DEPOSIT)
 
             # Approve and deposit tokens
             self.sdk.approve_token_spending(
@@ -535,6 +538,7 @@ def main():
 
     # Run main loop
     node.run()
+
 
 if __name__ == "__main__":
     main()

@@ -24,6 +24,13 @@ done
 
 # Ensure lumino directory exists
 mkdir -p "$LUMINO_DIR"
+
+# If script is not in lumino directory, copy it there
+if [ "$(pwd)" != "$LUMINO_DIR" ]; then
+  cp ./node-install.sh "$LUMINO_DIR" || true
+fi
+
+# Change to lumino directory
 cd "$LUMINO_DIR"
 
 # Function to get versions from remote
@@ -114,6 +121,38 @@ update_cron() {
     rm "$LUMINO_DIR/crontab.tmp"
 }
 
+# Function to update .env with user input for NODE_PRIVATE_KEY and NODE_ADDRESS
+update_env_keys() {
+    local env_file=".env"
+
+    NODE_PRIVATE_KEY=$1
+    NODE_ADDRESS=$2
+
+    # Only prompt if the values are empty
+    if [ -z "$NODE_PRIVATE_KEY" ]; then
+        read -p "Enter NODE_PRIVATE_KEY: " NODE_PRIVATE_KEY
+    fi
+    if [ -z "$NODE_ADDRESS" ]; then
+        read -p "Enter NODE_ADDRESS: " NODE_ADDRESS
+    fi
+
+    # Update the .env file with the values (existing or newly entered)
+    if [ -n "$NODE_PRIVATE_KEY" ]; then
+        if grep -q "^NODE_PRIVATE_KEY=" "$env_file"; then
+            sed -i "s|^NODE_PRIVATE_KEY=.*|NODE_PRIVATE_KEY=$NODE_PRIVATE_KEY|" "$env_file"
+        else
+            echo "NODE_PRIVATE_KEY=$NODE_PRIVATE_KEY" >> "$env_file"
+        fi
+    fi
+    if [ -n "$NODE_ADDRESS" ]; then
+        if grep -q "^NODE_ADDRESS=" "$env_file"; then
+            sed -i "s|^NODE_ADDRESS=.*|NODE_ADDRESS=$NODE_ADDRESS|" "$env_file"
+        else
+            echo "NODE_ADDRESS=$NODE_ADDRESS" >> "$env_file"
+        fi
+    fi
+}
+
 # Installation function
 install() {
     get_versions
@@ -144,12 +183,25 @@ install() {
 
     # Install lumino-contracts-client
     pip install --upgrade pip
-    pip install "lumino-contracts-client==$CONTRACTS_CLIENT_VERSION"
+    pip install -U "lumino-contracts-client==$CONTRACTS_CLIENT_VERSION" --target=$(pwd)/pydist
+    export PYTHONPATH=$(pwd)/pydist:$PYTHONPATH
+    export PATH=$(pwd)/pydist/bin:$PATH
 
-    # Download and copy .env file (copy to temp file first to avoid failure if download fails)
+    # Preserve existing NODE_PRIVATE_KEY and NODE_ADDRESS if .env exists
+    EXISTING_NODE_PRIVATE_KEY=""
+    EXISTING_NODE_ADDRESS=""
+    if [ -f ".env" ]; then
+        EXISTING_NODE_PRIVATE_KEY=$(grep "^NODE_PRIVATE_KEY=" .env | cut -d'=' -f2)
+        EXISTING_NODE_ADDRESS=$(grep "^NODE_ADDRESS=" .env | cut -d'=' -f2)
+    fi
+
+    # Download and copy new .env file
     curl -L "$URL/$CONTRACTS_VERSION.env" -o ".$CONTRACTS_VERSION.env"
     cp ".$CONTRACTS_VERSION.env" ".env"
     rm ".$CONTRACTS_VERSION.env"
+
+    # Update NODE_PRIVATE_KEY and NODE_ADDRESS in .env if needed
+    update_env_keys $EXISTING_NODE_PRIVATE_KEY $EXISTING_NODE_ADDRESS
 
     # Download and extract contract ABIs
     curl -L "$URL/$CONTRACTS_VERSION-abis.tar.gz" -o "$CONTRACTS_VERSION-abis.tar.gz"
