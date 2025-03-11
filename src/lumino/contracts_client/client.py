@@ -84,8 +84,8 @@ class LuminoClient:
 
         if not abis:
             raise ValueError(
-                "No ABIs found in Foundry output directory. "
-                "Please ensure contracts are compiled with 'forge build'."
+                f"No ABIs found in Foundry output directory: {out_dir}. "
+                f"Please ensure contracts are compiled with 'forge build'."
             )
 
         return abis
@@ -241,10 +241,10 @@ class LuminoClient:
         return self.leader_manager.functions.getNodesWhoRevealed(epoch).call()
 
     # Job Manager functions
-    def submit_job(self, args: str, model_name: str, required_pool: int) -> dict:
+    def submit_job(self, args: str, model_name: str, ft_type: str) -> dict:
         """Submit a new job"""
         return self._send_transaction(
-            self.job_manager.functions.submitJob(args, model_name, required_pool)
+            self.job_manager.functions.submitJob(args, model_name, ft_type)
         )
 
     def start_assignment_round(self) -> dict:

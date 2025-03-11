@@ -17,13 +17,13 @@ from utils import ThreadHelper
 CONTRACTS_DIR = '../contracts'
 ABIS_DIR = f'{CONTRACTS_DIR}/out'
 RPC_URL = 'http://localhost:8545'
-COMPUTE_RATING = 30
-STAKE_AMOUNT = Web3.to_wei(30 * 10, 'ether')
+COMPUTE_RATING = 500
+STAKE_AMOUNT = Web3.to_wei(COMPUTE_RATING * 10, 'ether')
 JOB_ARGS = json.dumps({"prompt": "Test job"})
-MODEL_NAME = "llm_llama3_1_8b"
+MODEL_NAME = "llm_llama3_2_1b"
 TEST_MODE = "1111111"  # Run all phases, 1 epoch
-MIN_TOKEN_BALANCE = Web3.to_wei(500, 'ether')
-TOKENS_500 = Web3.to_wei(500, 'ether')
+TOKENS_5000 = Web3.to_wei(5000, 'ether')
+MIN_TOKEN_BALANCE = TOKENS_5000
 
 # Reward and Penalty Constants
 LEADER_REWARD = Web3.to_wei(5, 'ether')
@@ -31,7 +31,7 @@ JOB_AVAILABILITY_REWARD = Web3.to_wei(1, 'ether')
 DISPUTER_REWARD = Web3.to_wei(0.5, 'ether')
 LEADER_NOT_EXECUTED_PENALTY = Web3.to_wei(15, 'ether')
 JOB_NOT_CONFIRMED_PENALTY = Web3.to_wei(10, 'ether')
-MAX_PENALTIES_BEFORE_SLASH = 10
+MAX_PENALTIES_BEFORE_SLASH = 2
 
 
 def deploy_contracts() -> Dict[str, str]:
@@ -154,11 +154,11 @@ def node(anvil_config, deployer_sdk) -> LuminoNode:
     # Ensure node has minimum token balance
     node_balance = deployer_sdk.get_token_balance(node.address)
     if node_balance < MIN_TOKEN_BALANCE:
-        deployer_sdk.token.functions.transfer(node.address, TOKENS_500).transact({
+        deployer_sdk.token.functions.transfer(node.address, TOKENS_5000 * 2).transact({
             'from': deployer_sdk.address,
             'nonce': deployer_sdk.w3.eth.get_transaction_count(deployer_sdk.address)
         })
-        node.logger.info(f"Transferred {Web3.from_wei(TOKENS_500, 'ether')} LUM to node {node.address}")
+        node.logger.info(f"Transferred {Web3.from_wei(TOKENS_5000 * 2, 'ether')} LUM to node {node.address}")
 
     # Ensure node is whitelisted
     if not deployer_sdk.is_whitelisted(node.address):
@@ -183,11 +183,11 @@ def user_sdk(anvil_config, deployer_sdk) -> LuminoClient:
     # Ensure user has minimum token balance
     user_balance = deployer_sdk.get_token_balance(sdk.address)
     if user_balance < MIN_TOKEN_BALANCE:
-        deployer_sdk.token.functions.transfer(sdk.address, TOKENS_500).transact({
+        deployer_sdk.token.functions.transfer(sdk.address, TOKENS_5000).transact({
             'from': deployer_sdk.address,
             'nonce': deployer_sdk.w3.eth.get_transaction_count(deployer_sdk.address)
         })
-        sdk.logger.info(f"Transferred {Web3.from_wei(TOKENS_500, 'ether')} LUM to user {sdk.address}")
+        sdk.logger.info(f"Transferred {Web3.from_wei(TOKENS_5000, 'ether')} LUM to user {sdk.address}")
 
     return sdk
 
@@ -233,7 +233,7 @@ class TestNodeClientE2E:
         # Setup: Submit job as user using user_sdk
         user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
         user_sdk.deposit_job_funds(Web3.to_wei(20, 'ether'))
-        receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, COMPUTE_RATING)
+        receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, "FULL")
 
         # Get job ID from event
         job_submitted_event = user_sdk.job_manager.events.JobSubmitted()
@@ -281,7 +281,7 @@ class TestNodeClientE2E:
         # Submit a job using user_sdk
         user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
         user_sdk.deposit_job_funds(Web3.to_wei(20, 'ether'))
-        receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, COMPUTE_RATING)
+        receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, "FULL")
         job_id = user_sdk.job_manager.events.JobSubmitted().process_receipt(receipt)[0]['args']['jobId']
 
         # Run node through one full epoch
@@ -382,7 +382,7 @@ class TestNodeClientE2E:
         # Submit a job
         user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
         user_sdk.deposit_job_funds(Web3.to_wei(20, 'ether'))
-        receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, COMPUTE_RATING)
+        receipt = user_sdk.submit_job(JOB_ARGS, MODEL_NAME, "FULL")
         job_id = user_sdk.job_manager.events.JobSubmitted().process_receipt(receipt)[0]['args']['jobId']
 
         # Record initial stake balance
@@ -416,23 +416,23 @@ class TestNodeClientE2E:
         """Test slashing applied after exceeding maximum penalties"""
         # Setup: Ensure node is registered
         if not node.node_id:
-            node_sdk.approve_token_spending(node_sdk.node_escrow.address, STAKE_AMOUNT)
-            node_sdk.deposit_stake(STAKE_AMOUNT)
+            node_sdk.approve_token_spending(node_sdk.node_escrow.address, STAKE_AMOUNT + 200)
+            node_sdk.deposit_stake(STAKE_AMOUNT + 200)  # Additional stake to cover multiple penalties
             node.register_node()
 
         # Record initial stake balance
         initial_balance = node_sdk.get_stake_balance(node_sdk.address)
-        assert initial_balance >= STAKE_AMOUNT, "Initial balance should match deposited stake"
+        assert initial_balance >= STAKE_AMOUNT + 200, "Initial balance should match deposited stake"
 
         # Simulate multiple failures to reach MAX_PENALTIES_BEFORE_SLASH (5)
         max_penalties = MAX_PENALTIES_BEFORE_SLASH  # From LShared.MAX_PENALTIES_BEFORE_SLASH
         required_epochs = max_penalties  # One penalty per epoch
 
         # Adjust TEST_MODE for multiple epochs, skipping CONFIRM
-        node.test_mode = "111011" + str(required_epochs)  # Skip CONFIRM, run 5 epochs
+        node.test_mode = "111011" + str(required_epochs)  # Skip EXECUTE, run MAX_PENALTIES_BEFORE_SLASH epochs
         node_thread = ThreadHelper(node.run).run()
         while node.epochs_processed < required_epochs:
-            time.sleep(0.3)
+            time.sleep(1)
         node_thread.stop()
 
         # Verify epoch count

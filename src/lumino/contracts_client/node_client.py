@@ -455,17 +455,12 @@ class LuminoNode:
 
                     except Exception as phase_error:
                         self.logger.error(f"Error in {current_phase} phase: {phase_error}")
-                        if self.test_mode:
-                            # Wait 3 seconds, then print remaining events
-                            time.sleep(3)
-                            self.sdk.process_events()
-                            raise
                         continue
 
-                # Exit after first cycle for testing
+                # Exit after X cycle for testing
                 if self.test_mode and int(self.test_mode[6:]) != 0 and self.epochs_processed == int(self.test_mode[6:]):
-                    # Wait 3 seconds, then print remaining events
-                    time.sleep(3)
+                    # Wait, then print remaining events
+                    time.sleep(5)
                     self.sdk.process_events()
                     self.logger.info("Test cycle complete")
                     break
@@ -474,9 +469,8 @@ class LuminoNode:
                 if state == 5:
                     can_begin = True
 
-                # Sleep until next phase
-                sleep_time = min(time_left, 2)  # Check state every 2 seconds
-                time.sleep(sleep_time)
+                # Sleep then check epoch state again
+                time.sleep(1)
 
             except Exception as e:
                 state, _ = self.sdk.get_epoch_state()
@@ -487,10 +481,6 @@ class LuminoNode:
                 self.logger.error(f"Has secret: {bool(self.current_secret)}")
                 self.logger.error(f"Has commitment: {bool(self.current_commitment)}")
                 self.logger.error("=========================")
-
-                if self.test_mode:
-                    raise
-                time.sleep(5)  # Brief pause before retrying
 
 
 def initialize_lumino_node() -> LuminoNode:

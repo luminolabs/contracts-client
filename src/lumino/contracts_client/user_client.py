@@ -10,7 +10,9 @@ import click
 from dotenv import load_dotenv
 from web3 import Web3
 
-from client import LuminoClient, LuminoConfig
+from lumino.contracts_client.client import LuminoClient, LuminoConfig
+
+load_dotenv()
 
 
 @dataclass
@@ -155,7 +157,6 @@ class LuminoUserClient:
 
 
 def initialize_lumino_user_client() -> LuminoUserClient:
-    load_dotenv()
     sdk_config = LuminoConfig(
         web3_provider=os.getenv('RPC_URL', 'http://localhost:8545'),
         private_key=os.getenv('USER_PRIVATE_KEY', os.getenv('NODE_PRIVATE_KEY')),
