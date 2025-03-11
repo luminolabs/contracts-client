@@ -31,7 +31,7 @@ JOB_AVAILABILITY_REWARD = Web3.to_wei(1, 'ether')
 DISPUTER_REWARD = Web3.to_wei(0.5, 'ether')
 LEADER_NOT_EXECUTED_PENALTY = Web3.to_wei(15, 'ether')
 JOB_NOT_CONFIRMED_PENALTY = Web3.to_wei(10, 'ether')
-MAX_PENALTIES_BEFORE_SLASH=2
+MAX_PENALTIES_BEFORE_SLASH = 10
 
 
 def deploy_contracts() -> Dict[str, str]:
