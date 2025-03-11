@@ -189,13 +189,13 @@ def cli(ctx):
 @cli.command()
 @click.option('--args', required=True, help='Job arguments in JSON format')
 @click.option('--model', default='llm_llama3_1_8b', help='Model name')
-@click.option('--pool', default=30, type=int, help='Required compute pool')
+@click.option('--ft_type', default='LORA', type=str, help='Fine-tuning type (QLORA, LORA, FULL)')
 @click.option('--monitor', is_flag=True, help='Monitor job progress after submission')
 @click.pass_obj
-def create_job(client: LuminoUserClient, args, model, pool, monitor):
+def create_job(client: LuminoUserClient, args, model, ft_type, monitor):
     """Create a new job"""
     try:
-        job_id = client.submit_job(args, model, pool)
+        job_id = client.submit_job(args, model, ft_type)
         click.echo(f"Job created successfully with ID: {job_id}")
 
         if monitor:

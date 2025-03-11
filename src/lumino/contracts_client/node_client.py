@@ -69,8 +69,8 @@ class LuminoNode:
         self.pipeline_zen_dir = None
         if config.pipeline_zen_dir:
             self.pipeline_zen_dir = Path(config.pipeline_zen_dir)
-            self.script_dir = self.pipeline_zen_dir / Path("scripts/runners/celery-wf-docker.sh")
-            self.results_base_dir = self.pipeline_zen_dir / Path(".results/")
+            self.script_dir = Path("scripts/runners/celery-wf.sh")
+            self.results_base_dir = Path(".results/")
 
         self.logger.info("Lumino Node initialization complete")
 
