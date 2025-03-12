@@ -65,6 +65,10 @@ class LuminoNode:
         # Compute rating
         self.compute_rating = config.compute_rating
 
+        # Node can begin participating after first DISPUTE phase
+        # to avoid entering mid-epoch
+        self.can_begin = False
+
         # Job paths
         self.pipeline_zen_dir = None
         if config.pipeline_zen_dir:
@@ -224,6 +228,9 @@ class LuminoNode:
                 status = job["status"]
                 try:
                     if status == 1:  # ASSIGNED
+                        # Disable can_begin to prevent re-entry halfway through epoch
+                        self.can_begin = False
+
                         self.sdk.confirm_job(job_id)
                         self.logger.info(f"Confirmed job {job_id}")
 
@@ -282,6 +289,10 @@ class LuminoNode:
             current_dir = os.getcwd()
             os.chdir(self.pipeline_zen_dir)
 
+            # Generate random seed
+            if "seed" not in args_dict:
+                args_dict["seed"] = random.randint(0, 2 ** 32)
+
             # Construct command
             command = [
                 str(self.script_dir),
@@ -296,7 +307,7 @@ class LuminoNode:
                 "--use_lora", str(args_dict.get("use_lora", "true")).lower(),
                 "--use_qlora", str(args_dict.get("use_qlora", "false")).lower(),
                 "--lr", str(args_dict.get("lr", "3e-4")),
-                "--seed", str(args_dict.get("seed", "")),
+                "--seed", str(args_dict.get("seed")),
                 "--num_gpus", str(num_gpus)
             ]
 
@@ -335,10 +346,14 @@ class LuminoNode:
             # Wait for process to finish
             stdout, stderr = process.communicate()
 
+            # Check if process finished successfully
+            time.sleep(1)
+            finish_file_exists = finish_file.exists()
+
             # Return to original directory
             os.chdir(current_dir)
 
-            if not finish_file.exists():
+            if not finish_file_exists:
                 self.logger.error(f"Job {job_id} finished but no .finished file found")
                 return False
 
@@ -380,9 +395,6 @@ class LuminoNode:
             5: "DISPUTE"
         }
 
-        # Node can begin after first DISPUTE phase
-        can_begin = False
-
         while True:
             try:
                 current_time = time.time()
@@ -406,6 +418,7 @@ class LuminoNode:
                     last_status_update = current_time
 
                 # Get current epoch state
+                status_check_time = time.time()
                 state, time_left = self.sdk.get_epoch_state()
                 current_phase = state_names[state]
 
@@ -420,7 +433,7 @@ class LuminoNode:
                     phase_start_time = current_time
 
                 # State machine for epoch phases
-                if can_begin and state_changed:
+                if self.can_begin and state_changed:
                     try:
                         if state == 0 and self.test_mode and int(self.test_mode[0]) != 0:  # COMMIT
                             # If we are penalized, make sure we are topped up
@@ -465,12 +478,13 @@ class LuminoNode:
                     self.logger.info("Test cycle complete")
                     break
 
-                # Node can begin after first DISPUTE phase
+                # Node can begin/resume after the DISPUTE phase
                 if state == 5:
-                    can_begin = True
+                    self.can_begin = True
 
                 # Sleep then check epoch state again
-                time.sleep(1)
+                sleep_time = max(0, int(time_left) - int(time.time() - status_check_time)) + 2  # 2sec buffer
+                time.sleep(sleep_time)
 
             except Exception as e:
                 state, _ = self.sdk.get_epoch_state()

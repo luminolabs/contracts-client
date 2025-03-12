@@ -47,8 +47,8 @@ class ErrorHandler:
 
             # EpochManager errors
             "InvalidState": {
-                "params": ["uint8"],
-                "format": lambda args: f"Invalid epoch state: {self.EPOCH_STATE.get(args[0], 'Unknown')}"
+                "params": ["uint8", "uint8"],
+                "format": lambda args: f"Invalid epoch state: {self.EPOCH_STATE.get(args[0], 'Unknown')}, expected {self.EPOCH_STATE.get(args[1], 'Unknown')}"
             },
 
             # Escrow (AEscrow) errors
