@@ -3,7 +3,7 @@
 # Default values
 ACTION="install"
 URL="https://storage.googleapis.com/lum-node-artifacts-f0ad091132a3b660e807c360d7410fca2bfb"
-CURRENT_INSTALL_SCRIPT_VERSION="0-1-2"  # Update this in each release
+CURRENT_INSTALL_SCRIPT_VERSION="0-1-0"  # Update this in each release
 LUMINO_DIR="$HOME/lumino"
 VERSION_FILE="$LUMINO_DIR/.lumino_versions"
 INSTALL_SCRIPT_PATH="$LUMINO_DIR/$(basename "$0")"
