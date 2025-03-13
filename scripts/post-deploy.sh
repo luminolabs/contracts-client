@@ -3,13 +3,15 @@
 set -e  # Exit immediately if a command exits with non-zero status
 
 # Define paths
-LUMINO_ROOT="$HOME/lumino"
+LUMINO_ROOT="$HOME/Networking/lumino"
 ROOT_VERSIONS_FILE="$LUMINO_ROOT/VERSIONS"
 CONTRACTS_DIR="$LUMINO_ROOT/contracts"
 CONTRACTS_VERSION_FILE="$CONTRACTS_DIR/VERSION"
 CONTRACTS_CLIENT_DIR="$LUMINO_ROOT/contracts-client"
+NODE_INSTALL_SCRIPT="$LUMINO_ROOT/contracts-client/scripts/node-install.sh"
 ARTIFACTS_DIR="$CONTRACTS_CLIENT_DIR/node_artifacts"
 ADDRESSES_JSON="$CONTRACTS_DIR/addresses.json"
+PIPELINE_REPO_URL="https://github.com/luminolabs/pipeline-zen.git"  # Replace with actual repo URL
 GCS_BUCKET="gs://lum-node-artifacts-f0ad091132a3b660e807c360d7410fca2bfb"
 TEST_GCS_BUCKET="gs://lum-node-artifacts-f0ad091132a3b660e807c360d7410fca2bfb/test"  # For testing
 
@@ -139,9 +141,40 @@ while IFS= read -r line; do
     esac
 done < "$TEMPLATE_ENV_FILE"
 
-# Create VERSIONS file in artifacts directory
+# Handle pipeline-zen repository
+echo "Handling pipeline-zen repository..."
+
+# Remove existing pipeline-zen if it exists
+PIPELINE_DIR="$LUMINO_ROOT/pipeline-zen"
+if [ -d "$PIPELINE_DIR" ]; then
+    echo "Removing existing pipeline-zen directory..."
+    rm -rf "$PIPELINE_DIR"
+fi
+
+# Clone the repository
+echo "Cloning pipeline-zen repository..."
+cd "$LUMINO_ROOT"
+git clone "$PIPELINE_REPO_URL" pipeline-zen
+
+# Get pipeline-zen version
+if [ -f "$PIPELINE_DIR/VERSION" ]; then
+    NEW_PIPELINE_ZEN_VERSION=$(cat "$PIPELINE_DIR/VERSION")
+    # Replace dots with hyphens if needed
+    NEW_PIPELINE_ZEN_VERSION=$(echo "$NEW_PIPELINE_ZEN_VERSION" | tr '.' '-')
+    echo "Pipeline-zen version: $NEW_PIPELINE_ZEN_VERSION"
+else
+    echo "Warning: pipeline-zen VERSION file not found. Using current version."
+    NEW_PIPELINE_ZEN_VERSION="$PIPELINE_ZEN_VERSION"
+fi
+
+# Create pipeline-zen tarball
+echo "Creating pipeline-zen tarball..."
+PIPELINE_TARBALL="$ARTIFACTS_DIR/$NEW_PIPELINE_ZEN_VERSION-pipeline-zen.tar.gz"
+tar -czvf "$PIPELINE_TARBALL" -C "$LUMINO_ROOT" pipeline-zen
+
+# Create VERSIONS file in artifacts directory with updated pipeline-zen version
 VERSIONS_ARTIFACT="$ARTIFACTS_DIR/VERSIONS"
-echo "pipeline-zen==$PIPELINE_ZEN_VERSION" > "$VERSIONS_ARTIFACT"
+echo "pipeline-zen==$NEW_PIPELINE_ZEN_VERSION" > "$VERSIONS_ARTIFACT"
 echo "lumino-contracts-client==$CONTRACTS_CLIENT_VERSION" >> "$VERSIONS_ARTIFACT"
 echo "contracts==$CONTRACTS_VERSION" >> "$VERSIONS_ARTIFACT"
 echo "install-script==$INSTALL_SCRIPT_VERSION" >> "$VERSIONS_ARTIFACT"
@@ -173,21 +206,27 @@ ls -la "$ARTIFACTS_DIR"
 read -p "Upload these files to GCS bucket? (y/n): " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    # Upload to Test GCS
-    echo "Uploading files to test GCS bucket..."
-    gsutil cp "$VERSIONS_ARTIFACT" "$TEST_GCS_BUCKET/VERSIONS"
-    gsutil cp "$ENV_FILE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION.env"
-    gsutil cp "$ABIS_ARCHIVE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
-    # Optional: Upload to test bucket as well
-    read -p "Upload to test bucket as well? (y/n): " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        gsutil cp "$VERSIONS_ARTIFACT" "$GCS_BUCKET/VERSIONS"
-        gsutil cp "$ENV_FILE" "$GCS_BUCKET/$CONTRACTS_VERSION.env"
-        gsutil cp "$ABIS_ARCHIVE" "$GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
-        echo "Files uploaded to GCS bucket."
-    fi
-    echo "Files uploaded to test bucket."
+    # Upload to GCS
+    echo "Uploading files to GCS bucket..."
+    gsutil cp "$VERSIONS_ARTIFACT" "$GCS_BUCKET/VERSIONS"
+    gsutil cp "$ENV_FILE" "$GCS_BUCKET/$CONTRACTS_VERSION.env"
+    gsutil cp "$ABIS_ARCHIVE" "$GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
+    gsutil cp "$NODE_INSTALL_SCRIPT" "$GCS_BUCKET/node-install.sh"
+    gsutil cp "$PIPELINE_TARBALL" "$GCS_BUCKET/$NEW_PIPELINE_ZEN_VERSION-pipeline-zen.tar.gz"
+    
+    echo "Files uploaded to GCS bucket."
+else
+    echo "Upload cancelled. Files are staged in $ARTIFACTS_DIR"
+fi
+read -p "Upload to test bucket as well? (y/n): " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+        gsutil cp "$VERSIONS_ARTIFACT" "$TEST_GCS_BUCKET/VERSIONS"
+        gsutil cp "$ENV_FILE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION.env"
+        gsutil cp "$ABIS_ARCHIVE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
+        gsutil cp "$NODE_INSTALL_SCRIPT" "$TEST_GCS_BUCKET/node-install.sh"
+        gsutil cp "$PIPELINE_TARBALL" "$TEST_GCS_BUCKET/$NEW_PIPELINE_ZEN_VERSION-pipeline-zen.tar.gz"
+        echo "Files uploaded to test bucket."
 else
     echo "Upload cancelled. Files are staged in $ARTIFACTS_DIR"
 fi
@@ -195,3 +234,4 @@ fi
 echo "Updates complete!"
 echo "Using contracts version: $CONTRACTS_VERSION"
 echo "New contracts-addresses version: $NEW_ADDR_VERSION"
+echo "Pipeline-zen version: $NEW_PIPELINE_ZEN_VERSION"
