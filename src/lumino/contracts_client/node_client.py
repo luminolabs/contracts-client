@@ -223,8 +223,9 @@ class LuminoNode:
             jobs = self.sdk.get_jobs_by_node(self.node_id)
             for job in jobs:
                 job_id = job["id"]
+                job_base_model_name = job["baseModelName"]
+                num_gpus = job["numGpus"]
                 job_args = job["args"]
-                job_base_model_name = job["base_model_name"]
                 status = job["status"]
                 try:
                     if status == 1:  # ASSIGNED
@@ -240,6 +241,7 @@ class LuminoNode:
                                 job_id=job_id,
                                 base_model_name=job_base_model_name,
                                 args=job_args,
+                                num_gpus=num_gpus,
                                 submitter=job["submitter"]
                             )
                         else:
@@ -264,7 +266,7 @@ class LuminoNode:
             self.logger.error(f"Error getting assigned jobs: {e}")
             raise
 
-    def _execute_job(self, job_id: int, base_model_name: str, args: str, submitter: str) -> bool:
+    def _execute_job(self, job_id: int, base_model_name: str, args: str, num_gpus: int, submitter: str) -> bool:
         """Execute a job using celery-wf-docker.sh and monitor results"""
         self.logger.info(f"Executing job {job_id}")
 
@@ -275,15 +277,6 @@ class LuminoNode:
             except json.JSONDecodeError:
                 self.logger.error(f"Invalid JSON in job args: {args}")
                 return False
-
-            # Determine number of GPUs based on model name
-            num_gpus = 1  # Default to single GPU
-            if base_model_name == "llm_llama3_1_8b" and not args_dict["use_lora"]:
-                num_gpus = 4
-            elif base_model_name == "llm_llama3_1_70b":
-                num_gpus = 4
-                if not args_dict["use_lora"]:
-                    num_gpus = 8
 
             # CD to pipeline directory
             current_dir = os.getcwd()

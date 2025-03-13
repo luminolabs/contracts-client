@@ -291,7 +291,8 @@ class LuminoClient:
         """Get detailed job information for a node"""
         jobs = self.job_manager.functions.getJobsDetailsByNode(node_id).call()
         return [{"id": j[0], "submitter": j[1], "assignedNode": j[2], "status": j[3],
-                 "requiredPool": j[4], "args": j[5], "base_model_name": j[6],
+                 "requiredPool": j[4], "args": j[5], "baseModelName": j[6],
+                 "ftType": j[7], "numGpus": j[8],
                  "tokenCount": j[7], "createdAt": j[8]} for j in jobs]
 
     def get_assigned_node(self, job_id: int) -> int:
