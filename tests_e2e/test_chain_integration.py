@@ -17,12 +17,13 @@ from utils import ThreadHelper
 CONTRACTS_DIR = '../contracts'
 ABIS_DIR = f'{CONTRACTS_DIR}/out'
 RPC_URL = 'http://localhost:8545'
-COMPUTE_RATING = 500
+# Use higher rating than job requirement to test higher compute pool can run lower compute rating jobs
+COMPUTE_RATING = 1500
 STAKE_AMOUNT = Web3.to_wei(COMPUTE_RATING * 10, 'ether')
 JOB_ARGS = json.dumps({"prompt": "Test job"})
-MODEL_NAME = "llm_llama3_2_1b"
+MODEL_NAME = "llm_llama3_2_1b"  # Needs 500 compute rating
 TEST_MODE = "1111111"  # Run all phases, 1 epoch
-TOKENS_5000 = Web3.to_wei(5000, 'ether')
+TOKENS_5000 = Web3.to_wei(15000, 'ether')
 MIN_TOKEN_BALANCE = TOKENS_5000
 
 # Reward and Penalty Constants
