@@ -264,6 +264,89 @@ class LuminoNode:
             self.logger.error(f"Error getting assigned jobs: {e}")
             raise
 
+    def withdraw_from_escrow(self, amount: float, escrow_type: str = "job") -> None:
+        """Request withdrawal from escrow (job or node)"""
+        amount_wei = Web3.to_wei(amount, 'ether')
+        
+        try:
+            if escrow_type.lower() == "job":
+                self.sdk.request_withdrawal_from_job_escrow(amount_wei)
+                self.logger.info(f"Requested withdrawal of {amount} LUM from JobEscrow")
+            else:
+                self.sdk.request_withdraw(amount_wei)
+                self.logger.info(f"Requested withdrawal of {amount} LUM from NodeEscrow")
+            
+            # Display unlock time
+            unlock_time = time.time() + 86400  # 1 day in seconds (LOCK_PERIOD from contracts)
+            click.echo(f"Withdrawal requested. Funds will be available after: {time.ctime(unlock_time)}")
+            
+        except Exception as e:
+            self.logger.error(f"Error requesting withdrawal: {e}")
+            click.echo(f"Error: {e}", err=True)
+
+    def cancel_withdraw(self, escrow_type: str = "job") -> None:
+        """Cancel a pending withdrawal request"""
+        try:
+            if escrow_type.lower() == "job":
+                self.sdk.cancel_withdraw_from_job_escrow()
+                self.logger.info("Cancelled withdrawal request from JobEscrow")
+            else:
+                self.sdk.cancel_withdraw()
+                self.logger.info("Cancelled withdrawal request from NodeEscrow")
+            click.echo("Withdrawal request cancelled successfully")
+        except Exception as e:
+            self.logger.error(f"Error cancelling withdrawal: {e}")
+            click.echo(f"Error: {e}", err=True)
+
+    def execute_withdraw(self, escrow_type: str = "job") -> None:
+        """Execute a withdrawal after the lock period"""
+        try:
+            if escrow_type.lower() == "job":
+                self.sdk.withdraw_from_job_escrow()
+                self.logger.info("Executed withdrawal from JobEscrow")
+            else:
+                self.sdk.withdraw()
+                self.logger.info("Executed withdrawal from NodeEscrow")
+            
+            # Get updated balance
+            balances = self.check_balances()
+            click.echo(f"Withdrawal completed successfully")
+            click.echo(f"New token balance: {balances['token_balance']} LUM")
+        except Exception as e:
+            self.logger.error(f"Error executing withdrawal: {e}")
+            click.echo(f"Error: {e}", err=True)
+
+    def check_withdraw_status(self, escrow_type: str = "job") -> None:
+        """Check the status of a pending withdrawal request"""
+        try:
+            if escrow_type.lower() == "job":
+                request = self.sdk.get_withdraw_request_job_escrow(self.address)
+            else:
+                request = self.sdk.get_withdraw_request_node_escrow(self.address)
+            
+            if not request[2]:  # active flag
+                click.echo("No active withdrawal request found")
+                return
+            
+            amount = Web3.from_wei(request[0], 'ether')
+            request_time = request[1]
+            unlock_time = request_time + 86400  # 1 day in seconds (LOCK_PERIOD)
+            current_time = int(time.time())
+            
+            click.echo(f"Withdrawal amount: {amount} LUM")
+            click.echo(f"Request time: {time.ctime(request_time)}")
+            
+            if current_time >= unlock_time:
+                click.echo("Status: UNLOCKED - Funds are available for withdrawal")
+            else:
+                remaining = unlock_time - current_time
+                hours, remainder = divmod(remaining, 3600)
+                minutes, seconds = divmod(remainder, 60)
+                click.echo(f"Status: LOCKED - Unlock in {int(hours)}h {int(minutes)}m {int(seconds)}s")
+        except Exception as e:
+            self.logger.error(f"Error checking withdrawal status: {e}")
+            click.echo(f"Error: {e}", err=True)
+
     def _execute_job(self, job_id: int, base_model_name: str, args: str, submitter: str) -> bool:
         """Execute a job using celery-wf-docker.sh and monitor results"""
         self.logger.info(f"Executing job {job_id}")
