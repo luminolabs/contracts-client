@@ -435,6 +435,40 @@ def list(client: LuminoUserClient):
         client.logger.error(f"Error listing jobs: {e}")
         click.echo(f"Error: {e}", err=True)
 
+@cli.group()
+def withdraw():
+    """Manage withdrawals from escrows"""
+    pass
+
+@withdraw.command('request')
+@click.option('--amount', required=True, type=float, help='Amount to withdraw in LUM')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to withdraw from')
+@click.pass_obj
+def request_withdraw(client: LuminoUserClient, amount, escrow):
+    """Request a withdrawal from an escrow"""
+    client.withdraw_from_escrow(amount, escrow)
+
+@withdraw.command('cancel')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to cancel withdrawal from')
+@click.pass_obj
+def cancel_withdraw_cmd(client: LuminoUserClient, escrow):
+    """Cancel a withdrawal request"""
+    client.cancel_withdraw(escrow)
+
+@withdraw.command('execute')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to execute withdrawal from')
+@click.pass_obj
+def execute_withdraw_cmd(client: LuminoUserClient, escrow):
+    """Execute a withdrawal after the lock period"""
+    client.execute_withdraw(escrow)
+
+@withdraw.command('status')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to check status for')
+@click.pass_obj
+def withdraw_status(client: LuminoUserClient, escrow):
+    """Check the status of a withdrawal request"""
+    client.check_withdraw_status(escrow)
+
 
 if __name__ == "__main__":
     cli()

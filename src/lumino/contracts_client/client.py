@@ -197,6 +197,32 @@ class LuminoClient:
     def get_stake_requirement(self, address: ChecksumAddress) -> int:
         """Get stake requirement for an address"""
         return self.node_manager.functions.getStakeRequirement(address).call()
+    
+    def request_withdrawal_from_job_escrow(self, amount: int) -> dict:
+        """Request withdrawal from JobEscrow"""
+        return self._send_transaction(
+            self.job_escrow.functions.requestWithdraw(amount)
+        )
+
+    def cancel_withdraw_from_job_escrow(self) -> dict:
+        """Cancel pending withdrawal request from JobEscrow"""
+        return self._send_transaction(
+            self.job_escrow.functions.cancelWithdraw()
+        )
+
+    def withdraw_from_job_escrow(self) -> dict:
+        """Execute withdrawal from JobEscrow after lock period"""
+        return self._send_transaction(
+            self.job_escrow.functions.withdraw()
+        )
+
+    def get_withdraw_request_job_escrow(self, address: ChecksumAddress) -> tuple:
+        """Get withdrawal request details from JobEscrow"""
+        return self.job_escrow.functions.withdrawRequests(address).call()
+
+    def get_withdraw_request_node_escrow(self, address: ChecksumAddress) -> tuple:
+        """Get withdrawal request details from NodeEscrow"""
+        return self.node_escrow.functions.withdrawRequests(address).call()
 
     # Epoch Manager functions
     def get_current_epoch(self) -> int:
@@ -321,32 +347,6 @@ class LuminoClient:
         """Get JobEscrow balance for address"""
         return self.job_escrow.functions.getBalance(address).call()
     
-    def request_withdrawal_from_job_escrow(self, amount: int) -> dict:
-        """Request withdrawal from JobEscrow"""
-        return self._send_transaction(
-            self.job_escrow.functions.requestWithdraw(amount)
-        )
-
-    def cancel_withdraw_from_job_escrow(self) -> dict:
-        """Cancel pending withdrawal request from JobEscrow"""
-        return self._send_transaction(
-            self.job_escrow.functions.cancelWithdraw()
-        )
-
-    def withdraw_from_job_escrow(self) -> dict:
-        """Execute withdrawal from JobEscrow after lock period"""
-        return self._send_transaction(
-            self.job_escrow.functions.withdraw()
-        )
-
-    def get_withdraw_request_job_escrow(self, address: ChecksumAddress) -> tuple:
-        """Get withdrawal request details from JobEscrow"""
-        return self.job_escrow.functions.withdrawRequests(address).call()
-
-    def get_withdraw_request_node_escrow(self, address: ChecksumAddress) -> tuple:
-        """Get withdrawal request details from NodeEscrow"""
-        return self.node_escrow.functions.withdrawRequests(address).call()
-
     # Whitelist Manager functions
     def add_cp(self, cp_address: ChecksumAddress) -> dict:
         """Add a computing provider to whitelist"""
