@@ -173,24 +173,21 @@ ls -la "$ARTIFACTS_DIR"
 read -p "Upload these files to GCS bucket? (y/n): " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    # Upload to GCS
-    echo "Uploading files to GCS bucket..."
-    gsutil cp "$VERSIONS_ARTIFACT" "$GCS_BUCKET/VERSIONS"
-    gsutil cp "$ENV_FILE" "$GCS_BUCKET/$CONTRACTS_VERSION.env"
-    gsutil cp "$ABIS_ARCHIVE" "$GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
-    
+    # Upload to Test GCS
+    echo "Uploading files to test GCS bucket..."
+    gsutil cp "$VERSIONS_ARTIFACT" "$TEST_GCS_BUCKET/VERSIONS"
+    gsutil cp "$ENV_FILE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION.env"
+    gsutil cp "$ABIS_ARCHIVE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
     # Optional: Upload to test bucket as well
     read -p "Upload to test bucket as well? (y/n): " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        gsutil cp "$VERSIONS_ARTIFACT" "$TEST_GCS_BUCKET/VERSIONS"
-        cat $ENV_FILE
-        gsutil cp "$ENV_FILE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION.env"
-        gsutil cp "$ABIS_ARCHIVE" "$TEST_GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
-        echo "Files uploaded to test bucket."
+        gsutil cp "$VERSIONS_ARTIFACT" "$GCS_BUCKET/VERSIONS"
+        gsutil cp "$ENV_FILE" "$GCS_BUCKET/$CONTRACTS_VERSION.env"
+        gsutil cp "$ABIS_ARCHIVE" "$GCS_BUCKET/$CONTRACTS_VERSION-abis.tar.gz"
+        echo "Files uploaded to GCS bucket."
     fi
-    
-    echo "Files uploaded to GCS bucket."
+    echo "Files uploaded to test bucket."
 else
     echo "Upload cancelled. Files are staged in $ARTIFACTS_DIR"
 fi
