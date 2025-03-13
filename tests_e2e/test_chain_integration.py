@@ -144,7 +144,7 @@ def node(anvil_config, deployer_sdk) -> LuminoNode:
     config = NodeConfig(
         sdk_config=anvil_config['node_sdk_config'],
         data_dir=anvil_config['data_dir'],
-        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR'),
+        pipeline_zen_dir=None,
         log_level=anvil_config['log_level'],
         test_mode=anvil_config['test_mode'],
         compute_rating=COMPUTE_RATING

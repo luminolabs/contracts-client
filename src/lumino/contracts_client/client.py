@@ -232,6 +232,10 @@ class LuminoClient:
         """Get current leader node ID"""
         return self.leader_manager.functions.getCurrentLeader().call()
 
+    def get_leader_for_epoch(self, epoch: int) -> int:
+        """Get leader node ID for an epoch"""
+        return self.leader_manager.functions.getLeaderForEpoch(epoch).call()
+
     def get_final_random_value(self, epoch: int) -> bytes:
         """Get final random value for an epoch"""
         return self.leader_manager.functions.getFinalRandomValue(epoch).call()
