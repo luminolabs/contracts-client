@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from web3 import Web3
 
 from lumino.contracts_client.client import LuminoClient, LuminoConfig, ContractError
+from lumino.contracts_client.compute_power import get_compute_power
 
 # Escrow min deposit
 MIN_DEPOSIT = Web3.to_wei(20, 'ether')
@@ -514,9 +515,7 @@ def initialize_lumino_node() -> LuminoNode:
 
     compute_rating = int(os.getenv('COMPUTE_RATING', "0"))
     if not compute_rating:
-        from lumino.contracts_client.hw_spec.hardware_pool_integration import HardwarePoolIntegration
-        hpi = HardwarePoolIntegration('cache/')
-        compute_rating = hpi.calculate_compute_power()
+        compute_rating = get_compute_power()
 
     config = NodeConfig(
         sdk_config=sdk_config,
