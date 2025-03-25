@@ -4,5 +4,7 @@ eth-typing
 python-dotenv
 eth_abi
 click
-psutil
+pytest
+setuptools
 pynvml
+psutil

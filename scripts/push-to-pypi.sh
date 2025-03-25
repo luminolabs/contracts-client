@@ -26,7 +26,9 @@ fi
 
 # Remove any old distributions
 echo "Removing old distributions..."
-rm -rf dist/*
+rm -rf build dist *.egg-info
+find . -name '*.pyc' -delete
+find . -name '__pycache__' -delete
 
 # Create source distribution and wheel
 echo "Building the package..."
@@ -39,5 +41,7 @@ twine upload --repository lumino-contracts-client dist/*
 # Clean up
 echo "Cleaning up build files..."
 rm -rf build dist *.egg-info
+find . -name '*.pyc' -delete
+find . -name '__pycache__' -delete
 
 echo "Package successfully uploaded to PyPI!"

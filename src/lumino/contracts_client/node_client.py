@@ -3,16 +3,33 @@ import logging
 import os
 import random
 import subprocess
+import tarfile
 import time
+import urllib
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from dotenv import load_dotenv
+import click
+from lumino.contracts_client.client import LuminoClient, LuminoConfig, ContractError
+from lumino.contracts_client.config import load_environment, setup_environment_vars, create_sdk_config
+from lumino.contracts_client.constants import (
+    ENV_VAR_NODE_DATA_DIR,
+    ENV_VAR_PIPELINE_ZEN_DIR,
+    ENV_VAR_TEST_MODE,
+    ENV_VAR_COMPUTE_RATING,
+    ENV_VAR_ARTIFACTS_PASSWORD,
+    DEFAULT_DATA_DIR,
+    DEFAULT_PIPELINE_ZEN_DIR,
+    DEFAULT_TEST_MODE,
+    EPOCH_STATE, DEFAULT_LUMINO_DIR
+)
+from lumino.contracts_client.utils import setup_logging, load_json_file, save_json_file, check_and_create_dir, \
+    read_env_vars
 from web3 import Web3
 
-from lumino.contracts_client.client import LuminoClient, LuminoConfig, ContractError
-from lumino.contracts_client.compute_power import get_compute_power
+# Load environment variables
+load_environment()
 
 # Escrow min deposit
 MIN_DEPOSIT = Web3.to_wei(20, 'ether')
@@ -35,15 +52,14 @@ class LuminoNode:
     def __init__(self, config: NodeConfig):
         """Initialize the Lumino node client"""
         # Set up data directory
-        self.data_dir = Path(config.data_dir)
-        self.data_dir.mkdir(parents=True, exist_ok=True)
+        self.data_dir = check_and_create_dir(config.data_dir)
         self.node_data_file = self.data_dir / "node_data.json"
 
         # Set test mode
         self.test_mode = config.test_mode
 
         # Set up logging
-        self._setup_logging(config.log_level)
+        self.logger = setup_logging("LuminoNode", self.data_dir / "lumino_node.log", config.log_level)
         self.logger.info("Initializing Lumino Node...")
 
         # Initialize SDK
@@ -54,7 +70,7 @@ class LuminoNode:
         self.sdk.setup_event_filters()
 
         # Load node data
-        self.node_data = self._load_node_data()
+        self.node_data = load_json_file(self.node_data_file, {})
         self.node_id = self.node_data.get("node_id")
 
         # Node state
@@ -73,48 +89,15 @@ class LuminoNode:
         # Job paths
         self.pipeline_zen_dir = None
         if config.pipeline_zen_dir:
-            self.pipeline_zen_dir = Path(config.pipeline_zen_dir)
+            self.pipeline_zen_dir = Path(os.path.expanduser(config.pipeline_zen_dir))
             self.script_dir = Path("scripts/runners/celery-wf.sh")
             self.results_base_dir = Path(".results/")
 
         self.logger.info("Lumino Node initialization complete")
 
-    def _setup_logging(self, log_level: int) -> None:
-        """Set up logging with file and console handlers"""
-        self.logger = logging.getLogger("LuminoNode")
-        self.logger.setLevel(log_level)
-
-        # Clear existing handlers
-        self.logger.handlers.clear()
-
-        # Create formatters and handlers
-        formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        )
-
-        # Console handler
-        console_handler = logging.StreamHandler()
-        console_handler.setFormatter(formatter)
-        self.logger.addHandler(console_handler)
-
-        # File handler
-        file_handler = logging.FileHandler(
-            self.data_dir / "lumino_node.log"
-        )
-        file_handler.setFormatter(formatter)
-        self.logger.addHandler(file_handler)
-
-    def _load_node_data(self) -> dict:
-        """Load node data from disk or initialize if not exists"""
-        if self.node_data_file.exists():
-            with open(self.node_data_file) as f:
-                return json.load(f)
-        return {}
-
     def _save_node_data(self) -> None:
         """Save node data to disk"""
-        with open(self.node_data_file, 'w') as f:
-            json.dump(self.node_data, f, indent=2)
+        save_json_file(self.node_data_file, self.node_data)
 
     def topup_stake(self, add_node: bool = False) -> None:
         addl_stake = 0
@@ -338,7 +321,7 @@ class LuminoNode:
                 time.sleep(1)  # Poll every second
 
             # Wait for process to finish
-            stdout, stderr = process.communicate()
+            process.communicate()
 
             # Check if process finished successfully
             time.sleep(1)
@@ -376,18 +359,9 @@ class LuminoNode:
         # Track phase timing
         last_phase = None
         phase_start_time = time.time()
-        status_update_interval = 300  # 5 minutes
-        last_status_update = time.time()
 
-        # Map numeric states to readable names
-        state_names = {
-            0: "COMMIT",
-            1: "REVEAL",
-            2: "ELECT",
-            3: "EXECUTE",
-            4: "CONFIRM",
-            5: "DISPUTE"
-        }
+        # Use epoch state names from constants
+        state_names = EPOCH_STATE
 
         while True:
             try:
@@ -395,21 +369,6 @@ class LuminoNode:
 
                 # Process any new events
                 self.sdk.process_events()
-
-                # Periodic status update
-                if current_time - last_status_update >= status_update_interval:
-                    stake_balance = self.sdk.get_stake_balance(self.address)
-                    token_balance = self.sdk.get_token_balance(self.address)
-                    current_epoch = self.sdk.get_current_epoch()
-
-                    self.logger.info("=== Node Status Update ===")
-                    self.logger.info(f"Current epoch: {current_epoch}")
-                    self.logger.info(f"Stake balance: {Web3.from_wei(stake_balance, 'ether')} LUM")
-                    self.logger.info(f"Token balance: {Web3.from_wei(token_balance, 'ether')} LUM")
-                    self.logger.info(f"Leader status: {'Leader' if self.is_leader else 'Regular node'}")
-                    self.logger.info("========================")
-
-                    last_status_update = current_time
 
                 # Get current epoch state
                 status_check_time = time.time()
@@ -491,37 +450,156 @@ class LuminoNode:
                 self.logger.error("=========================")
 
 
-def initialize_lumino_node() -> LuminoNode:
-    """Initialize a Lumino node from a config file"""
+def get_artifacts_password() -> str:
+    """
+    Get artifacts password from environment variables or prompt user for it.
+    
+    Returns:
+        The artifacts password string
+    """
+    # Check if password exists in environment
+    artifacts_password = os.getenv(ENV_VAR_ARTIFACTS_PASSWORD)
 
-    # Load configuration from environment
-    sdk_config = LuminoConfig(
-        web3_provider=os.getenv('RPC_URL', 'http://localhost:8545'),
-        private_key=os.getenv('NODE_PRIVATE_KEY'),
-        contract_addresses={
-            'LuminoToken': os.getenv('LUMINO_TOKEN_ADDRESS'),
-            'AccessManager': os.getenv('ACCESS_MANAGER_ADDRESS'),
-            'WhitelistManager': os.getenv('WHITELIST_MANAGER_ADDRESS'),
-            'NodeManager': os.getenv('NODE_MANAGER_ADDRESS'),
-            'IncentiveManager': os.getenv('INCENTIVE_MANAGER_ADDRESS'),
-            'NodeEscrow': os.getenv('NODE_ESCROW_ADDRESS'),
-            'LeaderManager': os.getenv('LEADER_MANAGER_ADDRESS'),
-            'JobManager': os.getenv('JOB_MANAGER_ADDRESS'),
-            'EpochManager': os.getenv('EPOCH_MANAGER_ADDRESS'),
-            'JobEscrow': os.getenv('JOB_ESCROW_ADDRESS')
+    if not artifacts_password:
+        # Password not in environment, prompt user
+        artifacts_password = click.prompt(
+            "Enter artifacts password for pipeline-zen download",
+            hide_input=True
+        )
+
+        # Save to environment file
+        lumino_dir = os.path.expanduser(DEFAULT_LUMINO_DIR)
+        env_file = os.path.join(lumino_dir, '.env')
+
+        # Use existing utility function to read env vars
+        env_vars = read_env_vars(env_file, {ENV_VAR_ARTIFACTS_PASSWORD: 'Artifacts Password'})
+
+        # Update password and write back
+        env_vars[ENV_VAR_ARTIFACTS_PASSWORD] = artifacts_password
+
+        with open(env_file, 'w') as f:
+            for key, value in env_vars.items():
+                f.write(f"{key}={value}\n")
+
+        # Set in current environment
+        os.environ[ENV_VAR_ARTIFACTS_PASSWORD] = artifacts_password
+
+    return artifacts_password
+
+
+def setup_pipeline_zen(data_dir: str) -> None:
+    """
+    Set up pipeline-zen for the node.
+    
+    Downloads and extracts pipeline-zen tarball, env file, and GCP key.
+    
+    Args:
+        data_dir: The data directory path
+    """
+    logger = logging.getLogger("PipelineZenSetup")
+
+    # Get artifacts password
+    artifacts_password = get_artifacts_password()
+
+    # Artifacts base URL
+    artifacts_base = f"https://storage.googleapis.com/lum-node-artifacts-{artifacts_password}"
+
+    # Pipeline-zen directory path
+    pipeline_zen_dir = Path(os.path.expanduser(data_dir))
+
+    # Create directory structure
+    pipeline_zen_dir.mkdir(parents=True, exist_ok=True)
+    secrets_dir = pipeline_zen_dir / ".secrets"
+    secrets_dir.mkdir(parents=True, exist_ok=True)
+
+    # Artifacts to download
+    artifacts = {
+        "pipeline-zen.tar.gz": {
+            "url": f"{artifacts_base}/pipeline-zen.tar.gz",
+            "path": pipeline_zen_dir / "pipeline-zen.tar.gz",
+            "extract": True
         },
-        abis_dir=os.getenv('ABIS_DIR', '../contracts/out')
-    )
+        "pipeline-zen.env": {
+            "url": f"{artifacts_base}/pipeline-zen.env",
+            "path": pipeline_zen_dir / ".env",
+            "extract": False
+        },
+        "pipeline-zen-gcp-key.json": {
+            "url": f"{artifacts_base}/pipeline-zen-gcp-key.json",
+            "path": secrets_dir / "gcp_key.json",
+            "extract": False
+        }
+    }
 
-    compute_rating = int(os.getenv('COMPUTE_RATING', "0"))
+    try:
+        # Download and process each artifact
+        for name, artifact in artifacts.items():
+            logger.info(f"Downloading {name}...")
+
+            # Download the file
+            try:
+                urllib.request.urlretrieve(artifact["url"], artifact["path"])
+            except Exception as e:
+                logger.error(f"Failed to download {name}: {e}")
+                continue
+
+            # Extract if needed
+            if artifact["extract"]:
+                logger.info(f"Extracting {name}...")
+                try:
+                    with tarfile.open(artifact["path"]) as tar:
+                        tar.extractall(path=pipeline_zen_dir / "..")
+
+                    # Remove the tarball after extraction
+                    os.remove(artifact["path"])
+                except Exception as e:
+                    logger.error(f"Failed to extract {name}: {e}")
+                    continue
+
+        logger.info("Running install-deps.sh script...")
+        try:
+            subprocess.run(["./scripts/install-deps.sh"], cwd=pipeline_zen_dir, check=True)
+            logger.info("install-deps.sh completed successfully")
+        except subprocess.CalledProcessError as e:
+            logger.error(f"Failed to run install-deps.sh: {e}")
+        except Exception as e:
+            logger.error(f"Error running install-deps.sh: {e}")
+
+        logger.info("Pipeline-zen setup complete")
+
+    except Exception as e:
+        logger.error(f"Error setting up pipeline-zen: {e}")
+        raise
+
+
+def initialize_lumino_node() -> LuminoNode:
+    """Initialize and return a LuminoNode instance with proper config"""
+    # Setup environment variables, prompting for missing values
+    setup_environment_vars(is_node=True)
+
+    # Set up pipeline-zen directory
+    pipeline_zen_path = os.getenv(ENV_VAR_PIPELINE_ZEN_DIR, DEFAULT_PIPELINE_ZEN_DIR)
+    # If there's a .git in the dir, assume it's a local dev env so skip setup pipeline-zen
+    pipeline_zen_path = os.path.expanduser(pipeline_zen_path)
+    if not os.path.exists(pipeline_zen_path) or ".git" not in os.listdir(pipeline_zen_path):
+        setup_pipeline_zen(pipeline_zen_path)
+
+    # Create SDK config
+    sdk_config = create_sdk_config(is_node=True)
+
+    # Get or calculate compute rating
+    compute_rating = int(os.getenv(ENV_VAR_COMPUTE_RATING, "0"))
     if not compute_rating:
+        # Import here to ensure proper mocking in tests
+        from lumino.contracts_client.compute_power import get_compute_power
         compute_rating = get_compute_power()
 
+    # Create node config
     config = NodeConfig(
         sdk_config=sdk_config,
-        data_dir=os.getenv('NODE_DATA_DIR', 'cache/node_client'),
-        pipeline_zen_dir=os.getenv('PIPELINE_ZEN_DIR'),
-        test_mode=os.getenv('TEST_MODE'),
+        data_dir=os.getenv(ENV_VAR_NODE_DATA_DIR, DEFAULT_DATA_DIR['node']),
+        pipeline_zen_dir=pipeline_zen_path,
+        test_mode=os.getenv(ENV_VAR_TEST_MODE, DEFAULT_TEST_MODE),
         compute_rating=compute_rating,
     )
 
@@ -530,9 +608,6 @@ def initialize_lumino_node() -> LuminoNode:
 
 
 def main():
-    # Load environment variables
-    load_dotenv()
-
     # Initialize node
     node = initialize_lumino_node()
 

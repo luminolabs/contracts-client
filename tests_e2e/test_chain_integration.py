@@ -7,16 +7,20 @@ from typing import Dict
 
 import pytest
 from dotenv import load_dotenv
+from eth_typing import HexStr, ChecksumAddress
 from web3 import Web3
 
 from lumino.contracts_client.client import LuminoClient, LuminoConfig
 from lumino.contracts_client.node_client import LuminoNode, NodeConfig
 from utils import ThreadHelper
 
+load_dotenv('./.env', override=True)
+
 # Constants
-CONTRACTS_DIR = '../contracts'
-ABIS_DIR = f'{CONTRACTS_DIR}/out'
-RPC_URL = 'http://localhost:8545'
+ABIS_DIR = os.getenv('CC_ABIS_DIR')
+CONTRACTS_DIR = ABIS_DIR + '/../'
+RPC_URL = os.getenv('RPC_URL')
+
 # Use higher rating than job requirement to test higher compute pool can run lower compute rating jobs
 COMPUTE_RATING = 1500
 STAKE_AMOUNT = Web3.to_wei(COMPUTE_RATING * 10, 'ether')
@@ -35,7 +39,7 @@ JOB_NOT_CONFIRMED_PENALTY = Web3.to_wei(10, 'ether')
 MAX_PENALTIES_BEFORE_SLASH = 2
 
 
-def deploy_contracts() -> Dict[str, str]:
+def deploy_contracts() -> Dict[str, ChecksumAddress]:
     """Run forge deploy and parse proxy contract addresses from output."""
     try:
         deploy_command = ["forge", "script", "script/Deploy.s.sol:DeploymentScript", "--rpc-url", RPC_URL,
@@ -58,9 +62,9 @@ def deploy_contracts() -> Dict[str, str]:
         for match in matches:
             # match[0] is proxy name (if present), match[1] is proxy address, match[2] is EpochManager address
             if match[0]:  # Proxy case
-                contract_addresses[match[0]] = match[1]
+                contract_addresses[str(match[0])] = ChecksumAddress(match[1])
             elif match[2]:  # EpochManager case
-                contract_addresses['EpochManager'] = match[2]
+                contract_addresses['EpochManager'] = ChecksumAddress(match[2])
 
         if not contract_addresses:
             raise ValueError("No proxy contract addresses or EpochManager found in forge deploy output")
@@ -76,7 +80,6 @@ def deploy_contracts() -> Dict[str, str]:
 @pytest.fixture(scope="function")
 def anvil_config(tmp_path_factory) -> Dict:
     """Fixture to set up test environment with Anvil and fresh contract deployment."""
-    load_dotenv()
 
     # Deploy contracts and get addresses
     deployed_addresses = deploy_contracts()
@@ -107,16 +110,16 @@ def anvil_config(tmp_path_factory) -> Dict:
 
     return {
         'node_sdk_config': LuminoConfig(
-            web3_provider=os.getenv('RPC_URL', RPC_URL),
-            private_key=os.getenv('NODE_PRIVATE_KEY'),
+            web3_provider=RPC_URL,
+            private_key=HexStr(os.getenv('CC_NODE_PRIVATE_KEY')),
             contract_addresses=contract_addresses,
-            abis_dir=os.getenv('ABIS_DIR', ABIS_DIR)
+            abis_dir=ABIS_DIR
         ),
         'user_sdk_config': LuminoConfig(
-            web3_provider=os.getenv('RPC_URL', RPC_URL),
-            private_key=os.getenv('USER_PRIVATE_KEY'),
+            web3_provider=RPC_URL,
+            private_key=HexStr(os.getenv('CC_USER_PRIVATE_KEY')),
             contract_addresses=contract_addresses,
-            abis_dir=os.getenv('ABIS_DIR', ABIS_DIR)
+            abis_dir=ABIS_DIR
         ),
         'data_dir': str(unique_node_dir),
         'log_level': 10,  # DEBUG,
@@ -128,10 +131,9 @@ def anvil_config(tmp_path_factory) -> Dict:
 @pytest.fixture(scope="function")
 def deployer_sdk(anvil_config) -> LuminoClient:
     """Fixture to initialize deployer SDK for token management and whitelisting."""
-    load_dotenv()
     deployer_config = LuminoConfig(
         web3_provider=anvil_config['node_sdk_config'].web3_provider,
-        private_key=os.getenv('DEPLOYER_PRIVATE_KEY'),
+        private_key=HexStr(os.getenv('DEPLOYER_PRIVATE_KEY')),
         contract_addresses=anvil_config['node_sdk_config'].contract_addresses,
         abis_dir=anvil_config['node_sdk_config'].abis_dir
     )
@@ -229,7 +231,6 @@ class TestNodeClientE2E:
 
         # Record initial balances
         node_initial_balance = node_sdk.get_stake_balance(node_sdk.address)
-        user_initial_escrow = user_sdk.get_job_escrow_balance(user_sdk.address)
 
         # Setup: Submit job as user using user_sdk
         user_sdk.approve_token_spending(user_sdk.job_escrow.address, Web3.to_wei(20, 'ether'))
@@ -413,7 +414,7 @@ class TestNodeClientE2E:
             f"(rewards {Web3.from_wei(expected_rewards, 'ether')} - penalty {Web3.from_wei(expected_penalty, 'ether')}), " \
             f"got {Web3.from_wei(actual_change, 'ether')} LUM"
 
-    def test_slashing_after_multiple_penalties(self, node: LuminoNode, node_sdk: LuminoClient, user_sdk: LuminoClient):
+    def test_slashing_after_multiple_penalties(self, node: LuminoNode, node_sdk: LuminoClient):
         """Test slashing applied after exceeding maximum penalties"""
         # Setup: Ensure node is registered
         if not node.node_id:

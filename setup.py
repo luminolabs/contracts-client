@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 # Read README.md file for long description
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -22,7 +22,6 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/luminolabs/contracts-client",
-    packages=find_packages(where="src"),
     package_dir={"": "src"},
     python_requires=">=3.10",
     install_requires=requirements,

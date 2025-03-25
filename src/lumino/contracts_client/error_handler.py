@@ -1,28 +1,11 @@
 from eth_abi import decode
+from lumino.contracts_client.constants import JOB_STATUS, EPOCH_STATE
 from web3 import Web3
 from web3.exceptions import ContractLogicError
 
 
 class ErrorHandler:
     """Handles decoding and formatting of Lumino contract custom errors"""
-
-    # Enum mappings
-    JOB_STATUS = {
-        0: "NEW",
-        1: "ASSIGNED",
-        2: "CONFIRMED",
-        3: "COMPLETE"
-    }
-
-    EPOCH_STATE = {
-        0: "COMMIT",
-        1: "REVEAL",
-        2: "ELECT",
-        3: "EXECUTE",
-        4: "CONFIRM",
-        5: "DISPUTE",
-        6: "PAUSED"
-    }
 
     def __init__(self):
         # Error definitions with their parameter types and formatters
@@ -48,7 +31,8 @@ class ErrorHandler:
             # EpochManager errors
             "InvalidState": {
                 "params": ["uint8", "uint8"],
-                "format": lambda args: f"Invalid epoch state: {self.EPOCH_STATE.get(args[0], 'Unknown')}, expected {self.EPOCH_STATE.get(args[1], 'Unknown')}"
+                "format": lambda
+                    args: f"Invalid epoch state: {EPOCH_STATE.get(args[0], 'Unknown')}, expected {EPOCH_STATE.get(args[1], 'Unknown')}"
             },
 
             # Escrow (AEscrow) errors
@@ -88,7 +72,7 @@ class ErrorHandler:
             "InvalidStatusTransition": {
                 "params": ["uint8", "uint8"],
                 "format": lambda
-                    args: f"Invalid job status transition from {self.JOB_STATUS.get(args[0], 'Unknown')} to {self.JOB_STATUS.get(args[1], 'Unknown')}"
+                    args: f"Invalid job status transition from {JOB_STATUS.get(args[0], 'Unknown')} to {JOB_STATUS.get(args[1], 'Unknown')}"
             },
             "JobAlreadyProcessed": {
                 "params": ["uint256"],

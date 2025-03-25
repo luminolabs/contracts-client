@@ -1,19 +1,57 @@
 import json
 import logging
+import os
+import tarfile
+import tempfile
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+import requests
 from eth_account import Account
-from eth_account.signers.local import LocalAccount
 from eth_account.types import PrivateKeyType
 from eth_typing import ChecksumAddress
+from lumino.contracts_client.constants import DEFAULT_LUMINO_DIR
+from lumino.contracts_client.error_handler import ErrorHandler
+from lumino.contracts_client.event_handler import EventHandler
 from web3 import Web3
 from web3.contract import Contract
 from web3.exceptions import ContractLogicError
 
-from lumino.contracts_client.error_handler import ErrorHandler
-from lumino.contracts_client.event_handler import EventHandler
+
+def load_contract_artifacts(addresses_path: str = './addresses.json', abis_dir: Optional[str] = None) \
+        -> Tuple[Dict[str, ChecksumAddress], str]:
+    # Load contract addresses
+    if not os.path.isfile(addresses_path):
+        addresses_path = os.path.expanduser(f'{DEFAULT_LUMINO_DIR}/addresses.json')
+        # Download addresses.json and save to ~/.lumino/addresses.json
+        os.makedirs(os.path.dirname(addresses_path), exist_ok=True)
+        url = 'https://storage.googleapis.com/lum-artifacts/addresses.json'
+        response = requests.get(url)
+        response.raise_for_status()
+        with open(addresses_path, 'w') as f:
+            f.write(response.text)
+    with open(addresses_path) as f:
+        contracts_addresses = json.load(f)
+
+    # Load contract ABIs
+    abis_dir = abis_dir or os.path.expanduser(os.getenv('CC_ABIS_DIR', f'{DEFAULT_LUMINO_DIR}/abis'))
+    if os.path.isdir(abis_dir) and abis_dir.endswith('out'):  # Local Foundry output directory, local env
+        return contracts_addresses, abis_dir
+    # Download ABIs and save to ~/.lumino/abis
+    os.makedirs(abis_dir, exist_ok=True)
+    url = 'https://storage.googleapis.com/lum-artifacts/abis.tar.gz'
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
+    with tempfile.NamedTemporaryFile() as temp_file:
+        for chunk in response.iter_content(chunk_size=8192):
+            temp_file.write(chunk)
+        temp_file.flush()
+        with tarfile.open(temp_file.name, 'r:gz') as tar:
+            tar.extractall(path=os.path.dirname(abis_dir))
+
+    return contracts_addresses, abis_dir
 
 
 @dataclass
@@ -40,6 +78,7 @@ class LuminoClient:
 
     def __init__(self, config: LuminoConfig, logger: Optional[logging.Logger] = None):
         """Initialize the Lumino SDK"""
+        self.config = config
         self.logger = logger or logging.getLogger("LuminoSDK")
 
         # Initialize handlers
@@ -51,7 +90,7 @@ class LuminoClient:
         if not self.w3.is_connected():
             raise ConnectionError(f"Failed to connect to {config.web3_provider}")
 
-        self.account: LocalAccount = Account.from_key(config.private_key)
+        self.account = Account.from_key(config.private_key)
         self.address = self.account.address
 
         # Load ABIs and initialize contracts
@@ -113,6 +152,15 @@ class LuminoClient:
         return self.w3.eth.contract(address=address, abi=abi)
 
     def _send_transaction(self, contract_function) -> dict:
+        """Retry sending a transaction and waiting for receipt"""
+        for i in range(3):
+            r = self._send_transaction_inner(contract_function)
+            if not isinstance(r, Exception):
+                return r
+            time.sleep(1)
+        raise ContractError(f"Failed to send transaction: {r}")
+
+    def _send_transaction_inner(self, contract_function) -> dict | Exception:
         """Helper to send a transaction and wait for receipt"""
         try:
             tx = contract_function.build_transaction({
@@ -127,7 +175,7 @@ class LuminoClient:
             error_message = self.error_handler.decode_contract_error(e)
             raise ContractError(f"Contract error: {error_message}")
         except Exception as e:
-            raise ContractError(f"Transaction failed: {e}")
+            return e
 
     # Token functions
     def approve_token_spending(self, spender: ChecksumAddress, amount: int) -> dict:
@@ -205,7 +253,7 @@ class LuminoClient:
 
     def get_epoch_state(self) -> Tuple[int, int]:
         """Get current epoch state and time remaining"""
-        if self.epoch_manager.functions.testCounter.call() is not None:
+        if self.config.web3_provider.startswith('http://'):  # local env
             self._send_transaction(self.epoch_manager.functions.upTestCounter())
         return self.epoch_manager.functions.getEpochState().call()
 
@@ -307,7 +355,7 @@ class LuminoClient:
         """Get detailed information about a job"""
         return self.job_manager.functions.getJobDetails(job_id).call()
 
-    def get_jobs_by_submitter(self, submitter: str) -> List[int]:
+    def get_jobs_by_submitter(self, submitter: ChecksumAddress) -> List[int]:
         """Get all job IDs submitted by an address"""
         return self.job_manager.functions.getJobsBySubmitter(submitter).call()
 
@@ -340,7 +388,7 @@ class LuminoClient:
         try:
             self.whitelist_manager.functions.requireWhitelisted(cp_address).call()
             return True
-        except:
+        except ContractLogicError:
             return False
 
     # Incentive Manager functions
