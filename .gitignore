@@ -1,6 +1,7 @@
 # temp files
 cache/
-node_artifacts/
+artifacts/
+addresses.json
 
 # operating system files
 .DS_Store
