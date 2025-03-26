@@ -321,7 +321,9 @@ class LuminoNode:
                 time.sleep(1)  # Poll every second
 
             # Wait for process to finish
-            process.communicate()
+            out, err = process.communicate()
+            self.logger.info(out)
+            self.logger.warning(err)
 
             # Check if process finished successfully
             time.sleep(1)
