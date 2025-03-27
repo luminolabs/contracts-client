@@ -1,0 +1,20 @@
+{
+  "job_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "auto_topup": {
+    "enabled": true,
+    "amount": 20.0,
+    "auto_yes_min": true,
+    "auto_yes_additional": 20.0
+  }
+}

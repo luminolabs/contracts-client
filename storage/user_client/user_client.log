@@ -1,0 +1,1873 @@
+2025-03-26 10:24:23,124 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:24:23,700 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25603661
+2025-03-26 10:24:23,857 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25603661
+2025-03-26 10:24:24,164 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25603661
+2025-03-26 10:24:24,292 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25603661
+2025-03-26 10:24:24,409 - LuminoUserClient - INFO - Created filter for Transfer events from block 25603661
+2025-03-26 10:24:24,582 - LuminoUserClient - INFO - Created filter for Approval events from block 25603661
+2025-03-26 10:24:24,849 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25603661
+2025-03-26 10:24:25,110 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25603661
+2025-03-26 10:24:25,276 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25603661
+2025-03-26 10:24:25,453 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25603661
+2025-03-26 10:24:25,623 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25603661
+2025-03-26 10:24:25,792 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25603661
+2025-03-26 10:24:25,957 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25603661
+2025-03-26 10:24:26,111 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25603661
+2025-03-26 10:24:26,277 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25603661
+2025-03-26 10:24:26,409 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25603661
+2025-03-26 10:24:26,588 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603661
+2025-03-26 10:24:26,744 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603661
+2025-03-26 10:24:26,871 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603661
+2025-03-26 10:24:27,030 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603661
+2025-03-26 10:24:27,192 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25603661
+2025-03-26 10:24:27,311 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25603661
+2025-03-26 10:24:27,472 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25603661
+2025-03-26 10:24:27,597 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25603661
+2025-03-26 10:24:27,731 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25603661
+2025-03-26 10:24:27,895 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25603661
+2025-03-26 10:24:28,024 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25603661
+2025-03-26 10:24:28,168 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25603661
+2025-03-26 10:24:28,317 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25603661
+2025-03-26 10:24:28,477 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25603661
+2025-03-26 10:24:28,609 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25603661
+2025-03-26 10:24:28,768 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25603661
+2025-03-26 10:24:28,891 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25603661
+2025-03-26 10:24:29,053 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25603661
+2025-03-26 10:24:29,203 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603661
+2025-03-26 10:24:29,357 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603661
+2025-03-26 10:24:29,500 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603661
+2025-03-26 10:24:29,664 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603661
+2025-03-26 10:24:29,806 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25603661
+2025-03-26 10:24:29,807 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:24:30,687 - LuminoUserClient - INFO - Token Balance: 5000.0 LUM, Escrow Balance: 0.0 LUM
+2025-03-26 10:24:47,093 - LuminoUserClient - INFO - Deposited 120.0 LUM to JobEscrow
+2025-03-26 10:24:59,142 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 120.0 LUM
+2025-03-26 10:25:17,768 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:25:18,297 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25603688
+2025-03-26 10:25:18,429 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25603688
+2025-03-26 10:25:18,579 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25603688
+2025-03-26 10:25:18,713 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25603688
+2025-03-26 10:25:18,874 - LuminoUserClient - INFO - Created filter for Transfer events from block 25603688
+2025-03-26 10:25:19,011 - LuminoUserClient - INFO - Created filter for Approval events from block 25603688
+2025-03-26 10:25:19,154 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25603688
+2025-03-26 10:25:19,312 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25603688
+2025-03-26 10:25:19,479 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25603688
+2025-03-26 10:25:19,610 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25603688
+2025-03-26 10:25:19,758 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25603688
+2025-03-26 10:25:19,912 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25603688
+2025-03-26 10:25:20,045 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25603688
+2025-03-26 10:25:20,176 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25603688
+2025-03-26 10:25:20,314 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25603688
+2025-03-26 10:25:20,472 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25603688
+2025-03-26 10:25:20,614 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603688
+2025-03-26 10:25:20,918 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603688
+2025-03-26 10:25:21,070 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603688
+2025-03-26 10:25:21,223 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603688
+2025-03-26 10:25:21,371 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25603688
+2025-03-26 10:25:21,536 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25603688
+2025-03-26 10:25:21,673 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25603688
+2025-03-26 10:25:21,856 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25603688
+2025-03-26 10:25:21,980 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25603688
+2025-03-26 10:25:22,144 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25603688
+2025-03-26 10:25:22,277 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25603688
+2025-03-26 10:25:22,406 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25603688
+2025-03-26 10:25:22,539 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25603688
+2025-03-26 10:25:22,687 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25603688
+2025-03-26 10:25:22,855 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25603688
+2025-03-26 10:25:23,032 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25603688
+2025-03-26 10:25:23,193 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25603688
+2025-03-26 10:25:23,317 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25603688
+2025-03-26 10:25:23,476 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603688
+2025-03-26 10:25:23,755 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603688
+2025-03-26 10:25:23,889 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603688
+2025-03-26 10:25:24,062 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603688
+2025-03-26 10:25:24,242 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25603688
+2025-03-26 10:25:24,247 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:25:25,134 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 120.0 LUM
+2025-03-26 10:25:29,264 - LuminoUserClient - INFO - Submitted job with ID: 1
+2025-03-26 10:25:30,113 - LuminoUserClient - INFO - Job 1 status: NEW, Assigned Node: None
+2025-03-26 10:25:36,295 - LuminoUserClient - INFO - Job 1 status: NEW, Assigned Node: None
+2025-03-26 10:25:42,183 - LuminoUserClient - INFO - Job 1 status: NEW, Assigned Node: None
+2025-03-26 10:25:48,157 - LuminoUserClient - INFO - Job 1 status: NEW, Assigned Node: None
+2025-03-26 10:25:54,022 - LuminoUserClient - INFO - Job 1 status: ASSIGNED, Assigned Node: 5
+2025-03-26 10:25:59,850 - LuminoUserClient - INFO - Job 1 status: ASSIGNED, Assigned Node: 5
+2025-03-26 10:26:05,759 - LuminoUserClient - INFO - Job 1 status: ASSIGNED, Assigned Node: 5
+2025-03-26 10:26:11,579 - LuminoUserClient - INFO - Job 1 status: ASSIGNED, Assigned Node: 5
+2025-03-26 10:26:17,434 - LuminoUserClient - INFO - Job 1 status: ASSIGNED, Assigned Node: 5
+2025-03-26 10:26:23,335 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:26:29,203 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:26:35,336 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:26:41,379 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:26:47,336 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:26:53,153 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:26:58,979 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:04,819 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:10,758 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:16,663 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:22,533 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:28,423 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:34,255 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:40,084 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:45,898 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:51,722 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:27:57,565 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:03,435 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:09,284 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:15,117 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:20,928 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:26,734 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:32,941 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:38,940 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:44,940 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:50,806 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:28:56,631 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:02,625 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:08,445 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:14,303 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:20,189 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:26,028 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:32,176 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:38,163 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:44,185 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:50,318 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:29:56,383 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:30:02,482 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:30:08,449 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:30:14,293 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:30:20,142 - LuminoUserClient - INFO - Job 1 status: CONFIRMED, Assigned Node: 5
+2025-03-26 10:30:26,135 - LuminoUserClient - INFO - Job 1 status: COMPLETE, Assigned Node: 5
+2025-03-26 10:33:09,588 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:33:10,159 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25603924
+2025-03-26 10:33:10,315 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25603924
+2025-03-26 10:33:10,442 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25603924
+2025-03-26 10:33:10,587 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25603924
+2025-03-26 10:33:10,739 - LuminoUserClient - INFO - Created filter for Transfer events from block 25603924
+2025-03-26 10:33:10,876 - LuminoUserClient - INFO - Created filter for Approval events from block 25603924
+2025-03-26 10:33:11,037 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25603924
+2025-03-26 10:33:11,166 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25603924
+2025-03-26 10:33:11,322 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25603924
+2025-03-26 10:33:11,470 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25603924
+2025-03-26 10:33:11,798 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25603924
+2025-03-26 10:33:11,954 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25603924
+2025-03-26 10:33:12,066 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25603924
+2025-03-26 10:33:12,207 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25603924
+2025-03-26 10:33:12,337 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25603924
+2025-03-26 10:33:12,497 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25603924
+2025-03-26 10:33:12,643 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603924
+2025-03-26 10:33:12,769 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603924
+2025-03-26 10:33:12,947 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603924
+2025-03-26 10:33:13,085 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603924
+2025-03-26 10:33:13,255 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25603924
+2025-03-26 10:33:13,400 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25603924
+2025-03-26 10:33:13,560 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25603924
+2025-03-26 10:33:13,728 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25603924
+2025-03-26 10:33:13,869 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25603924
+2025-03-26 10:33:14,017 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25603924
+2025-03-26 10:33:14,160 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25603924
+2025-03-26 10:33:14,312 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25603924
+2025-03-26 10:33:14,456 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25603924
+2025-03-26 10:33:14,589 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25603924
+2025-03-26 10:33:14,770 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25603924
+2025-03-26 10:33:14,911 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25603924
+2025-03-26 10:33:15,070 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25603924
+2025-03-26 10:33:15,231 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25603924
+2025-03-26 10:33:15,362 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603924
+2025-03-26 10:33:15,499 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603924
+2025-03-26 10:33:15,647 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603924
+2025-03-26 10:33:15,794 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603924
+2025-03-26 10:33:15,959 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25603924
+2025-03-26 10:33:15,961 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:33:16,829 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 119.357401 LUM
+2025-03-26 10:33:21,211 - LuminoUserClient - INFO - Submitted job with ID: 2
+2025-03-26 10:33:42,155 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:33:42,835 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25603940
+2025-03-26 10:33:43,016 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25603940
+2025-03-26 10:33:43,183 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25603940
+2025-03-26 10:33:43,349 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25603940
+2025-03-26 10:33:43,507 - LuminoUserClient - INFO - Created filter for Transfer events from block 25603940
+2025-03-26 10:33:43,658 - LuminoUserClient - INFO - Created filter for Approval events from block 25603940
+2025-03-26 10:33:43,832 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25603940
+2025-03-26 10:33:44,005 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25603940
+2025-03-26 10:33:44,184 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25603940
+2025-03-26 10:33:44,365 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25603940
+2025-03-26 10:33:44,557 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25603940
+2025-03-26 10:33:44,739 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25603940
+2025-03-26 10:33:44,911 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25603940
+2025-03-26 10:33:45,071 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25603940
+2025-03-26 10:33:45,253 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25603940
+2025-03-26 10:33:45,441 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25603940
+2025-03-26 10:33:45,588 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603940
+2025-03-26 10:33:45,759 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603940
+2025-03-26 10:33:45,952 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603940
+2025-03-26 10:33:46,110 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603940
+2025-03-26 10:33:46,257 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25603940
+2025-03-26 10:33:46,410 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25603940
+2025-03-26 10:33:46,574 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25603940
+2025-03-26 10:33:46,749 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25603940
+2025-03-26 10:33:46,961 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25603940
+2025-03-26 10:33:47,113 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25603940
+2025-03-26 10:33:47,282 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25603940
+2025-03-26 10:33:47,453 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25603940
+2025-03-26 10:33:47,601 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25603940
+2025-03-26 10:33:47,754 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25603940
+2025-03-26 10:33:47,908 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25603940
+2025-03-26 10:33:48,067 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25603940
+2025-03-26 10:33:48,224 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25603940
+2025-03-26 10:33:48,381 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25603940
+2025-03-26 10:33:48,539 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603940
+2025-03-26 10:33:48,690 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603940
+2025-03-26 10:33:48,840 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603940
+2025-03-26 10:33:49,021 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603940
+2025-03-26 10:33:49,176 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25603940
+2025-03-26 10:33:49,177 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:33:50,181 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 119.357401 LUM
+2025-03-26 10:33:53,250 - LuminoUserClient - INFO - Submitted job with ID: 3
+2025-03-26 10:33:54,615 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:33:55,150 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25603946
+2025-03-26 10:33:55,309 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25603946
+2025-03-26 10:33:55,448 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25603946
+2025-03-26 10:33:55,592 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25603946
+2025-03-26 10:33:55,725 - LuminoUserClient - INFO - Created filter for Transfer events from block 25603946
+2025-03-26 10:33:55,856 - LuminoUserClient - INFO - Created filter for Approval events from block 25603946
+2025-03-26 10:33:55,979 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25603946
+2025-03-26 10:33:56,113 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25603946
+2025-03-26 10:33:56,276 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25603946
+2025-03-26 10:33:56,413 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25603946
+2025-03-26 10:33:56,549 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25603946
+2025-03-26 10:33:56,682 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25603946
+2025-03-26 10:33:56,812 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25603946
+2025-03-26 10:33:56,952 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25603946
+2025-03-26 10:33:57,079 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25603946
+2025-03-26 10:33:57,203 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25603946
+2025-03-26 10:33:57,334 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603946
+2025-03-26 10:33:57,487 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603946
+2025-03-26 10:33:57,621 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603946
+2025-03-26 10:33:57,760 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603946
+2025-03-26 10:33:57,898 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25603946
+2025-03-26 10:33:58,049 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25603946
+2025-03-26 10:33:58,192 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25603946
+2025-03-26 10:33:58,322 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25603946
+2025-03-26 10:33:58,484 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25603946
+2025-03-26 10:33:58,637 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25603946
+2025-03-26 10:33:58,768 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25603946
+2025-03-26 10:33:58,918 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25603946
+2025-03-26 10:33:59,094 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25603946
+2025-03-26 10:33:59,237 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25603946
+2025-03-26 10:33:59,395 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25603946
+2025-03-26 10:33:59,524 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25603946
+2025-03-26 10:33:59,652 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25603946
+2025-03-26 10:33:59,828 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25603946
+2025-03-26 10:33:59,983 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603946
+2025-03-26 10:34:00,173 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603946
+2025-03-26 10:34:00,341 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603946
+2025-03-26 10:34:00,505 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603946
+2025-03-26 10:34:00,698 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25603946
+2025-03-26 10:34:00,699 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:34:01,749 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 119.357401 LUM
+2025-03-26 10:34:05,425 - LuminoUserClient - INFO - Submitted job with ID: 4
+2025-03-26 10:34:07,076 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:34:07,657 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25603953
+2025-03-26 10:34:07,852 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25603953
+2025-03-26 10:34:08,042 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25603953
+2025-03-26 10:34:08,164 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25603953
+2025-03-26 10:34:08,374 - LuminoUserClient - INFO - Created filter for Transfer events from block 25603953
+2025-03-26 10:34:08,566 - LuminoUserClient - INFO - Created filter for Approval events from block 25603953
+2025-03-26 10:34:08,685 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25603953
+2025-03-26 10:34:08,901 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25603953
+2025-03-26 10:34:09,087 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25603953
+2025-03-26 10:34:09,213 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25603953
+2025-03-26 10:34:09,420 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25603953
+2025-03-26 10:34:09,614 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25603953
+2025-03-26 10:34:09,749 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25603953
+2025-03-26 10:34:09,948 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25603953
+2025-03-26 10:34:10,138 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25603953
+2025-03-26 10:34:10,261 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25603953
+2025-03-26 10:34:10,471 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603953
+2025-03-26 10:34:10,673 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603953
+2025-03-26 10:34:10,806 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603953
+2025-03-26 10:34:10,995 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603953
+2025-03-26 10:34:11,187 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25603953
+2025-03-26 10:34:11,318 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25603953
+2025-03-26 10:34:11,519 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25603953
+2025-03-26 10:34:11,719 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25603953
+2025-03-26 10:34:11,869 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25603953
+2025-03-26 10:34:12,046 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25603953
+2025-03-26 10:34:12,233 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25603953
+2025-03-26 10:34:12,360 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25603953
+2025-03-26 10:34:12,569 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25603953
+2025-03-26 10:34:12,765 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25603953
+2025-03-26 10:34:12,895 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25603953
+2025-03-26 10:34:13,091 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25603953
+2025-03-26 10:34:13,282 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25603953
+2025-03-26 10:34:13,420 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25603953
+2025-03-26 10:34:13,617 - LuminoUserClient - INFO - Created filter for Deposited events from block 25603953
+2025-03-26 10:34:13,813 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25603953
+2025-03-26 10:34:13,930 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25603953
+2025-03-26 10:34:14,143 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25603953
+2025-03-26 10:34:14,331 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25603953
+2025-03-26 10:34:14,331 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:34:15,381 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 119.357401 LUM
+2025-03-26 10:34:19,124 - LuminoUserClient - INFO - Submitted job with ID: 5
+2025-03-26 10:37:12,401 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:37:12,952 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25604045
+2025-03-26 10:37:13,116 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25604045
+2025-03-26 10:37:13,249 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25604045
+2025-03-26 10:37:13,390 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25604045
+2025-03-26 10:37:13,519 - LuminoUserClient - INFO - Created filter for Transfer events from block 25604045
+2025-03-26 10:37:13,652 - LuminoUserClient - INFO - Created filter for Approval events from block 25604045
+2025-03-26 10:37:13,783 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25604045
+2025-03-26 10:37:13,924 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25604045
+2025-03-26 10:37:14,060 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25604045
+2025-03-26 10:37:14,214 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25604045
+2025-03-26 10:37:14,353 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25604045
+2025-03-26 10:37:14,498 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25604045
+2025-03-26 10:37:14,632 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25604045
+2025-03-26 10:37:14,802 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25604045
+2025-03-26 10:37:14,941 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25604045
+2025-03-26 10:37:15,087 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25604045
+2025-03-26 10:37:15,220 - LuminoUserClient - INFO - Created filter for Deposited events from block 25604045
+2025-03-26 10:37:15,352 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25604045
+2025-03-26 10:37:15,513 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25604045
+2025-03-26 10:37:15,658 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25604045
+2025-03-26 10:37:15,813 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25604045
+2025-03-26 10:37:16,116 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25604045
+2025-03-26 10:37:16,255 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25604045
+2025-03-26 10:37:16,389 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25604045
+2025-03-26 10:37:16,526 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25604045
+2025-03-26 10:37:16,669 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25604045
+2025-03-26 10:37:16,787 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25604045
+2025-03-26 10:37:16,945 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25604045
+2025-03-26 10:37:17,072 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25604045
+2025-03-26 10:37:17,220 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25604045
+2025-03-26 10:37:17,336 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25604045
+2025-03-26 10:37:17,451 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25604045
+2025-03-26 10:37:17,605 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25604045
+2025-03-26 10:37:17,730 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25604045
+2025-03-26 10:37:17,878 - LuminoUserClient - INFO - Created filter for Deposited events from block 25604045
+2025-03-26 10:37:18,039 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25604045
+2025-03-26 10:37:18,168 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25604045
+2025-03-26 10:37:18,323 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25604045
+2025-03-26 10:37:18,451 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25604045
+2025-03-26 10:37:18,453 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:37:19,493 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 119.357401 LUM
+2025-03-26 10:37:23,162 - LuminoUserClient - INFO - Submitted job with ID: 6
+2025-03-26 10:38:22,323 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 10:38:22,987 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25604080
+2025-03-26 10:38:23,169 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25604080
+2025-03-26 10:38:23,318 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25604080
+2025-03-26 10:38:23,466 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25604080
+2025-03-26 10:38:23,612 - LuminoUserClient - INFO - Created filter for Transfer events from block 25604080
+2025-03-26 10:38:23,759 - LuminoUserClient - INFO - Created filter for Approval events from block 25604080
+2025-03-26 10:38:23,929 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25604080
+2025-03-26 10:38:24,120 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25604080
+2025-03-26 10:38:24,276 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25604080
+2025-03-26 10:38:24,429 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25604080
+2025-03-26 10:38:24,656 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25604080
+2025-03-26 10:38:24,830 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25604080
+2025-03-26 10:38:25,015 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25604080
+2025-03-26 10:38:25,184 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25604080
+2025-03-26 10:38:25,381 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25604080
+2025-03-26 10:38:25,554 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25604080
+2025-03-26 10:38:25,786 - LuminoUserClient - INFO - Created filter for Deposited events from block 25604080
+2025-03-26 10:38:25,928 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25604080
+2025-03-26 10:38:26,098 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25604080
+2025-03-26 10:38:26,258 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25604080
+2025-03-26 10:38:26,423 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25604080
+2025-03-26 10:38:26,569 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25604080
+2025-03-26 10:38:26,741 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25604080
+2025-03-26 10:38:26,876 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25604080
+2025-03-26 10:38:27,038 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25604080
+2025-03-26 10:38:27,193 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25604080
+2025-03-26 10:38:27,339 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25604080
+2025-03-26 10:38:27,502 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25604080
+2025-03-26 10:38:27,672 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25604080
+2025-03-26 10:38:27,834 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25604080
+2025-03-26 10:38:27,998 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25604080
+2025-03-26 10:38:28,312 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25604080
+2025-03-26 10:38:28,467 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25604080
+2025-03-26 10:38:28,635 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25604080
+2025-03-26 10:38:28,783 - LuminoUserClient - INFO - Created filter for Deposited events from block 25604080
+2025-03-26 10:38:28,927 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25604080
+2025-03-26 10:38:29,080 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25604080
+2025-03-26 10:38:29,256 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25604080
+2025-03-26 10:38:29,570 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25604080
+2025-03-26 10:38:29,572 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 10:38:33,054 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:38:41,498 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:38:49,884 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:38:58,507 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:06,772 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:15,243 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:23,524 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:31,807 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:40,072 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:48,414 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:39:56,716 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:05,229 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:13,474 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:21,869 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:30,328 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:38,783 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:47,628 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:40:56,326 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:04,620 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:13,066 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:21,623 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:29,985 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:38,297 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:46,715 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:41:55,301 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:03,717 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:12,073 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:20,416 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:28,809 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:37,853 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:46,292 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:42:54,727 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:03,281 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:11,898 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:20,102 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:28,596 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:36,961 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:45,328 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:43:53,798 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:02,324 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:10,505 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:18,820 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:27,095 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:35,486 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:43,991 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:44:52,486 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:00,681 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:08,843 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:17,014 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:25,128 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:33,256 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:41,416 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:49,527 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:45:57,660 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:05,760 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:14,492 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:22,639 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:30,847 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:38,987 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:47,081 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:46:55,253 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:03,394 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:11,821 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:20,028 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:28,092 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:36,151 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:44,207 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:47:52,319 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:00,409 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:08,656 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:16,779 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:25,077 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:33,356 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:41,465 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 10:48:49,944 - LuminoUserClient - INFO - Retrieved 6 jobs
+2025-03-26 11:35:40,833 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 11:35:41,452 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25605800
+2025-03-26 11:35:41,606 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25605800
+2025-03-26 11:35:41,758 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25605800
+2025-03-26 11:35:41,921 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25605800
+2025-03-26 11:35:42,095 - LuminoUserClient - INFO - Created filter for Transfer events from block 25605800
+2025-03-26 11:35:42,260 - LuminoUserClient - INFO - Created filter for Approval events from block 25605800
+2025-03-26 11:35:42,479 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25605800
+2025-03-26 11:35:42,610 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25605800
+2025-03-26 11:35:42,758 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25605800
+2025-03-26 11:35:42,914 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25605800
+2025-03-26 11:35:43,042 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25605800
+2025-03-26 11:35:43,199 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25605800
+2025-03-26 11:35:43,325 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25605800
+2025-03-26 11:35:43,477 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25605800
+2025-03-26 11:35:43,625 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25605800
+2025-03-26 11:35:43,755 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25605800
+2025-03-26 11:35:43,911 - LuminoUserClient - INFO - Created filter for Deposited events from block 25605800
+2025-03-26 11:35:44,066 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25605800
+2025-03-26 11:35:44,207 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25605800
+2025-03-26 11:35:44,357 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25605800
+2025-03-26 11:35:44,502 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25605800
+2025-03-26 11:35:44,629 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25605800
+2025-03-26 11:35:44,790 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25605800
+2025-03-26 11:35:44,934 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25605800
+2025-03-26 11:35:45,072 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25605800
+2025-03-26 11:35:45,250 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25605800
+2025-03-26 11:35:45,409 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25605800
+2025-03-26 11:35:45,564 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25605800
+2025-03-26 11:35:45,707 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25605800
+2025-03-26 11:35:45,834 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25605800
+2025-03-26 11:35:45,993 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25605800
+2025-03-26 11:35:46,123 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25605800
+2025-03-26 11:35:46,312 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25605800
+2025-03-26 11:35:46,464 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25605800
+2025-03-26 11:35:46,612 - LuminoUserClient - INFO - Created filter for Deposited events from block 25605800
+2025-03-26 11:35:46,755 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25605800
+2025-03-26 11:35:46,880 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25605800
+2025-03-26 11:35:47,051 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25605800
+2025-03-26 11:35:47,191 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25605800
+2025-03-26 11:35:47,193 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 11:35:48,091 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 114.859208 LUM
+2025-03-26 11:35:51,074 - LuminoUserClient - INFO - Submitted job with ID: 7
+2025-03-26 11:35:54,086 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 11:35:54,936 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25605806
+2025-03-26 11:35:55,108 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25605806
+2025-03-26 11:35:55,282 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25605806
+2025-03-26 11:35:55,441 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25605806
+2025-03-26 11:35:55,589 - LuminoUserClient - INFO - Created filter for Transfer events from block 25605806
+2025-03-26 11:35:55,755 - LuminoUserClient - INFO - Created filter for Approval events from block 25605806
+2025-03-26 11:35:55,922 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25605806
+2025-03-26 11:35:56,059 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25605806
+2025-03-26 11:35:56,230 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25605806
+2025-03-26 11:35:56,384 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25605806
+2025-03-26 11:35:56,534 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25605806
+2025-03-26 11:35:56,698 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25605806
+2025-03-26 11:35:56,855 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25605806
+2025-03-26 11:35:56,987 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25605806
+2025-03-26 11:35:57,121 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25605806
+2025-03-26 11:35:57,278 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25605806
+2025-03-26 11:35:57,443 - LuminoUserClient - INFO - Created filter for Deposited events from block 25605806
+2025-03-26 11:35:57,596 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25605806
+2025-03-26 11:35:57,755 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25605806
+2025-03-26 11:35:58,089 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25605806
+2025-03-26 11:35:58,242 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25605806
+2025-03-26 11:35:58,411 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25605806
+2025-03-26 11:35:58,569 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25605806
+2025-03-26 11:35:58,712 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25605806
+2025-03-26 11:35:59,023 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25605806
+2025-03-26 11:35:59,186 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25605806
+2025-03-26 11:35:59,332 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25605806
+2025-03-26 11:35:59,458 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25605806
+2025-03-26 11:35:59,592 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25605806
+2025-03-26 11:35:59,722 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25605806
+2025-03-26 11:35:59,885 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25605806
+2025-03-26 11:36:00,055 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25605806
+2025-03-26 11:36:00,210 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25605806
+2025-03-26 11:36:00,359 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25605806
+2025-03-26 11:36:00,517 - LuminoUserClient - INFO - Created filter for Deposited events from block 25605806
+2025-03-26 11:36:00,671 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25605806
+2025-03-26 11:36:00,817 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25605806
+2025-03-26 11:36:00,953 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25605806
+2025-03-26 11:36:01,079 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25605806
+2025-03-26 11:36:01,081 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 11:36:04,804 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:36:13,604 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:36:22,188 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:36:30,725 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:36:39,409 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:36:48,059 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:36:57,607 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:06,157 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:14,546 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:22,881 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:31,484 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:39,988 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:48,502 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:37:56,956 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:05,398 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:13,732 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:22,179 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:30,584 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:39,007 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:47,540 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:38:55,947 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:04,330 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:12,681 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:21,172 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:29,691 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:38,073 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:46,393 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:39:55,239 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:03,994 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:12,475 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:20,960 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:29,507 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:38,034 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:46,724 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:40:55,472 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:04,121 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:12,598 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:21,094 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:29,611 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:38,066 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:46,423 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:41:54,651 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:02,784 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:10,828 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:18,976 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:27,393 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:35,659 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:44,091 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:42:52,283 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:00,692 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:08,868 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:17,008 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:25,190 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:33,527 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:42,411 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:50,742 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:43:58,961 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:07,160 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:15,535 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:23,724 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:31,906 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:40,286 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:48,707 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:44:56,858 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:45:05,204 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:45:13,370 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:45:21,498 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:45:29,576 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:45:37,832 - LuminoUserClient - INFO - Retrieved 7 jobs
+2025-03-26 11:48:00,708 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 11:48:01,573 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25606170
+2025-03-26 11:48:01,708 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25606170
+2025-03-26 11:48:01,871 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25606170
+2025-03-26 11:48:02,178 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25606170
+2025-03-26 11:48:02,313 - LuminoUserClient - INFO - Created filter for Transfer events from block 25606170
+2025-03-26 11:48:02,598 - LuminoUserClient - INFO - Created filter for Approval events from block 25606170
+2025-03-26 11:48:02,737 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25606170
+2025-03-26 11:48:02,887 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25606170
+2025-03-26 11:48:03,028 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25606170
+2025-03-26 11:48:03,159 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25606170
+2025-03-26 11:48:03,431 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25606170
+2025-03-26 11:48:03,572 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25606170
+2025-03-26 11:48:03,710 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25606170
+2025-03-26 11:48:03,836 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25606170
+2025-03-26 11:48:03,981 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25606170
+2025-03-26 11:48:04,144 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25606170
+2025-03-26 11:48:04,317 - LuminoUserClient - INFO - Created filter for Deposited events from block 25606170
+2025-03-26 11:48:04,460 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25606170
+2025-03-26 11:48:04,589 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25606170
+2025-03-26 11:48:04,743 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25606170
+2025-03-26 11:48:04,883 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25606170
+2025-03-26 11:48:05,017 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25606170
+2025-03-26 11:48:05,296 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25606170
+2025-03-26 11:48:05,431 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25606170
+2025-03-26 11:48:05,596 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25606170
+2025-03-26 11:48:05,909 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25606170
+2025-03-26 11:48:06,043 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25606170
+2025-03-26 11:48:06,174 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25606170
+2025-03-26 11:48:06,324 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25606170
+2025-03-26 11:48:06,454 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25606170
+2025-03-26 11:48:06,600 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25606170
+2025-03-26 11:48:06,904 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25606170
+2025-03-26 11:48:07,036 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25606170
+2025-03-26 11:48:07,183 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25606170
+2025-03-26 11:48:07,324 - LuminoUserClient - INFO - Created filter for Deposited events from block 25606170
+2025-03-26 11:48:07,475 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25606170
+2025-03-26 11:48:07,617 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25606170
+2025-03-26 11:48:07,784 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25606170
+2025-03-26 11:48:07,936 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25606170
+2025-03-26 11:48:07,937 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 11:48:09,007 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 114.859208 LUM
+2025-03-26 11:48:13,169 - LuminoUserClient - INFO - Submitted job with ID: 8
+2025-03-26 11:48:17,283 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 11:48:17,813 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25606178
+2025-03-26 11:48:17,951 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25606178
+2025-03-26 11:48:18,098 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25606178
+2025-03-26 11:48:18,245 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25606178
+2025-03-26 11:48:18,399 - LuminoUserClient - INFO - Created filter for Transfer events from block 25606178
+2025-03-26 11:48:18,551 - LuminoUserClient - INFO - Created filter for Approval events from block 25606178
+2025-03-26 11:48:18,719 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25606178
+2025-03-26 11:48:18,850 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25606178
+2025-03-26 11:48:19,007 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25606178
+2025-03-26 11:48:19,138 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25606178
+2025-03-26 11:48:19,278 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25606178
+2025-03-26 11:48:19,433 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25606178
+2025-03-26 11:48:19,571 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25606178
+2025-03-26 11:48:19,715 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25606178
+2025-03-26 11:48:19,845 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25606178
+2025-03-26 11:48:19,983 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25606178
+2025-03-26 11:48:20,108 - LuminoUserClient - INFO - Created filter for Deposited events from block 25606178
+2025-03-26 11:48:20,384 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25606178
+2025-03-26 11:48:20,521 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25606178
+2025-03-26 11:48:20,695 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25606178
+2025-03-26 11:48:20,829 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25606178
+2025-03-26 11:48:21,141 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25606178
+2025-03-26 11:48:21,275 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25606178
+2025-03-26 11:48:21,425 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25606178
+2025-03-26 11:48:21,556 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25606178
+2025-03-26 11:48:21,699 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25606178
+2025-03-26 11:48:21,825 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25606178
+2025-03-26 11:48:21,984 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25606178
+2025-03-26 11:48:22,154 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25606178
+2025-03-26 11:48:22,291 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25606178
+2025-03-26 11:48:22,429 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25606178
+2025-03-26 11:48:22,565 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25606178
+2025-03-26 11:48:22,708 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25606178
+2025-03-26 11:48:22,846 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25606178
+2025-03-26 11:48:23,032 - LuminoUserClient - INFO - Created filter for Deposited events from block 25606178
+2025-03-26 11:48:23,179 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25606178
+2025-03-26 11:48:23,344 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25606178
+2025-03-26 11:48:23,470 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25606178
+2025-03-26 11:48:23,597 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25606178
+2025-03-26 11:48:23,598 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 11:48:27,677 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:48:36,557 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:48:45,594 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:48:54,458 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:03,526 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:12,241 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:21,216 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:29,920 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:38,777 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:47,766 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:49:56,609 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:05,477 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:14,430 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:23,508 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:32,704 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:41,549 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:50,532 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:50:59,366 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:51:08,390 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:51:17,200 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:51:26,009 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:51:34,909 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:51:43,770 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:51:52,604 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:01,390 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:10,380 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:19,265 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:28,250 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:37,095 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:45,877 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:52:54,758 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:03,454 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:12,755 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:21,666 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:30,474 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:39,370 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:48,318 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:53:57,278 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:06,140 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:14,992 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:23,671 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:32,458 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:41,372 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:50,125 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:54:58,953 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:55:07,732 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:55:16,659 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:55:26,082 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:55:34,998 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:55:43,818 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:55:52,561 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:01,666 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:10,338 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:19,308 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:28,418 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:37,088 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:45,860 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:56:54,815 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:03,590 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:12,343 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:21,009 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:29,824 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:39,226 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:47,976 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:57:56,709 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:05,692 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:14,435 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:23,189 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:31,967 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:40,691 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:49,508 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:58:58,330 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:59:07,687 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:59:16,719 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:59:25,452 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:59:34,213 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:59:43,885 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 11:59:52,558 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:01,380 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:09,990 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:18,610 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:27,336 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:36,250 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:45,112 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:00:53,839 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:02,613 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:11,354 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:20,154 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:28,864 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:37,481 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:46,321 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:01:55,012 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:03,872 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:12,706 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:21,432 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:30,131 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:38,847 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:47,666 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:02:56,405 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:05,460 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:14,223 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:23,187 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:32,150 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:41,060 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:49,841 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:03:58,647 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:04:07,377 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:04:15,995 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:04:24,847 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:04:33,634 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:04:42,589 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:04:51,577 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:00,778 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:09,978 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:19,302 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:28,602 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:37,447 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:46,282 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:05:55,131 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:04,125 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:13,365 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:22,325 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:31,373 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:40,456 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:49,496 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:06:58,806 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:07:08,345 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:07:17,242 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:07:26,117 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:07:34,975 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:07:43,847 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:07:52,694 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:01,914 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:10,821 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:19,770 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:28,670 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:37,508 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:46,459 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:08:55,404 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:04,333 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:13,151 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:21,939 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:30,922 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:39,656 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:48,432 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:09:57,122 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:06,180 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:14,984 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:23,770 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:32,832 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:41,920 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:50,668 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:10:59,727 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:11:08,606 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:11:17,430 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:11:26,513 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:11:35,731 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:11:44,543 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:11:53,323 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:02,207 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:11,145 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:19,948 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:29,232 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:38,589 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:47,424 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:12:56,407 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:05,437 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:14,327 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:23,149 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:32,161 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:41,085 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:50,175 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:13:58,964 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:14:07,770 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:14:16,716 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:14:26,129 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:14:35,627 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:14:44,584 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:14:53,307 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:02,170 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:11,212 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:20,003 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:28,906 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:37,885 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:46,756 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:15:55,873 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:04,918 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:14,007 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:23,003 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:31,791 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:40,741 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:49,578 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:16:58,364 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:17:07,230 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:17:16,141 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:17:24,921 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:17:34,001 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:17:43,013 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:17:51,744 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:00,746 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:09,657 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:18,498 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:27,240 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:35,962 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:44,754 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:18:53,548 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:02,297 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:11,174 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:19,861 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:29,900 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:38,864 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:47,904 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:19:56,592 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:05,802 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:14,603 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:23,506 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:33,122 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:41,938 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:50,706 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:20:59,579 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:21:08,590 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:21:17,417 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:21:26,496 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:21:35,485 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:21:44,313 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:21:53,383 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:02,051 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:10,836 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:19,957 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:28,739 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:37,513 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:46,371 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:22:55,299 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:04,771 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:13,802 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:22,603 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:31,720 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:40,665 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:49,534 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:23:58,270 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:24:07,265 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:24:16,086 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:24:24,918 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:24:33,746 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:24:42,522 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:24:51,456 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:00,283 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:09,151 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:17,987 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:26,857 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:35,762 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:44,966 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:25:53,807 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:02,724 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:11,421 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:20,148 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:29,056 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:37,898 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:47,115 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:26:55,953 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:27:05,417 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:27:14,884 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:27:23,871 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:27:32,946 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:27:42,335 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:27:51,223 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:00,614 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:09,660 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:18,584 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:27,872 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:36,761 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:45,634 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:28:54,669 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:03,687 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:12,551 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:21,402 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:30,261 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:39,159 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:48,128 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:29:57,078 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:30:06,571 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:30:15,404 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:30:24,573 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:30:33,311 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:30:42,197 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:30:51,205 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:00,040 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:09,056 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:18,292 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:27,451 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:36,363 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:45,308 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:31:54,201 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:03,111 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:12,261 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:21,261 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:30,105 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:39,337 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:48,246 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:32:57,235 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:06,155 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:15,075 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:23,785 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:32,797 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:41,766 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:50,666 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:33:59,499 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:34:08,260 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:34:17,341 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:34:26,134 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:34:35,086 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:34:43,942 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:34:52,696 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:01,587 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:10,566 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:19,576 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:28,742 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:37,486 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:46,324 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:35:55,409 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:04,299 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:13,321 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:22,336 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:31,081 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:39,908 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:48,857 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:36:57,580 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:06,395 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:15,351 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:24,335 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:33,279 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:42,216 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:50,851 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:37:59,683 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:38:08,366 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:38:16,920 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:38:25,498 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:38:34,648 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:38:43,187 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:38:51,799 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:00,423 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:09,037 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:17,575 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:26,304 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:35,073 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:43,649 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:39:52,271 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:00,780 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:09,392 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:18,019 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:26,775 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:35,568 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:44,167 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:40:52,696 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:01,226 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:09,916 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:18,628 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:27,194 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:35,743 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:44,219 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:41:52,771 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:01,290 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:09,843 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:18,381 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:26,928 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:35,767 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:44,360 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:42:53,168 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:02,016 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:11,343 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:20,271 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:29,000 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:37,674 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:46,366 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:43:55,142 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:03,877 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:13,437 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:22,542 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:31,297 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:40,005 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:48,659 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:44:57,291 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:45:06,205 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:45:15,413 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:45:24,370 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:45:33,559 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:45:42,487 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:45:51,370 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:00,160 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:09,201 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:18,435 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:27,290 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:36,113 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:44,884 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:46:53,997 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:02,944 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:11,978 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:20,899 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:30,367 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:39,346 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:48,215 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:47:57,066 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:06,089 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:14,960 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:23,810 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:32,690 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:41,191 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:49,786 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:48:58,388 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:07,199 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:15,800 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:24,761 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:33,881 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:42,455 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:50,972 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:49:59,630 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:08,220 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:16,824 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:25,517 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:34,179 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:42,761 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:51,363 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:50:59,969 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:51:08,696 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:51:17,375 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:51:26,214 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:51:34,934 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:51:43,641 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:51:52,166 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:00,880 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:09,491 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:18,329 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:27,196 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:35,859 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:44,638 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:52:53,266 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:02,294 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:11,008 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:19,781 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:28,511 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:37,122 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:45,780 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:53:54,551 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:54:03,322 - LuminoUserClient - INFO - Retrieved 8 jobs
+2025-03-26 12:54:10,545 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 12:54:11,334 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25608155
+2025-03-26 12:54:11,458 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25608155
+2025-03-26 12:54:11,589 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25608155
+2025-03-26 12:54:11,712 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25608155
+2025-03-26 12:54:11,848 - LuminoUserClient - INFO - Created filter for Transfer events from block 25608155
+2025-03-26 12:54:11,990 - LuminoUserClient - INFO - Created filter for Approval events from block 25608155
+2025-03-26 12:54:12,133 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25608155
+2025-03-26 12:54:12,263 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25608155
+2025-03-26 12:54:12,400 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25608155
+2025-03-26 12:54:12,537 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25608155
+2025-03-26 12:54:12,669 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25608155
+2025-03-26 12:54:12,802 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25608155
+2025-03-26 12:54:12,950 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25608155
+2025-03-26 12:54:13,085 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25608155
+2025-03-26 12:54:13,223 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25608155
+2025-03-26 12:54:13,359 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25608155
+2025-03-26 12:54:13,486 - LuminoUserClient - INFO - Created filter for Deposited events from block 25608155
+2025-03-26 12:54:13,621 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25608155
+2025-03-26 12:54:13,756 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25608155
+2025-03-26 12:54:13,926 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25608155
+2025-03-26 12:54:14,058 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25608155
+2025-03-26 12:54:14,205 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25608155
+2025-03-26 12:54:14,357 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25608155
+2025-03-26 12:54:14,490 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25608155
+2025-03-26 12:54:14,627 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25608155
+2025-03-26 12:54:14,779 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25608155
+2025-03-26 12:54:14,915 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25608155
+2025-03-26 12:54:15,078 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25608155
+2025-03-26 12:54:15,213 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25608155
+2025-03-26 12:54:15,342 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25608155
+2025-03-26 12:54:15,482 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25608155
+2025-03-26 12:54:15,625 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25608155
+2025-03-26 12:54:15,768 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25608155
+2025-03-26 12:54:15,906 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25608155
+2025-03-26 12:54:16,204 - LuminoUserClient - INFO - Created filter for Deposited events from block 25608155
+2025-03-26 12:54:16,337 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25608155
+2025-03-26 12:54:16,470 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25608155
+2025-03-26 12:54:16,600 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25608155
+2025-03-26 12:54:16,728 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25608155
+2025-03-26 12:54:16,728 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 12:54:17,585 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 114.859208 LUM
+2025-03-26 12:54:21,085 - LuminoUserClient - INFO - Submitted job with ID: 9
+2025-03-26 12:54:21,969 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:54:27,850 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:54:33,728 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:54:39,561 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:54:45,410 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:54:51,252 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:54:57,132 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:03,042 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:08,888 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:14,888 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:20,705 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:26,531 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:32,383 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:38,456 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:44,420 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:50,357 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:55:56,331 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:02,257 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:08,180 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:14,046 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:19,883 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:25,730 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:31,639 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:37,486 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:43,492 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:49,339 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:56:55,228 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:01,059 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:06,963 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:12,869 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:18,750 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:24,778 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:30,660 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:36,500 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:42,362 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:48,202 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:57:54,083 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:00,001 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:05,849 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:12,127 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:18,158 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:24,018 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:30,068 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:36,021 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:41,955 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:47,866 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:53,730 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:58:59,616 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:05,653 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:12,095 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:18,126 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:24,242 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:30,104 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:35,962 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:41,828 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:47,695 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:53,544 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 12:59:59,376 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:05,265 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:11,167 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:17,016 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:23,178 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:29,036 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:34,980 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:40,813 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:46,640 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:52,584 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:00:58,502 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:04,556 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:10,481 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:16,399 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:22,407 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:28,391 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:34,345 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:40,282 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:46,188 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:52,081 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:01:58,242 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:04,320 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:10,430 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:16,647 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:22,656 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:28,573 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:34,508 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:40,421 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:46,258 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:52,170 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:02:58,177 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:04,271 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:10,299 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:16,245 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:22,119 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:27,983 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:33,868 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:39,806 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:45,729 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:51,639 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:03:57,511 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:03,428 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:09,474 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:15,667 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:21,694 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:27,633 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:33,562 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:39,441 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:45,329 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:51,178 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:04:57,027 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:03,122 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:09,009 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:14,867 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:20,784 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:26,651 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:32,521 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:38,378 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:44,276 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:50,177 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:05:56,037 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:01,980 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:08,044 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:13,947 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:20,015 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:25,888 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:31,883 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:37,720 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:43,772 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:49,715 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:06:55,595 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:01,602 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:07,534 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:13,434 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:19,377 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:25,468 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:31,472 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:37,452 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:43,404 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:49,314 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:07:55,205 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:01,192 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:07,074 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:13,134 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:18,959 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:24,951 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:30,933 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:36,849 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:42,705 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:48,645 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:08:54,655 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:00,532 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:06,443 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:12,355 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:18,409 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:24,245 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:30,181 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:36,043 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:41,948 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:47,948 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:53,901 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:09:59,770 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:05,642 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:11,495 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:17,372 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:23,270 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:29,106 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:35,080 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:40,896 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:46,774 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:52,650 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:10:58,600 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:04,477 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:10,389 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:16,204 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:22,042 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:27,873 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:33,724 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:39,552 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:45,399 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:51,250 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:11:57,138 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:03,049 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:08,984 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:14,836 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:20,726 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:26,714 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:32,605 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:38,475 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:44,336 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:50,187 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:12:56,054 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:01,927 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:07,807 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:13,927 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:19,756 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:25,585 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:31,445 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:37,331 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:43,193 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:49,093 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:13:54,929 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:00,802 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:06,677 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:12,510 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:18,362 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:24,254 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:30,174 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:36,025 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:42,077 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:47,927 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:53,829 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:14:59,667 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:05,654 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:11,537 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:17,454 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:23,292 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:29,172 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:35,035 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:40,984 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:46,860 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:52,693 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:15:58,577 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:04,448 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:10,385 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:16,255 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:22,159 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:27,988 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:33,890 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:39,736 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:45,617 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:51,505 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:16:57,373 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:03,244 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:09,141 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:15,023 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:21,034 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:26,925 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:32,837 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:38,685 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:44,539 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:50,395 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:17:56,217 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:02,074 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:07,945 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:13,808 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:19,693 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:25,548 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:31,392 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:37,297 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:43,185 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:49,007 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:18:54,932 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:00,755 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:06,632 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:12,745 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:18,675 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:24,643 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:30,525 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:36,316 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:42,223 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:48,090 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:53,915 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:19:59,799 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:05,835 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:11,864 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:17,749 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:23,666 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:29,524 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:35,358 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:41,231 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:47,101 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:53,011 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:20:58,866 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:04,721 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:10,522 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:16,380 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:22,230 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:28,054 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:33,928 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:39,804 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:45,700 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:51,978 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:21:58,085 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:03,967 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:09,924 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:15,827 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:21,697 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:27,564 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:33,436 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:39,277 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:45,145 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:51,165 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:22:57,250 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:03,249 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:09,109 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:15,019 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:20,910 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:26,811 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:32,708 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:38,591 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:44,491 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:50,328 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:23:56,190 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:02,095 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:08,020 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:13,869 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:19,781 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:25,645 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:31,487 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:37,317 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:43,313 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:49,219 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:24:55,151 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:01,051 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:07,097 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:13,005 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:18,930 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:24,786 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:30,630 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:36,452 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:42,342 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:48,215 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:54,078 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:25:59,919 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:05,915 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:11,999 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:17,878 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:23,789 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:29,621 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:35,554 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:41,439 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:47,307 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:53,252 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:26:59,259 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:05,111 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:11,030 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:16,884 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:22,908 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:29,067 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:34,965 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:40,887 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:46,865 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:52,721 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:27:58,621 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:04,815 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:10,833 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:16,841 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:22,713 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:28,605 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:34,460 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:40,321 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:46,197 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:52,210 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:28:58,189 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:04,090 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:10,097 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:16,029 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:21,928 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:27,867 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:33,755 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:39,652 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:45,613 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:51,803 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:29:57,756 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:03,852 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:10,061 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:16,152 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:22,070 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:27,990 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:33,942 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:39,992 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:45,850 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:51,793 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:30:57,708 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:03,631 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:09,608 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:15,736 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:21,619 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:27,511 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:33,371 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:39,261 - LuminoUserClient - INFO - Job 9 status: NEW, Assigned Node: None
+2025-03-26 13:31:45,155 - LuminoUserClient - INFO - Job 9 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:31:51,040 - LuminoUserClient - INFO - Job 9 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:31:56,933 - LuminoUserClient - INFO - Job 9 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:32:02,792 - LuminoUserClient - INFO - Job 9 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:32:08,693 - LuminoUserClient - INFO - Job 9 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:32:14,588 - LuminoUserClient - INFO - Job 9 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:32:20,484 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:32:26,400 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:32:32,264 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:32:38,167 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:32:44,207 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:32:50,078 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:32:55,987 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:02,087 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:08,032 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:14,115 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:19,988 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:25,898 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:32,011 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:37,945 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:43,885 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:49,822 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:33:55,725 - LuminoUserClient - INFO - Job 9 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:34:02,251 - LuminoUserClient - INFO - Initializing Lumino User Client...
+2025-03-26 13:34:02,854 - LuminoUserClient - INFO - Created filter for RoleGranted events from block 25609350
+2025-03-26 13:34:02,988 - LuminoUserClient - INFO - Created filter for RoleRevoked events from block 25609350
+2025-03-26 13:34:03,124 - LuminoUserClient - INFO - Created filter for CPAdded events from block 25609350
+2025-03-26 13:34:03,262 - LuminoUserClient - INFO - Created filter for CPRemoved events from block 25609350
+2025-03-26 13:34:03,424 - LuminoUserClient - INFO - Created filter for Transfer events from block 25609350
+2025-03-26 13:34:03,560 - LuminoUserClient - INFO - Created filter for Approval events from block 25609350
+2025-03-26 13:34:03,697 - LuminoUserClient - INFO - Created filter for LeaderRewardApplied events from block 25609350
+2025-03-26 13:34:03,837 - LuminoUserClient - INFO - Created filter for JobAvailabilityRewardApplied events from block 25609350
+2025-03-26 13:34:03,980 - LuminoUserClient - INFO - Created filter for DisputerRewardApplied events from block 25609350
+2025-03-26 13:34:04,126 - LuminoUserClient - INFO - Created filter for LeaderNotExecutedPenaltyApplied events from block 25609350
+2025-03-26 13:34:04,249 - LuminoUserClient - INFO - Created filter for JobNotConfirmedPenaltyApplied events from block 25609350
+2025-03-26 13:34:04,384 - LuminoUserClient - INFO - Created filter for NodeRegistered events from block 25609350
+2025-03-26 13:34:04,515 - LuminoUserClient - INFO - Created filter for NodeUnregistered events from block 25609350
+2025-03-26 13:34:04,685 - LuminoUserClient - INFO - Created filter for NodeUpdated events from block 25609350
+2025-03-26 13:34:04,814 - LuminoUserClient - INFO - Created filter for StakeValidated events from block 25609350
+2025-03-26 13:34:04,972 - LuminoUserClient - INFO - Created filter for StakeRequirementUpdated events from block 25609350
+2025-03-26 13:34:05,132 - LuminoUserClient - INFO - Created filter for Deposited events from block 25609350
+2025-03-26 13:34:05,266 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25609350
+2025-03-26 13:34:05,398 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25609350
+2025-03-26 13:34:05,531 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25609350
+2025-03-26 13:34:05,667 - LuminoUserClient - INFO - Created filter for PenaltyApplied events from block 25609350
+2025-03-26 13:34:05,814 - LuminoUserClient - INFO - Created filter for SlashApplied events from block 25609350
+2025-03-26 13:34:05,951 - LuminoUserClient - INFO - Created filter for RewardApplied events from block 25609350
+2025-03-26 13:34:06,090 - LuminoUserClient - INFO - Created filter for CommitSubmitted events from block 25609350
+2025-03-26 13:34:06,234 - LuminoUserClient - INFO - Created filter for SecretRevealed events from block 25609350
+2025-03-26 13:34:06,377 - LuminoUserClient - INFO - Created filter for LeaderElected events from block 25609350
+2025-03-26 13:34:06,520 - LuminoUserClient - INFO - Created filter for JobSubmitted events from block 25609350
+2025-03-26 13:34:06,646 - LuminoUserClient - INFO - Created filter for JobStatusUpdated events from block 25609350
+2025-03-26 13:34:06,793 - LuminoUserClient - INFO - Created filter for JobAssigned events from block 25609350
+2025-03-26 13:34:06,913 - LuminoUserClient - INFO - Created filter for AssignmentRoundStarted events from block 25609350
+2025-03-26 13:34:07,059 - LuminoUserClient - INFO - Created filter for JobConfirmed events from block 25609350
+2025-03-26 13:34:07,193 - LuminoUserClient - INFO - Created filter for JobCompleted events from block 25609350
+2025-03-26 13:34:07,327 - LuminoUserClient - INFO - Created filter for JobFailed events from block 25609350
+2025-03-26 13:34:07,495 - LuminoUserClient - INFO - Created filter for PaymentProcessed events from block 25609350
+2025-03-26 13:34:07,618 - LuminoUserClient - INFO - Created filter for Deposited events from block 25609350
+2025-03-26 13:34:07,744 - LuminoUserClient - INFO - Created filter for WithdrawRequested events from block 25609350
+2025-03-26 13:34:07,870 - LuminoUserClient - INFO - Created filter for WithdrawCancelled events from block 25609350
+2025-03-26 13:34:08,017 - LuminoUserClient - INFO - Created filter for Withdrawn events from block 25609350
+2025-03-26 13:34:08,174 - LuminoUserClient - INFO - Created filter for PaymentReleased events from block 25609350
+2025-03-26 13:34:08,176 - LuminoUserClient - INFO - Lumino User Client initialization complete
+2025-03-26 13:34:09,045 - LuminoUserClient - INFO - Token Balance: 4880.0 LUM, Escrow Balance: 114.859208 LUM
+2025-03-26 13:34:13,094 - LuminoUserClient - INFO - Submitted job with ID: 10
+2025-03-26 13:34:14,126 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:20,000 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:25,861 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:32,039 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:37,884 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:43,823 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:49,697 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:34:55,564 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:01,474 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:07,406 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:13,317 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:19,164 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:25,048 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:30,978 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:36,864 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:42,746 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:48,617 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:35:54,631 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:00,932 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:07,035 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:12,932 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:18,947 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:24,874 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:30,758 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:36,646 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:42,558 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:48,593 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:36:54,453 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:00,279 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:06,114 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:12,002 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:17,880 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:23,707 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:29,608 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:35,526 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:41,373 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:47,264 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:53,164 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:37:59,048 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:04,878 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:10,878 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:16,746 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:22,782 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:29,043 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:34,996 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:40,908 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:46,820 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:52,708 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:38:58,612 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:04,543 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:10,446 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:16,353 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:22,192 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:28,019 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:34,150 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:40,027 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:46,103 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:52,034 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:39:57,982 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:03,911 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:09,828 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:15,658 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:21,490 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:27,408 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:33,281 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:39,202 - LuminoUserClient - INFO - Job 10 status: NEW, Assigned Node: None
+2025-03-26 13:40:45,051 - LuminoUserClient - INFO - Job 10 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:40:50,866 - LuminoUserClient - INFO - Job 10 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:40:56,751 - LuminoUserClient - INFO - Job 10 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:41:02,665 - LuminoUserClient - INFO - Job 10 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:41:08,522 - LuminoUserClient - INFO - Job 10 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:41:14,541 - LuminoUserClient - INFO - Job 10 status: ASSIGNED, Assigned Node: 5
+2025-03-26 13:41:20,834 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:41:26,781 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:41:32,738 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:41:38,700 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:41:44,522 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:41:50,413 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:41:56,290 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:02,140 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:08,037 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:14,089 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:19,911 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:25,832 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:31,747 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:37,652 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:43,524 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:49,439 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:42:55,349 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:01,277 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:07,180 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:13,097 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:18,967 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:24,848 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:30,866 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:36,709 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:42,574 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:48,444 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:43:54,378 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:00,272 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:06,237 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:12,175 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:18,065 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:24,036 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:30,384 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:36,216 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:42,073 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:47,936 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:53,814 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:44:59,647 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:05,554 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:11,494 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:17,432 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:23,321 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:29,188 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:35,078 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:41,020 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:47,217 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:53,083 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:45:58,921 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:04,824 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:10,737 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:16,624 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:22,634 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:28,503 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:34,652 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:40,504 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:46,372 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:52,319 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:46:58,215 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:04,139 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:10,006 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:15,886 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:21,849 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:27,812 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:33,716 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:39,669 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:45,520 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:51,384 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:47:57,236 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:03,152 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:09,034 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:14,902 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:20,819 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:26,706 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:32,598 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:38,500 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:44,358 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:50,224 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:48:56,147 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:02,175 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:08,089 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:13,974 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:20,093 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:25,943 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:31,918 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:37,759 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:43,617 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:49,479 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:49:55,340 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:01,120 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:06,864 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:12,711 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:19,056 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:25,053 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:30,863 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:36,712 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:42,552 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:48,379 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:54,173 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:50:59,991 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:05,844 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:12,092 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:17,918 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:23,796 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:29,606 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:35,403 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:41,219 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:47,040 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:52,845 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:51:58,685 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:04,519 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:10,536 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:16,389 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:22,415 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:28,873 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:34,744 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:40,576 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:46,430 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:52,249 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:52:58,126 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:03,943 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:09,869 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:15,703 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:21,494 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:27,282 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:33,106 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:38,892 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:44,777 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:50,734 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:53:56,722 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:02,559 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:08,661 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:14,570 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:20,727 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:26,530 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:32,405 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:38,289 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:44,117 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:49,902 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:54:55,738 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:01,553 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:07,356 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:13,349 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:19,175 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:24,963 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:30,779 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:36,617 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:42,375 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:48,147 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:53,956 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:55:59,815 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:05,610 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:11,552 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:17,325 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:23,111 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:28,940 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:34,872 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:40,751 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:46,539 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:52,394 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:56:58,195 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:57:04,010 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:57:09,929 - LuminoUserClient - INFO - Job 10 status: CONFIRMED, Assigned Node: 5
+2025-03-26 13:57:15,814 - LuminoUserClient - INFO - Job 10 status: COMPLETE, Assigned Node: 5
