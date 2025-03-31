@@ -130,6 +130,88 @@ class LuminoUser:
         self.logger.info(f"Retrieved {len(jobs)} jobs")
         return jobs
 
+    def withdraw_from_escrow(self, amount: float, escrow_type: str = "job") -> None:
+        """Request withdrawal from escrow (job or node)"""
+        amount_wei = Web3.to_wei(amount, 'ether')
+        
+        try:
+            if escrow_type.lower() == "job":
+                self.sdk.request_withdrawal_from_job_escrow(amount_wei)
+                self.logger.info(f"Requested withdrawal of {amount} LUM from JobEscrow")
+            else:
+                self.sdk.request_withdraw(amount_wei)
+                self.logger.info(f"Requested withdrawal of {amount} LUM from NodeEscrow")
+            
+            # Display unlock time
+            unlock_time = time.time() + 86400  # 1 day in seconds (LOCK_PERIOD from contracts)
+            click.echo(f"Withdrawal requested. Funds will be available after: {time.ctime(unlock_time)}")
+            
+        except Exception as e:
+            self.logger.error(f"Error requesting withdrawal: {e}")
+            click.echo(f"Error: {e}", err=True)
+
+    def cancel_withdraw(self, escrow_type: str = "job") -> None:
+        """Cancel a pending withdrawal request"""
+        try:
+            if escrow_type.lower() == "job":
+                self.sdk.cancel_withdraw_from_job_escrow()
+                self.logger.info("Cancelled withdrawal request from JobEscrow")
+            else:
+                self.sdk.cancel_withdraw()
+                self.logger.info("Cancelled withdrawal request from NodeEscrow")
+            click.echo("Withdrawal request cancelled successfully")
+        except Exception as e:
+            self.logger.error(f"Error cancelling withdrawal: {e}")
+            click.echo(f"Error: {e}", err=True)
+
+    def execute_withdraw(self, escrow_type: str = "job") -> None:
+        """Execute a withdrawal after the lock period"""
+        try:
+            if escrow_type.lower() == "job":
+                self.sdk.withdraw_from_job_escrow()
+                self.logger.info("Executed withdrawal from JobEscrow")
+            else:
+                self.sdk.withdraw()
+                self.logger.info("Executed withdrawal from NodeEscrow")
+            
+            # Get updated balance
+            balances = self.check_balances()
+            click.echo(f"Withdrawal completed successfully")
+            click.echo(f"New token balance: {balances['token_balance']} LUM")
+        except Exception as e:
+            self.logger.error(f"Error executing withdrawal: {e}")
+            click.echo(f"Error: {e}", err=True)
+
+    def check_withdraw_status(self, escrow_type: str = "job") -> None:
+        """Check the status of a pending withdrawal request"""
+        try:
+            if escrow_type.lower() == "job":
+                request = self.sdk.get_withdraw_request_job_escrow(self.address)
+            else:
+                request = self.sdk.get_withdraw_request_node_escrow(self.address)
+            
+            if not request[2]:  # active flag
+                click.echo("No active withdrawal request found")
+                return
+            
+            amount = Web3.from_wei(request[0], 'ether')
+            request_time = request[1]
+            unlock_time = request_time + 86400  # 1 day in seconds (LOCK_PERIOD)
+            current_time = int(time.time())
+            
+            click.echo(f"Withdrawal amount: {amount} LUM")
+            click.echo(f"Request time: {time.ctime(request_time)}")
+            
+            if current_time >= unlock_time:
+                click.echo("Status: UNLOCKED - Funds are available for withdrawal")
+            else:
+                remaining = unlock_time - current_time
+                hours, remainder = divmod(remaining, 3600)
+                minutes, seconds = divmod(remainder, 60)
+                click.echo(f"Status: LOCKED - Unlock in {int(hours)}h {int(minutes)}m {int(seconds)}s")
+        except Exception as e:
+            self.logger.error(f"Error checking withdrawal status: {e}")
+            click.echo(f"Error: {e}", err=True)
 
 def initialize_lumino_user() -> LuminoUser:
     """Initialize and return a LuminoUser instance with proper config"""
@@ -271,6 +353,40 @@ def list(client: LuminoUser):
     except Exception as e:
         client.logger.error(f"Error listing jobs: {e}")
         click.echo(f"Error: {e}", err=True)
+
+@cli.group()
+def withdraw():
+    """Manage withdrawals from escrows"""
+    pass
+
+@withdraw.command('request')
+@click.option('--amount', required=True, type=float, help='Amount to withdraw in LUM')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to withdraw from')
+@click.pass_obj
+def request_withdraw(client: LuminoUserClient, amount, escrow):
+    """Request a withdrawal from an escrow"""
+    client.withdraw_from_escrow(amount, escrow)
+
+@withdraw.command('cancel')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to cancel withdrawal from')
+@click.pass_obj
+def cancel_withdraw_cmd(client: LuminoUserClient, escrow):
+    """Cancel a withdrawal request"""
+    client.cancel_withdraw(escrow)
+
+@withdraw.command('execute')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to execute withdrawal from')
+@click.pass_obj
+def execute_withdraw_cmd(client: LuminoUserClient, escrow):
+    """Execute a withdrawal after the lock period"""
+    client.execute_withdraw(escrow)
+
+@withdraw.command('status')
+@click.option('--escrow', type=click.Choice(['job', 'node']), default='job', help='Escrow type to check status for')
+@click.pass_obj
+def withdraw_status(client: LuminoUserClient, escrow):
+    """Check the status of a withdrawal request"""
+    client.check_withdraw_status(escrow)
 
 
 if __name__ == "__main__":
